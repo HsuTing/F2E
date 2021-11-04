@@ -7,3 +7,6 @@
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
+
+# next
+.next
