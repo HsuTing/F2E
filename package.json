@@ -6,5 +6,8 @@
   "repository": "git@github.com:HsuTing/F2E.git",
   "author": "HsuTing <hsuting0106@gmail.com>",
   "license": "MIT",
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.0",
+  "workspaces": [
+    "packages/*"
+  ]
 }
