@@ -5848,7 +5848,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["workspace:packages/week-one", {
           "packageLocation": "./packages/week-one/",
           "packageDependencies": [
-            ["week-one", "workspace:packages/week-one"]
+            ["week-one", "workspace:packages/week-one"],
+            ["next", "virtual:6894752f25c4bef464c5cba2ff332cc9af8331496bf7a880e351c59a0640ea9a45492f9c9e3bb56893d0702d41b60af59b666df00fd85335384cbd04fe39c490#npm:12.0.2"],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:6894752f25c4bef464c5cba2ff332cc9af8331496bf7a880e351c59a0640ea9a45492f9c9e3bb56893d0702d41b60af59b666df00fd85335384cbd04fe39c490#npm:17.0.2"]
           ],
           "linkType": "SOFT",
         }]
