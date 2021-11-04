@@ -2,16 +2,26 @@
   "name": "F2E",
   "version": "1.0.0",
   "description": "The F2E 3rd",
-  "main": "index.js",
-  "repository": "git@github.com:HsuTing/F2E.git",
-  "author": "HsuTing <hsuting0106@gmail.com>",
   "license": "MIT",
-  "packageManager": "yarn@3.1.0",
-  "workspaces": [
-    "packages/*"
-  ],
+  "author": "HsuTing <hsuting0106@gmail.com>",
+  "repository": "git@github.com:HsuTing/F2E.git",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "husky install"
+  },
+  "workspaces": ["packages/*"],
+  "dependencies": {
+    "next": "^12.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
+    "eslint": "^8.1.0",
+    "eslint-config-next": "^12.0.2",
     "husky": "^7.0.4",
-    "lint-staged": "^11.2.6"
-  }
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
+    "prettier-package-json": "^2.6.0"
+  },
+  "packageManager": "yarn@3.1.0"
 }
