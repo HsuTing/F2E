@@ -13,3 +13,6 @@
 
 # eslint
 .eslintcache
+
+# ts
+tsconfig.tsbuildinfo 
