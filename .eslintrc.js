@@ -1,6 +1,6 @@
 module.exports = {
-  extends: "next/core-web-vitals",
+  extends: 'next/core-web-vitals',
   rules: {
-    "no-unused-vars": "error",
+    'no-unused-vars': 'error',
   },
 };
