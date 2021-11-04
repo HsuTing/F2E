@@ -9,6 +9,18 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "strictNullChecks": true,
-    "jsx": "react"
-  }
+    "target": "es5",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
