@@ -9,5 +9,9 @@
   "packageManager": "yarn@3.1.0",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6"
+  }
 }
