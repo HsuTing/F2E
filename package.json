@@ -1,0 +1,9 @@
+{
+  "name": "F2E",
+  "version": "1.0.0",
+  "description": "The F2E 3rd",
+  "main": "index.js",
+  "repository": "git@github.com:HsuTing/F2E.git",
+  "author": "HsuTing <hsuting0106@gmail.com>",
+  "license": "MIT"
+}
