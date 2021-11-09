@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
 import type { NormalizedCacheObject } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { RestLink } from 'apollo-link-rest';
 import merge from 'deepmerge';
 
