@@ -1,0 +1,8 @@
+type ScenicSpot {
+  ID: String!
+  Name: String!
+}
+
+extend type Query {
+  scenicSpots: [ScenicSpot!]!
+}

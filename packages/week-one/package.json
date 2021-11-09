@@ -1,5 +1,8 @@
 {
   "name": "week-one",
+  "scripts": {
+    "codegen": "npx apollo client:codegen --target typescript --outputFlat ./gqls.ts --localSchemaFile ./schemas/main.graphql --includes './**/*.{ts,tsx},./schemas/*.graphql' --excludes ./schemas/main.graphql"
+  },
   "dependencies": {
     "@apollo/client": "^3.4.17",
     "antd": "^4.16.13",

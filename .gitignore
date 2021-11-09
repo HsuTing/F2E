@@ -15,4 +15,7 @@
 .eslintcache
 
 # ts
-tsconfig.tsbuildinfo 
+tsconfig.tsbuildinfo
+
+# apollo types
+gqls.ts
