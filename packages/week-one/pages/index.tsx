@@ -42,7 +42,7 @@ export const getStaticProps = async () => {
       query: getScenicSpot,
     });
   } catch (e) {
-    // error would be handle in useApollo
+    // error would be handled in useApollo
   }
 
   return {
