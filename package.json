@@ -9,12 +9,11 @@
   "scripts": {
     "postinstall": "husky install"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "devDependencies": {
     "eslint": "^7.23.0",
     "eslint-config-next": "^12.0.2",
+    "eslint-plugin-import": "^2.25.2",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "next": "^12.0.2",
