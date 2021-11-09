@@ -35,7 +35,5 @@ export const initializeApollo = (
   return apolloClient;
 };
 
-const useApollo = (initialState: NormalizedCacheObject) =>
+export const useApollo = (initialState: NormalizedCacheObject) =>
   useMemo(() => initializeApollo(initialState), [initialState]);
-
-export default useApollo;

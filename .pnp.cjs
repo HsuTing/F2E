@@ -152,7 +152,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@wry/context", "npm:0.6.1"],
             ["@wry/equality", "npm:0.5.2"],
             ["@wry/trie", "npm:0.3.1"],
-            ["graphql", null],
+            ["graphql", "npm:16.0.1"],
             ["graphql-tag", "virtual:db3a39d4195db26036dc7a5e23e406003df5a1a15b854abca42c0a09b8a5072f0029ffccb8863e150d9a6cf3a60525edf8ba85fe661f2712e5976cc555ac48f8#npm:2.12.6"],
             ["hoist-non-react-statics", "npm:3.3.2"],
             ["npm", "npm:7.24.2"],
@@ -336,7 +336,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@graphql-typed-document-node/core", "virtual:db3a39d4195db26036dc7a5e23e406003df5a1a15b854abca42c0a09b8a5072f0029ffccb8863e150d9a6cf3a60525edf8ba85fe661f2712e5976cc555ac48f8#npm:3.1.0"],
             ["@types/graphql", null],
-            ["graphql", null]
+            ["graphql", "npm:16.0.1"]
           ],
           "packagePeers": [
             "@types/graphql",
@@ -3807,6 +3807,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["graphql", [
+        ["npm:16.0.1", {
+          "packageLocation": "./.yarn/cache/graphql-npm-16.0.1-7f178cf40c-e2fbddc78a.zip/node_modules/graphql/",
+          "packageDependencies": [
+            ["graphql", "npm:16.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["graphql-tag", [
         ["npm:2.12.6", {
           "packageLocation": "./.yarn/cache/graphql-tag-npm-2.12.6-99a5a7f6de-b15162a3d6.zip/node_modules/graphql-tag/",
@@ -3820,7 +3829,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["graphql-tag", "virtual:db3a39d4195db26036dc7a5e23e406003df5a1a15b854abca42c0a09b8a5072f0029ffccb8863e150d9a6cf3a60525edf8ba85fe661f2712e5976cc555ac48f8#npm:2.12.6"],
             ["@types/graphql", null],
-            ["graphql", null],
+            ["graphql", "npm:16.0.1"],
             ["tslib", "npm:2.3.1"]
           ],
           "packagePeers": [
@@ -9368,6 +9377,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:17.0.34"],
             ["antd", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.16.13"],
             ["deepmerge", "npm:4.2.2"],
+            ["graphql", "npm:16.0.1"],
             ["next", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:12.0.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:17.0.2"],
