@@ -40,6 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/node", "npm:16.11.6"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:6894752f25c4bef464c5cba2ff332cc9af8331496bf7a880e351c59a0640ea9a45492f9c9e3bb56893d0702d41b60af59b666df00fd85335384cbd04fe39c490#npm:12.0.2"],
             ["eslint-plugin-import", "virtual:6894752f25c4bef464c5cba2ff332cc9af8331496bf7a880e351c59a0640ea9a45492f9c9e3bb56893d0702d41b60af59b666df00fd85335384cbd04fe39c490#npm:2.25.2"],
@@ -1100,6 +1101,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["F2E", "workspace:."],
+            ["@types/node", "npm:16.11.6"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:6894752f25c4bef464c5cba2ff332cc9af8331496bf7a880e351c59a0640ea9a45492f9c9e3bb56893d0702d41b60af59b666df00fd85335384cbd04fe39c490#npm:12.0.2"],
             ["eslint-plugin-import", "virtual:6894752f25c4bef464c5cba2ff332cc9af8331496bf7a880e351c59a0640ea9a45492f9c9e3bb56893d0702d41b60af59b666df00fd85335384cbd04fe39c490#npm:2.25.2"],
@@ -4836,6 +4838,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["extsprintf", "npm:1.3.0"],
             ["json-schema", "npm:0.2.3"],
             ["verror", "npm:1.10.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["jssha", [
+        ["npm:3.2.0", {
+          "packageLocation": "./.yarn/cache/jssha-npm-3.2.0-c57f6fc836-2adb8a9a57.zip/node_modules/jssha/",
+          "packageDependencies": [
+            ["jssha", "npm:3.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -9507,6 +9518,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["deepmerge", "npm:4.2.2"],
             ["graphql", "npm:16.0.1"],
             ["graphql-anywhere", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.2.7"],
+            ["jssha", "npm:3.2.0"],
             ["next", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:12.0.2"],
             ["qs", "npm:6.10.1"],
             ["react", "npm:17.0.2"],

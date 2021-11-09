@@ -4,8 +4,9 @@ import { ApolloClient, InMemoryCache, ApolloLink } from '@apollo/client';
 import { RetryLink } from '@apollo/client/link/retry';
 import { onError } from '@apollo/client/link/error';
 import { RestLink } from 'apollo-link-rest';
-import merge from 'deepmerge';
 import { notification } from 'antd';
+import merge from 'deepmerge';
+import jsSHA from 'jssha';
 
 let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
 
@@ -36,14 +37,41 @@ const createApolloClient = () =>
             });
           });
 
+        console.log(networkError);
         if (networkError)
           errorLog({
             ...networkError,
             name: 'Network',
           });
       }),
+      new ApolloLink((operation, forward) => {
+        const date = new Date().toUTCString();
+        const sha = new jsSHA('SHA-1', 'TEXT');
+
+        sha.setHMACKey(process.env.APP_KEY || '', 'TEXT');
+        sha.update(`x-date: ${date}`);
+        operation.setContext(
+          ({ headers }: { headers: { [key: string]: string } }) => ({
+            headers: {
+              ...headers,
+              Authorization: `hmac username="${
+                process.env.APP_ID
+              }", algorithm="hmac-sha1", headers="x-date", signature="${sha.getHMAC(
+                'B64',
+              )}"`,
+              'X-Date': date,
+            },
+          }),
+        );
+
+        return forward(operation);
+      }),
       new RestLink({
         uri: 'https://ptx.transportdata.tw/MOTC/v2/',
+        headers: {
+          'Accept-Encoding': 'gzip',
+          algorithm: 'hmac-sha1',
+        },
       }),
     ]),
     cache: new InMemoryCache(),
