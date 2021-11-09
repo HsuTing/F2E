@@ -3,6 +3,8 @@ import { Button } from 'antd';
 import { gql, useQuery } from '@apollo/client';
 
 import type { getScenicSpot as getScenicSpotType } from '../gqls';
+import { initializeApollo } from '../hooks/useApollo';
+
 import styles from './styles/index.module.scss';
 
 const getScenicSpot = gql`
@@ -30,6 +32,25 @@ const Home = () => {
       ))}
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const client = initializeApollo();
+
+  try {
+    await client.query<getScenicSpotType>({
+      query: getScenicSpot,
+    });
+  } catch (e) {
+    // error would be handle in useApollo
+  }
+
+  return {
+    props: {
+      initialApolloState: client.cache.extract(),
+    },
+    revalidate: 1,
+  };
 };
 
 export default React.memo(Home);
