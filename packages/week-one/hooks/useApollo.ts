@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import type { NormalizedCacheObject } from '@apollo/client';
-import { HttpLink } from '@apollo/client/link/http';
+import { RestLink } from 'apollo-link-rest';
 import merge from 'deepmerge';
 
 let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
@@ -9,9 +9,8 @@ let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
 const createApolloClient = () =>
   new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: new HttpLink({
-      uri: '/api/graphql',
-      credentials: 'same-origin',
+    link: new RestLink({
+      uri: 'https://ptx.transportdata.tw/MOTC/v2/',
     }),
     cache: new InMemoryCache(),
   });
