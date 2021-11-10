@@ -66,3 +66,12 @@
     }
   }
 }
+
+.input {
+  flex-grow: 1;
+  text-align: right;
+
+  :global(.ant-input-affix-wrapper) {
+    max-width: 288px;
+  }
+}

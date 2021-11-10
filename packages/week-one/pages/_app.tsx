@@ -60,13 +60,36 @@ const App = ({ Component, pageProps }: AppProps) => {
             ))}
           </Menu>
 
-          <div>
+          <div className={styles.input}>
             <Input
               prefix={<SearchOutlined />}
               placeholder="全站搜索"
               size="large"
             />
           </div>
+
+          <Menu
+            className={styles.menu}
+            selectedKeys={[router.asPath]}
+            mode="horizontal"
+          >
+            {[
+              {
+                text: '語言',
+                href: 'locale',
+              },
+              {
+                text: '心願清單',
+                href: '/wish-list',
+              },
+            ].map(({ text, href }) => (
+              <Item key={href}>
+                <Link href={href}>
+                  <a>{text}</a>
+                </Link>
+              </Item>
+            ))}
+          </Menu>
         </Header>
 
         <Content>
