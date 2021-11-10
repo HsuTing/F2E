@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { appWithTranslation } from 'next-i18next';
 import { ApolloProvider } from '@apollo/client';
 import { Layout, Menu, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -79,7 +80,7 @@ const App = ({
             {[
               {
                 text: '語言',
-                href: 'locale',
+                href: '/locale',
               },
               {
                 text: '心願清單',
@@ -103,4 +104,4 @@ const App = ({
   );
 };
 
-export default React.memo(App);
+export default appWithTranslation(React.memo(App));

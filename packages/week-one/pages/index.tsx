@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { gql, useQuery } from '@apollo/client';
 
 import type { getScenicSpot as getScenicSpotType } from '../gqls';
@@ -34,7 +35,7 @@ const Home = () => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }: { locale: string }) => {
   const client = initializeApollo();
 
   try {
@@ -47,6 +48,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
+      ...(await serverSideTranslations(locale, ['common'])),
       initialApolloState: client.cache.extract(),
     },
     revalidate: 1,
