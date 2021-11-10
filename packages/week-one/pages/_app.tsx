@@ -1,6 +1,7 @@
 import 'antd/dist/antd.css';
 import React from 'react';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import { Layout } from 'antd';
 
@@ -14,7 +15,14 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <ApolloProvider client={client}>
-      <Layout>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=optional"
+          rel="stylesheet"
+        />
+      </Head>
+
+      <Layout className={styles.root}>
         <Header className={styles.header}>test</Header>
 
         <Content>
