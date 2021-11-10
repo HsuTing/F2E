@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation, useTranslation } from 'next-i18next';
 import { ApolloProvider } from '@apollo/client';
 import { Layout, Menu, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -21,6 +21,7 @@ const App = ({
 }: AppProps) => {
   const client = useApollo(initialApolloState);
   const router = useRouter();
+  const { t } = useTranslation();
 
   return (
     <ApolloProvider client={client}>
@@ -34,7 +35,7 @@ const App = ({
       <Layout className={styles.root}>
         <Header className={styles.header}>
           <Link href="/">
-            <a className={styles.home}>愛歹丸</a>
+            <a className={styles.home}>{t('love-taiwan')}</a>
           </Link>
 
           <Menu
@@ -42,23 +43,10 @@ const App = ({
             selectedKeys={[router.asPath]}
             mode="horizontal"
           >
-            {[
-              {
-                text: '觀光景點',
-                href: '/scenicSpots',
-              },
-              {
-                text: '觀光旅宿',
-                href: '/hotels',
-              },
-              {
-                text: '觀光活動',
-                href: '/activities',
-              },
-            ].map(({ text, href }) => (
-              <Item key={href}>
-                <Link href={href}>
-                  <a>{text}</a>
+            {['scenic-spots', 'hotels', 'activities'].map(key => (
+              <Item key={key}>
+                <Link href={`/${key}`}>
+                  <a>{t(key)}</a>
                 </Link>
               </Item>
             ))}
@@ -67,7 +55,7 @@ const App = ({
           <div className={styles.input}>
             <Input
               prefix={<SearchOutlined />}
-              placeholder="全站搜索"
+              placeholder={t('search')}
               size="large"
             />
           </div>
@@ -77,19 +65,10 @@ const App = ({
             selectedKeys={[router.asPath]}
             mode="horizontal"
           >
-            {[
-              {
-                text: '語言',
-                href: '/locale',
-              },
-              {
-                text: '心願清單',
-                href: '/wish-list',
-              },
-            ].map(({ text, href }) => (
-              <Item key={href}>
-                <Link href={href}>
-                  <a>{text}</a>
+            {['locale', 'wish-list'].map(key => (
+              <Item key={key}>
+                <Link href={`/${key}`}>
+                  <a>{t(key)}</a>
                 </Link>
               </Item>
             ))}
