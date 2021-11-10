@@ -31,7 +31,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           </Link>
 
           <div>
-            <Menu mode="horizontal">
+            <Menu className={styles.menu} mode="horizontal">
               {[
                 {
                   text: '觀光景點',

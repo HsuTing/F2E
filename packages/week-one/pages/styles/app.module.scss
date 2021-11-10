@@ -24,3 +24,32 @@
   width: 85px;
   font-weight: bold;
 }
+
+.menu:global(.ant-menu-horizontal:not(.ant-menu-dark)) {
+  & > :global(.ant-menu-item) {
+    width: 85px;
+    padding: 0px;
+    text-align: center;
+
+    &::after {
+      left: 0px;
+      right: 0px;
+    }
+
+    &:hover {
+      color: inherit;
+
+      &::after {
+        border-bottom: 2px solid #15726c;
+      }
+    }
+
+    a:hover {
+      color: inherit;
+    }
+  }
+
+  & > :global(.ant-menu-item-active) {
+    color: inherit;
+  }
+}
