@@ -14,8 +14,11 @@ import styles from './styles/app.module.scss';
 const { Header, Content } = Layout;
 const { Item } = Menu;
 
-const App = ({ Component, pageProps }: AppProps) => {
-  const client = useApollo(pageProps.initialApolloState);
+const App = ({
+  Component,
+  pageProps: { initialApolloState, ...pageProps },
+}: AppProps) => {
+  const client = useApollo(initialApolloState);
   const router = useRouter();
 
   return (
