@@ -5,7 +5,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ApolloProvider } from '@apollo/client';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Input } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
 import { useApollo } from '../hooks/useApollo';
 import styles from './styles/app.module.scss';
@@ -58,6 +59,14 @@ const App = ({ Component, pageProps }: AppProps) => {
               </Item>
             ))}
           </Menu>
+
+          <div>
+            <Input
+              prefix={<SearchOutlined />}
+              placeholder="全站搜索"
+              size="large"
+            />
+          </div>
         </Header>
 
         <Content>
