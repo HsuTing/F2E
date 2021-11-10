@@ -1,6 +1,1 @@
-module.exports = {
-  i18n: {
-    defaultLocale: 'zh-TW',
-    locales: ['zh-TW', 'en'],
-  },
-};
+../../next-i18next.config.js
