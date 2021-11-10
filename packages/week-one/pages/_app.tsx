@@ -3,6 +3,7 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ApolloProvider } from '@apollo/client';
 import { Layout, Menu } from 'antd';
 
@@ -14,6 +15,7 @@ const { Item } = Menu;
 
 const App = ({ Component, pageProps }: AppProps) => {
   const client = useApollo(pageProps.initialApolloState);
+  const router = useRouter();
 
   return (
     <ApolloProvider client={client}>
@@ -30,30 +32,32 @@ const App = ({ Component, pageProps }: AppProps) => {
             <a className={styles.home}>愛歹丸</a>
           </Link>
 
-          <div>
-            <Menu className={styles.menu} mode="horizontal">
-              {[
-                {
-                  text: '觀光景點',
-                  href: '/',
-                },
-                {
-                  text: '觀光旅宿',
-                  href: '/',
-                },
-                {
-                  text: '觀光活動',
-                  href: '/',
-                },
-              ].map(({ text, href }) => (
-                <Item key={text}>
-                  <Link href={href}>
-                    <a>{text}</a>
-                  </Link>
-                </Item>
-              ))}
-            </Menu>
-          </div>
+          <Menu
+            className={styles.menu}
+            selectedKeys={[router.asPath]}
+            mode="horizontal"
+          >
+            {[
+              {
+                text: '觀光景點',
+                href: '/scenicSpots',
+              },
+              {
+                text: '觀光旅宿',
+                href: '/hotels',
+              },
+              {
+                text: '觀光活動',
+                href: '/activities',
+              },
+            ].map(({ text, href }) => (
+              <Item key={href}>
+                <Link href={href}>
+                  <a>{text}</a>
+                </Link>
+              </Item>
+            ))}
+          </Menu>
         </Header>
 
         <Content>

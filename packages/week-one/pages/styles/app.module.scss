@@ -27,6 +27,7 @@
 
 .menu:global(.ant-menu-horizontal:not(.ant-menu-dark)) {
   & > :global(.ant-menu-item) {
+    margin: 0px 0px 0px 16px;
     width: 85px;
     padding: 0px;
     text-align: center;
@@ -51,5 +52,17 @@
 
   & > :global(.ant-menu-item-active) {
     color: inherit;
+  }
+
+  & > :global(.ant-menu-item-selected) {
+    &,
+    a {
+      color: inherit;
+      font-weight: bold;
+    }
+
+    &::after {
+      border-bottom: 2px solid #15726c;
+    }
   }
 }
