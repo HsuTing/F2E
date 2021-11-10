@@ -7,9 +7,11 @@
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
+!.yarn/patches
 
 # next
 .next
+.env
 
 # eslint
 .eslintcache

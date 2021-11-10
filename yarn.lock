@@ -806,6 +806,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "F2E@workspace:."
   dependencies:
+    "@types/node": ^16.11.6
     eslint: ^7.23.0
     eslint-config-next: ^12.0.2
     eslint-plugin-import: ^2.25.2
@@ -3943,6 +3944,13 @@ __metadata:
     json-schema: 0.2.3
     verror: 1.10.0
   checksum: 6bcb20ec265ae18bb48e540a6da2c65f9c844f7522712d6dfcb01039527a49414816f4869000493363f1e1ea96cbad00e46188d5ecc78257a19f152467587373
+  languageName: node
+  linkType: hard
+
+"jssha@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "jssha@npm:3.2.0"
+  checksum: 2adb8a9a57a79360379e843c0548e240d072c2ef12aef39ef6a784315686bd6f65501e9353fdd2f3a604f64af07e7eab04a0ed92b221cdfea97d671d7b8e14f4
   languageName: node
   linkType: hard
 
@@ -7609,6 +7617,7 @@ __metadata:
     deepmerge: ^4.2.2
     graphql: ^16.0.0
     graphql-anywhere: ^4.2.7
+    jssha: ^3.2.0
     next: ^12.0.2
     qs: ^6.10.1
     react: ^17.0.2
