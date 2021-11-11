@@ -1,4 +1,15 @@
-$max-width: 1920px;
+@mixin container {
+  margin: 0px auto;
+  padding: 0px 120px 0px;
+  width: 100%;
+  max-width: 1920px;
+}
+
+@mixin menu-hover-bottom {
+  &::after {
+    border-bottom: 2px solid #15726c;
+  }
+}
 
 .root {
   font-family: Noto Sans TC;
@@ -21,11 +32,9 @@ $max-width: 1920px;
   z-index: 1;
 
   & > div {
+    @include container;
+
     display: flex;
-    margin: 0px auto;
-    padding: 0px 120px;
-    width: 100%;
-    max-width: $max-width;
     height: 60px;
     line-height: 60px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -51,11 +60,9 @@ $max-width: 1920px;
     }
 
     &:hover {
-      color: inherit;
+      @include menu-hover-bottom;
 
-      &::after {
-        border-bottom: 2px solid #15726c;
-      }
+      color: inherit;
     }
 
     a:hover {
@@ -72,14 +79,12 @@ $max-width: 1920px;
   & > :global(.ant-menu-submenu-active),
   & > :global(.ant-menu-submenu-open),
   & > :global(.ant-menu-submenu-selected) {
+    @include menu-hover-bottom;
+
     &,
     a {
       color: inherit;
       font-weight: bold;
-    }
-
-    &::after {
-      border-bottom: 2px solid #15726c;
     }
   }
 
@@ -103,8 +108,7 @@ $max-width: 1920px;
 }
 
 .content {
-  margin: 0px auto;
-  padding: 60px 120px 0px;
-  width: 100%;
-  max-width: $max-width;
+  @include container;
+
+  padding-top: 65px;
 }
