@@ -36,62 +36,64 @@ const App = ({
 
       <Layout className={styles.root}>
         <Header className={styles.header}>
-          <Link href="/">
-            <a className={styles.home}>{t('love-taiwan')}</a>
-          </Link>
+          <div>
+            <Link href="/">
+              <a className={styles.home}>{t('love-taiwan')}</a>
+            </Link>
 
-          <Menu
-            className={styles.menu}
-            selectedKeys={[router.asPath]}
-            mode="horizontal"
-          >
-            {['scenic-spots', 'hotels', 'activities'].map(key => (
-              <Item key={key}>
-                <Link href={`/${key}`}>
-                  <a>{t(key)}</a>
-                </Link>
-              </Item>
-            ))}
-          </Menu>
-
-          <div className={styles.input}>
-            <Input
-              prefix={<SearchOutlined />}
-              placeholder={t('search')}
-              size="large"
-            />
-          </div>
-
-          <Menu
-            className={styles.menu}
-            selectedKeys={[router.asPath]}
-            mode="horizontal"
-          >
-            {['locale', 'wish-list'].map(key =>
-              key === 'locale' ? (
-                <SubMenu
-                  key={key}
-                  title={t('locale.title')}
-                  popupClassName={styles.popup}
-                >
-                  {locales.map(locale => (
-                    <Item
-                      key={locale}
-                      onClick={() => i18n.changeLanguage(locale)}
-                    >
-                      {t(`locale.${locale}`)}
-                    </Item>
-                  ))}
-                </SubMenu>
-              ) : (
+            <Menu
+              className={styles.menu}
+              selectedKeys={[router.asPath]}
+              mode="horizontal"
+            >
+              {['scenic-spots', 'hotels', 'activities'].map(key => (
                 <Item key={key}>
                   <Link href={`/${key}`}>
                     <a>{t(key)}</a>
                   </Link>
                 </Item>
-              ),
-            )}
-          </Menu>
+              ))}
+            </Menu>
+
+            <div className={styles.input}>
+              <Input
+                prefix={<SearchOutlined />}
+                placeholder={t('search')}
+                size="large"
+              />
+            </div>
+
+            <Menu
+              className={styles.menu}
+              selectedKeys={[router.asPath]}
+              mode="horizontal"
+            >
+              {['locale', 'wish-list'].map(key =>
+                key === 'locale' ? (
+                  <SubMenu
+                    key={key}
+                    title={t('locale.title')}
+                    popupClassName={styles.popup}
+                  >
+                    {locales.map(locale => (
+                      <Item
+                        key={locale}
+                        onClick={() => i18n.changeLanguage(locale)}
+                      >
+                        {t(`locale.${locale}`)}
+                      </Item>
+                    ))}
+                  </SubMenu>
+                ) : (
+                  <Item key={key}>
+                    <Link href={`/${key}`}>
+                      <a>{t(key)}</a>
+                    </Link>
+                  </Item>
+                ),
+              )}
+            </Menu>
+          </div>
         </Header>
 
         <Content className={styles.content}>
