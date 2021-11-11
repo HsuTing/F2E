@@ -75,7 +75,12 @@ const App = ({
                   popupClassName={styles.popup}
                 >
                   {locales.map(locale => (
-                    <Item key={locale}>{t(`locale.${locale}`)}</Item>
+                    <Item
+                      key={locale}
+                      onClick={() => i18n.changeLanguage(locale)}
+                    >
+                      {t(`locale.${locale}`)}
+                    </Item>
                   ))}
                 </SubMenu>
               ) : (
