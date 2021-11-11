@@ -13,7 +13,7 @@ import { useApollo } from '../hooks/useApollo';
 import styles from './styles/app.module.scss';
 
 const { Header, Content } = Layout;
-const { Item } = Menu;
+const { Item, SubMenu } = Menu;
 
 const App = ({
   Component,
@@ -21,7 +21,9 @@ const App = ({
 }: AppProps) => {
   const client = useApollo(initialApolloState);
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  // @ts-ignore next-i18next types error
+  const locales = i18n.options.locales as string[];
 
   return (
     <ApolloProvider client={client}>
@@ -34,48 +36,67 @@ const App = ({
 
       <Layout className={styles.root}>
         <Header className={styles.header}>
-          <Link href="/">
-            <a className={styles.home}>{t('love-taiwan')}</a>
-          </Link>
+          <div>
+            <Link href="/">
+              <a className={styles.home}>{t('love-taiwan')}</a>
+            </Link>
 
-          <Menu
-            className={styles.menu}
-            selectedKeys={[router.asPath]}
-            mode="horizontal"
-          >
-            {['scenic-spots', 'hotels', 'activities'].map(key => (
-              <Item key={key}>
-                <Link href={`/${key}`}>
-                  <a>{t(key)}</a>
-                </Link>
-              </Item>
-            ))}
-          </Menu>
+            <Menu
+              className={styles.menu}
+              selectedKeys={[router.asPath]}
+              mode="horizontal"
+            >
+              {['scenic-spots', 'hotels', 'activities'].map(key => (
+                <Item key={key}>
+                  <Link href={`/${key}`}>
+                    <a>{t(key)}</a>
+                  </Link>
+                </Item>
+              ))}
+            </Menu>
 
-          <div className={styles.input}>
-            <Input
-              prefix={<SearchOutlined />}
-              placeholder={t('search')}
-              size="large"
-            />
+            <div className={styles.input}>
+              <Input
+                prefix={<SearchOutlined />}
+                placeholder={t('search')}
+                size="large"
+              />
+            </div>
+
+            <Menu
+              className={styles.menu}
+              selectedKeys={[router.asPath]}
+              mode="horizontal"
+            >
+              {['locale', 'wish-list'].map(key =>
+                key === 'locale' ? (
+                  <SubMenu
+                    key={key}
+                    title={t('locale.title')}
+                    popupClassName={styles.popup}
+                  >
+                    {locales.map(locale => (
+                      <Item
+                        key={locale}
+                        onClick={() => i18n.changeLanguage(locale)}
+                      >
+                        {t(`locale.${locale}`)}
+                      </Item>
+                    ))}
+                  </SubMenu>
+                ) : (
+                  <Item key={key}>
+                    <Link href={`/${key}`}>
+                      <a>{t(key)}</a>
+                    </Link>
+                  </Item>
+                ),
+              )}
+            </Menu>
           </div>
-
-          <Menu
-            className={styles.menu}
-            selectedKeys={[router.asPath]}
-            mode="horizontal"
-          >
-            {['locale', 'wish-list'].map(key => (
-              <Item key={key}>
-                <Link href={`/${key}`}>
-                  <a>{t(key)}</a>
-                </Link>
-              </Item>
-            ))}
-          </Menu>
         </Header>
 
-        <Content>
+        <Content className={styles.content}>
           <Component {...pageProps} />
         </Content>
       </Layout>

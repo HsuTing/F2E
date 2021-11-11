@@ -4,6 +4,10 @@
   "hotels": "觀光旅宿",
   "activities": "觀光活動",
   "search": "全站搜索",
-  "locale": "語言",
+  "locale": {
+    "title": "語言",
+    "zh-TW": "中文",
+    "en": "English"
+  },
   "wish-list": "心願清單"
 }
