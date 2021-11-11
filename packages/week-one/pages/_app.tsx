@@ -69,9 +69,13 @@ const App = ({
           >
             {['locale', 'wish-list'].map(key =>
               key === 'locale' ? (
-                <SubMenu key={key} title={t(key)} popupClassName={styles.popup}>
+                <SubMenu
+                  key={key}
+                  title={t('locale.title')}
+                  popupClassName={styles.popup}
+                >
                   {locales.map(locale => (
-                    <Item key={locale}>{t(locale)}</Item>
+                    <Item key={locale}>{t(`locale.${locale}`)}</Item>
                   ))}
                 </SubMenu>
               ) : (
