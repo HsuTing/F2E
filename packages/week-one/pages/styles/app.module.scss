@@ -71,7 +71,11 @@
   }
 
   & > :global(.ant-menu-item-active),
-  & > :global(.ant-menu-submenu .ant-menu-submenu-title):hover {
+  & > :global(.ant-menu-submenu .ant-menu-submenu-title):hover,
+  &
+    > :global(.ant-menu-submenu):hover
+    > :global(.ant-menu-submenu-title)
+    > :global(.ant-menu-submenu-arrow) {
     color: inherit;
   }
 
@@ -91,6 +95,21 @@
   & > :global(.ant-menu-submenu-active),
   & > :global(.ant-menu-submenu-open) {
     font-weight: normal;
+  }
+
+  :global(.ant-menu-submenu-arrow) {
+    display: block;
+    right: 20px;
+    transform-origin: 10px;
+    transform: rotate(90deg) translateX(2px);
+  }
+
+  & > :global(.ant-menu-submenu-open) :global(.ant-menu-submenu-arrow) {
+    transform: rotate(-90deg) translateX(2px);
+  }
+
+  :global(.ant-menu-title-content) {
+    margin: 0px 0px 0px -10px;
   }
 }
 
