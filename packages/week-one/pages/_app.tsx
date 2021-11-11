@@ -94,7 +94,7 @@ const App = ({
           </Menu>
         </Header>
 
-        <Content>
+        <Content className={styles.content}>
           <Component {...pageProps} />
         </Content>
       </Layout>
