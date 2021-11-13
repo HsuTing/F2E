@@ -6,6 +6,8 @@ import { Button, Drawer } from 'antd';
 import { Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
+import styles from './styles/mobileMenu.module.scss';
+
 interface PropsType {
   className: string;
   outOfBreakpoint: boolean;
@@ -31,8 +33,10 @@ const MobileMenu = ({ className, outOfBreakpoint }: PropsType) => {
       </Button>
 
       <Drawer
+        className={styles.root}
         visible={visible}
         onClose={() => setVisible(false)}
+        width={300}
         placement="left"
       >
         <Menu selectedKeys={[router.asPath]} mode="inline">

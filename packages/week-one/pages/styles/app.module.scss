@@ -139,8 +139,12 @@ $lg: 992px;
   }
 }
 
-.popup :global(.ant-menu-item):hover {
-  color: inherit;
+.popup {
+  font-family: Noto Sans TC;
+
+  &:global(.ant-menu-item):hover {
+    color: inherit;
+  }
 }
 
 .input {
