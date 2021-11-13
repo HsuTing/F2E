@@ -149,6 +149,11 @@ $lg: 992px;
 
   :global(.ant-input-affix-wrapper) {
     max-width: 288px;
+
+    @media (max-width: $md) {
+      margin: 0px 0px 0px 16px;
+      max-width: calc(100% - 16px);
+    }
   }
 }
 
