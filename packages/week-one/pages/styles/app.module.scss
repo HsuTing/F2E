@@ -127,7 +127,7 @@ $lg: 992px;
     display: block;
     right: 20px;
     transform-origin: 10px;
-    transform: rotate(90deg) translateX(2px);
+    transform: rotate(90deg);
   }
 
   & > :global(.ant-menu-submenu-open) :global(.ant-menu-submenu-arrow) {
