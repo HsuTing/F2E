@@ -17,7 +17,7 @@ const CitiesCarousel = () => {
       <Title level={2}>{t('maybe-go')}</Title>
 
       <div ref={imagesRef}>
-        <Carousel dots={false} infinite variableWidth draggable>
+        <Carousel dots={false} infinite variableWidth>
           {CITIES.map(city => (
             <div key={city}>
               <div

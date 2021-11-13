@@ -12,7 +12,7 @@ export const useImageSize = () => {
       const { width } = getElementPosition(imagesRef.current);
       const amount = Math.floor((width + 16) / (187 + 16));
 
-      setImageSize((width - 16 * (amount - 1)) / amount);
+      setImageSize((width - 16 * (amount - 1)) / amount + 1 / amount);
     };
 
     resize();
