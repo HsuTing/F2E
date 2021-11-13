@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { gql, useQuery } from '@apollo/client';
+import { filter } from 'graphql-anywhere';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -23,8 +24,7 @@ const getHomePage = gql`
 
 const Home = () => {
   const { t } = useTranslation('home');
-
-  useQuery<getHomePageType>(getHomePage);
+  const { data } = useQuery<getHomePageType>(getHomePage);
 
   return (
     <>
@@ -51,7 +51,9 @@ const Home = () => {
         />
       </div>
 
-      <CitiesCarousel />
+      <CitiesCarousel
+        cities={filter(citiesCarouselQueryFragment, data || null)}
+      />
     </>
   );
 };

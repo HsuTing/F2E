@@ -3,7 +3,6 @@ import { gql } from '@apollo/client';
 const citiesCarouselRecommendFragment = gql`
   fragment citiesCarouselRecommendFragment on Recommend {
     id: ID
-    name: Name
     picture: Picture {
       url: PictureUrl1
     }
