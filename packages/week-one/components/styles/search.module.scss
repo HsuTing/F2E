@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin: 10px 0px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+.isClosed {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  :global(.ant-input) {
+    width: 0px;
+  }
+}
