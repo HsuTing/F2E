@@ -41,6 +41,7 @@
   position: fixed;
   padding: 0px;
   width: 100%;
+  height: 60px;
   color: #000000;
   background: #ffffff;
   z-index: 1;
@@ -163,7 +164,7 @@
 .content {
   @include container;
 
-  padding-top: 65px !important;
+  padding-top: 60px !important;
   overflow-x: hidden;
 }
 
