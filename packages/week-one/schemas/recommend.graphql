@@ -1,6 +1,7 @@
 type Recommend {
   ID: ID!
   Name: String!
+  Picture: Picture!
 }
 
 extend type Query {

@@ -1,0 +1,4 @@
+type Picture {
+  PictureUrl1: String!
+  PictureDescription1: String
+}
