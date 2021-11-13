@@ -15,7 +15,7 @@ const CitiesCarousel = () => {
   return (
     <>
       <Title className={styles.title} level={2}>
-        {t('maybe-go')}
+        {t('recommend ')}
       </Title>
 
       <div ref={carouselRef} className={styles.root}>
