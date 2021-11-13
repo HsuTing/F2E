@@ -14,6 +14,7 @@ export const useOutOfBreakpoint = (breakpoint: number) => {
       setOutOfBreakpoint(width > breakpoint);
     };
 
+    resize();
     window.addEventListener('resize', resize);
 
     return () => {
