@@ -22,7 +22,7 @@ const App = ({
 }: AppProps) => {
   const client = useApollo(initialApolloState);
   const { breakpointRef, outOfBreakpoint } = useOutOfBreakpoint(
-    parseInt(styles.breakpoint.replace(/px/, ''), 10),
+    parseInt(styles.md.replace(/px/, ''), 10),
   );
   const router = useRouter();
   const { t, i18n } = useTranslation();
