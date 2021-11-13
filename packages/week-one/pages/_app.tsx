@@ -41,12 +41,14 @@ const App = ({
       <Layout className={styles.root}>
         <Header className={styles.header}>
           <div ref={breakpointRef}>
-            <Button className={styles.mobile} type="text">
+            <Button className={styles.smaller} type="text">
               <MenuOutlined />
             </Button>
 
             <Link href="/">
-              <a className={styles.home}>{t('love-taiwan')}</a>
+              <a className={`${styles.home} ${styles.alwaysExist}`}>
+                {t('love-taiwan')}
+              </a>
             </Link>
 
             {!outOfBreakpoint ? null : (
@@ -106,7 +108,7 @@ const App = ({
               </Menu>
             )}
 
-            <Button className={styles.mobile} type="text">
+            <Button className={styles.smaller} type="text">
               <SearchOutlined />
             </Button>
           </div>
