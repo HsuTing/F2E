@@ -142,7 +142,7 @@ $lg: 992px;
 .popup {
   font-family: Noto Sans TC;
 
-  &:global(.ant-menu-item):hover {
+  :global(.ant-menu-item):hover {
     color: inherit;
   }
 }
