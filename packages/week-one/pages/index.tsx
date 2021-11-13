@@ -32,6 +32,14 @@ const Home = () => {
           layout="fill"
           objectFit="cover"
         />
+
+        <div className={styles.headerText}>
+          <Image
+            src="/home-header-text.png"
+            alt="home header text"
+            layout="fill"
+          />
+        </div>
       </div>
     </>
   );

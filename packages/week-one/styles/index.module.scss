@@ -16,3 +16,14 @@
     width: calc(100% + $container-md-padding * 2);
   }
 }
+
+.headerText {
+  position: relative;
+  width: 520px;
+  height: 116px;
+
+  @media (max-width: $md) {
+    width: 280px;
+    height: 61px;
+  }
+}
