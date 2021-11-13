@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useTranslation } from 'next-i18next';
 
 interface PropsType {
   outOfBreakpoint: boolean;
+  isOpened: boolean;
+  setIsOpened: (isOpened: boolean) => void;
 }
 
-const Search = ({ outOfBreakpoint }: PropsType) => {
+const Search = ({ outOfBreakpoint, isOpened, setIsOpened }: PropsType) => {
   const { t } = useTranslation();
-  const [isOpened, setIsOpened] = useState(false);
 
   useEffect(() => {
     setIsOpened(false);

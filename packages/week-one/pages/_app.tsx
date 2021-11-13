@@ -1,5 +1,5 @@
 import 'antd/dist/antd.css';
-import React from 'react';
+import React, { useState } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -27,6 +27,7 @@ const App = ({
   );
   const router = useRouter();
   const { t, i18n } = useTranslation();
+  const [isOpened, setIsOpened] = useState(false);
   // @ts-ignore next-i18next types error
   const locales = i18n.options.locales as string[];
 
@@ -46,11 +47,13 @@ const App = ({
               <MenuOutlined />
             </Button>
 
-            <Link href="/">
-              <a className={`${styles.home} ${styles.alwaysExist}`}>
-                {t('love-taiwan')}
-              </a>
-            </Link>
+            {isOpened ? null : (
+              <Link href="/">
+                <a className={`${styles.home} ${styles.alwaysExist}`}>
+                  {t('love-taiwan')}
+                </a>
+              </Link>
+            )}
 
             {!outOfBreakpoint ? null : (
               <Menu
@@ -69,7 +72,11 @@ const App = ({
             )}
 
             <div className={`${styles.input} ${styles.alwaysExist}`}>
-              <Search outOfBreakpoint={outOfBreakpoint} />
+              <Search
+                outOfBreakpoint={outOfBreakpoint}
+                isOpened={isOpened}
+                setIsOpened={setIsOpened}
+              />
             </div>
 
             {!outOfBreakpoint ? null : (
