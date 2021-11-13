@@ -6,6 +6,7 @@ import { gql, useQuery } from '@apollo/client';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
+import CitiesCarousel from '../components/citiesCarousel';
 import type { getScenicSpot as getScenicSpotType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
 import styles from '../styles/index.module.scss';
@@ -38,22 +39,22 @@ const Home = () => {
           objectFit="cover"
         />
 
-        <div className={styles.headerSearch}>
-          <div className={styles.headerText}>
-            <Image
-              src="/home-header-text.png"
-              alt="home header text"
-              layout="fill"
-            />
-          </div>
-
-          <Input
-            prefix={<SearchOutlined />}
-            placeholder={t('header-search')}
-            size="large"
+        <div className={styles.headerText}>
+          <Image
+            src="/home-header-text.png"
+            alt="home header text"
+            layout="fill"
           />
         </div>
+
+        <Input
+          prefix={<SearchOutlined />}
+          placeholder={t('header-search')}
+          size="large"
+        />
       </div>
+
+      <CitiesCarousel />
     </>
   );
 };

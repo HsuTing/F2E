@@ -3,6 +3,10 @@
 .header {
   position: relative;
   left: calc(-1 * $container-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: calc(100% + $container-padding * 2);
   height: 360px;
 
@@ -14,17 +18,6 @@
   @media (max-width: $md) {
     left: calc(-1 * $container-md-padding);
     width: calc(100% + $container-md-padding * 2);
-  }
-}
-
-.headerSearch {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-  @media (max-width: $md) {
     padding: 0px $container-md-padding;
   }
 
