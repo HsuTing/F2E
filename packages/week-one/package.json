@@ -9,6 +9,7 @@
     "antd": "^4.16.13",
     "apollo-link-rest": "^0.8.0-beta.0",
     "deepmerge": "^4.2.2",
+    "fbjs": "^0.8.18",
     "graphql": "^16.0.0",
     "graphql-anywhere": "^4.2.7",
     "jssha": "^3.2.0",

@@ -6,10 +6,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { ApolloProvider } from '@apollo/client';
-import { Layout, Menu, Input } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { Layout, Menu, Input, Button } from 'antd';
+import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
 
 import { useApollo } from '../hooks/useApollo';
+import { useOutOfBreakpoint } from '../hooks/useOutOfBreakpoint';
 import styles from './styles/app.module.scss';
 
 const { Header, Content } = Layout;
@@ -20,6 +21,9 @@ const App = ({
   pageProps: { initialApolloState, ...pageProps },
 }: AppProps) => {
   const client = useApollo(initialApolloState);
+  const { breakpointRef, outOfBreakpoint } = useOutOfBreakpoint(
+    parseInt(styles.breakpoint.replace(/px/, ''), 10),
+  );
   const router = useRouter();
   const { t, i18n } = useTranslation();
   // @ts-ignore next-i18next types error
@@ -36,24 +40,30 @@ const App = ({
 
       <Layout className={styles.root}>
         <Header className={styles.header}>
-          <div>
+          <div ref={breakpointRef}>
+            <Button className={styles.mobile} type="text">
+              <MenuOutlined />
+            </Button>
+
             <Link href="/">
               <a className={styles.home}>{t('love-taiwan')}</a>
             </Link>
 
-            <Menu
-              className={styles.menu}
-              selectedKeys={[router.asPath]}
-              mode="horizontal"
-            >
-              {['scenic-spots', 'hotels', 'activities'].map(key => (
-                <Item key={key}>
-                  <Link href={`/${key}`}>
-                    <a>{t(key)}</a>
-                  </Link>
-                </Item>
-              ))}
-            </Menu>
+            {!outOfBreakpoint ? null : (
+              <Menu
+                className={styles.menu}
+                selectedKeys={[router.asPath]}
+                mode="horizontal"
+              >
+                {['scenic-spots', 'hotels', 'activities'].map(key => (
+                  <Item key={key}>
+                    <Link href={`/${key}`}>
+                      <a>{t(key)}</a>
+                    </Link>
+                  </Item>
+                ))}
+              </Menu>
+            )}
 
             <div className={styles.input}>
               <Input
@@ -63,36 +73,42 @@ const App = ({
               />
             </div>
 
-            <Menu
-              className={styles.menu}
-              selectedKeys={[router.asPath]}
-              mode="horizontal"
-            >
-              {['locale', 'wish-list'].map(key =>
-                key === 'locale' ? (
-                  <SubMenu
-                    key={key}
-                    title={t('locale.title')}
-                    popupClassName={styles.popup}
-                  >
-                    {locales.map(locale => (
-                      <Item
-                        key={locale}
-                        onClick={() => i18n.changeLanguage(locale)}
-                      >
-                        {t(`locale.${locale}`)}
-                      </Item>
-                    ))}
-                  </SubMenu>
-                ) : (
-                  <Item key={key}>
-                    <Link href={`/${key}`}>
-                      <a>{t(key)}</a>
-                    </Link>
-                  </Item>
-                ),
-              )}
-            </Menu>
+            {!outOfBreakpoint ? null : (
+              <Menu
+                className={styles.menu}
+                selectedKeys={[router.asPath]}
+                mode="horizontal"
+              >
+                {['locale', 'wish-list'].map(key =>
+                  key === 'locale' ? (
+                    <SubMenu
+                      key={key}
+                      title={t('locale.title')}
+                      popupClassName={styles.popup}
+                    >
+                      {locales.map(locale => (
+                        <Item
+                          key={locale}
+                          onClick={() => i18n.changeLanguage(locale)}
+                        >
+                          {t(`locale.${locale}`)}
+                        </Item>
+                      ))}
+                    </SubMenu>
+                  ) : (
+                    <Item key={key}>
+                      <Link href={`/${key}`}>
+                        <a>{t(key)}</a>
+                      </Link>
+                    </Item>
+                  ),
+                )}
+              </Menu>
+            )}
+
+            <Button className={styles.mobile} type="text">
+              <SearchOutlined />
+            </Button>
           </div>
         </Header>
 
