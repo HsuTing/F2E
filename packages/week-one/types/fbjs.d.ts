@@ -1,4 +1,3 @@
-/* eslint-disable  no-unused-vars */
 declare module 'fbjs/lib/getElementPosition' {
   function getElementPosition(dom: HTMLElement): {
     width: number;
