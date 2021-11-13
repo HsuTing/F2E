@@ -1,5 +1,4 @@
-$md: 768px;
-$lg: 992px;
+@import './constants.module.scss';
 
 @mixin container {
   margin: 0px auto;
