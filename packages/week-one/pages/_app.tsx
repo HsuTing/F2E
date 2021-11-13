@@ -6,10 +6,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { ApolloProvider } from '@apollo/client';
-import { Layout, Menu, Button } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
 
 import Search from '../components/Search';
+import MobileMenu from '../components/MobileMenu';
 import { useApollo } from '../hooks/useApollo';
 import { useOutOfBreakpoint } from '../hooks/useOutOfBreakpoint';
 import styles from './styles/app.module.scss';
@@ -43,9 +43,10 @@ const App = ({
       <Layout className={styles.root}>
         <Header className={styles.header}>
           <div ref={breakpointRef}>
-            <Button className={styles.smaller} type="text">
-              <MenuOutlined />
-            </Button>
+            <MobileMenu
+              className={styles.smaller}
+              outOfBreakpoint={outOfBreakpoint}
+            />
 
             {isOpened ? null : (
               <Link href="/">

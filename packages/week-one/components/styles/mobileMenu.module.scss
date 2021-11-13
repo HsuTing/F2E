@@ -1,0 +1,19 @@
+.root {
+  font-family: Noto Sans TC;
+
+  :global(.ant-drawer-close) {
+    left: 0px;
+  }
+
+  :global(.ant-drawer-body) {
+    padding: 60px 0px 0px;
+  }
+
+  :global(.ant-menu-item) {
+    &,
+    &:not(:last-child) {
+      margin: 0px;
+      height: 60px;
+    }
+  }
+}
