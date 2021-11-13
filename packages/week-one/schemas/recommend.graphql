@@ -1,0 +1,8 @@
+type Recommend {
+  ID: ID!
+  Name: String!
+}
+
+extend type Query {
+  recommend(city: String): Recommend!
+}

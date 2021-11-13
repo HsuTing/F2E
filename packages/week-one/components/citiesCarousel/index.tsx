@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { Typography, Carousel } from 'antd';
 
+import { citiesCarouselQueryFragment } from './gqls/citiesCarousel';
 import { useCarouselInfo } from './hooks/useCarouselInfo';
 import styles from './styles/index.module.scss';
 import { CITIES } from './constants';
@@ -39,4 +40,5 @@ const CitiesCarousel = () => {
   );
 };
 
+export { citiesCarouselQueryFragment };
 export default React.memo(CitiesCarousel);

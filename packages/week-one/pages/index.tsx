@@ -6,28 +6,25 @@ import { gql, useQuery } from '@apollo/client';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
-import CitiesCarousel from '../components/citiesCarousel';
-import type { getScenicSpot as getScenicSpotType } from '../gqls';
+import CitiesCarousel, {
+  citiesCarouselQueryFragment,
+} from '../components/citiesCarousel';
+import type { getHomePage as getHomePageType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
 import styles from '../styles/index.module.scss';
 
-const getScenicSpot = gql`
-  query getScenicSpot {
-    scenicSpots
-      @rest(
-        type: "ScenicSpot"
-        path: "/Tourism/ScenicSpot?$top=3&$format=JSON"
-      ) {
-      id: ID
-      name: Name
-    }
+const getHomePage = gql`
+  query getHomePage {
+    ...citiesCarouselQueryFragment
   }
+
+  ${citiesCarouselQueryFragment}
 `;
 
 const Home = () => {
   const { t } = useTranslation('home');
 
-  useQuery<getScenicSpotType>(getScenicSpot);
+  useQuery<getHomePageType>(getHomePage);
 
   return (
     <>
@@ -63,8 +60,8 @@ export const getStaticProps = async ({ locale }: { locale: string }) => {
   const client = initializeApollo();
 
   try {
-    await client.query<getScenicSpotType>({
-      query: getScenicSpot,
+    await client.query<getHomePageType>({
+      query: getHomePage,
     });
   } catch (e) {
     // error would be handled in useApollo
