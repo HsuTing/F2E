@@ -36,10 +36,6 @@ $lg: 992px;
       color: inherit;
     }
   }
-
-  :global(.ant-btn) {
-    height: 100%;
-  }
 }
 
 .header {
@@ -69,6 +65,11 @@ $lg: 992px;
 .home {
   width: 85px;
   font-weight: bold;
+
+  @media (max-width: $md) {
+    width: initial;
+    margin: 0px 0px 0px 8px;
+  }
 }
 
 .menu:global(.ant-menu-horizontal:not(.ant-menu-dark)) {
@@ -157,10 +158,17 @@ $lg: 992px;
   padding-top: 65px !important;
 }
 
-.smaller:not(.alwaysExist) {
-  display: none;
+.smaller {
+  &:not(.alwaysExist) {
+    display: none;
 
-  @media (max-width: $md) {
-    display: block;
+    @media (max-width: $md) {
+      display: block;
+    }
+  }
+
+  &:global(.ant-btn) {
+    padding: 0px;
+    height: 100%;
   }
 }
