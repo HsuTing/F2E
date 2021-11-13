@@ -8,6 +8,7 @@ import merge from 'deepmerge';
 import errorLink from '../utils/errorLink';
 import headerLink from '../utils/headerLink';
 
+const endpoint = 'https://ptx.transportdata.tw/MOTC/v2';
 let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
 
 const createApolloClient = () =>
@@ -22,10 +23,16 @@ const createApolloClient = () =>
       errorLink,
       headerLink,
       new RestLink({
-        uri: 'https://ptx.transportdata.tw/MOTC/v2',
+        uri: endpoint,
         headers: {
           'Accept-Encoding': 'gzip',
           algorithm: 'hmac-sha1',
+        },
+        customFetch: (uri: string, options) => {
+          switch (uri.replace(endpoint, '')) {
+            default:
+              return fetch(uri, options);
+          }
         },
       }),
     ]),
