@@ -1,6 +1,18 @@
+@import './constants.module.scss';
+
 .header {
   position: relative;
-  left: -120px;
-  width: calc(100% + 120px * 2);
+  left: calc(-1 * $container-padding);
+  width: calc(100% + $container-padding * 2);
   height: 360px;
+
+  @media (max-width: $lg) {
+    left: calc(-1 * $container-lg-padding - 1%);
+    width: calc(100% + $container-lg-padding * 2 + 2%);
+  }
+
+  @media (max-width: $md) {
+    left: calc(-1 * $container-md-padding);
+    width: calc(100% + $container-md-padding * 2);
+  }
 }

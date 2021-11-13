@@ -2,16 +2,16 @@
 
 @mixin container {
   margin: 0px auto;
-  padding: 0px 120px;
+  padding: 0px $container-padding;
   width: 100%;
   max-width: 1920px;
 
   @media (max-width: $lg) {
-    padding: 0px 5%;
+    padding: 0px $container-lg-padding;
   }
 
   @media (max-width: $md) {
-    padding: 0px 16px;
+    padding: 0px $container-md-padding;
   }
 }
 
