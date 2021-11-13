@@ -1,7 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { gql, useQuery } from '@apollo/client';
+import { Input } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
 import type { getScenicSpot as getScenicSpotType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
@@ -21,6 +24,8 @@ const getScenicSpot = gql`
 `;
 
 const Home = () => {
+  const { t } = useTranslation('home');
+
   useQuery<getScenicSpotType>(getScenicSpot);
 
   return (
@@ -33,11 +38,19 @@ const Home = () => {
           objectFit="cover"
         />
 
-        <div className={styles.headerText}>
-          <Image
-            src="/home-header-text.png"
-            alt="home header text"
-            layout="fill"
+        <div className={styles.headerSearch}>
+          <div className={styles.headerText}>
+            <Image
+              src="/home-header-text.png"
+              alt="home header text"
+              layout="fill"
+            />
+          </div>
+
+          <Input
+            prefix={<SearchOutlined />}
+            placeholder={t('header-search')}
+            size="large"
           />
         </div>
       </div>

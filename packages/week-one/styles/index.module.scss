@@ -17,6 +17,26 @@
   }
 }
 
+.headerSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  @media (max-width: $md) {
+    padding: 0px $container-md-padding;
+  }
+
+  :global(.ant-input-affix-wrapper) {
+    max-width: 600px;
+
+    @media (max-width: $md) {
+      max-width: 350px;
+    }
+  }
+}
+
 .headerText {
   position: relative;
   width: 520px;
