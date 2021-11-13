@@ -5,6 +5,19 @@
   margin: 10px 0px;
   padding-left: 11px;
   padding-right: 11px;
+
+  :global(.ant-input-suffix) {
+    position: relative;
+
+    & > span::after {
+      position: absolute;
+      top: -20px;
+      display: block;
+      width: 20px;
+      height: 60px;
+      content: '';
+    }
+  }
 }
 
 .isClosed {
