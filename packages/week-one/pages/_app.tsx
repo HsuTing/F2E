@@ -69,7 +69,7 @@ const App = ({
             )}
 
             <div className={`${styles.input} ${styles.alwaysExist}`}>
-              <Search />
+              <Search outOfBreakpoint={outOfBreakpoint} />
             </div>
 
             {!outOfBreakpoint ? null : (
