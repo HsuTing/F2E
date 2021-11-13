@@ -6,6 +6,7 @@ import { gql, useQuery } from '@apollo/client';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
+import CitiesCarousel from '../components/citiesCarousel';
 import type { getScenicSpot as getScenicSpotType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
 import styles from '../styles/index.module.scss';
@@ -54,6 +55,8 @@ const Home = () => {
           />
         </div>
       </div>
+
+      <CitiesCarousel />
     </>
   );
 };
