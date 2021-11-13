@@ -22,10 +22,20 @@ const createApolloClient = () =>
       errorLink,
       headerLink,
       new RestLink({
-        uri: 'https://ptx.transportdata.tw/MOTC/v2/',
+        uri: 'https://ptx.transportdata.tw/MOTC/v2',
         headers: {
           'Accept-Encoding': 'gzip',
           algorithm: 'hmac-sha1',
+        },
+        endpoints: {
+          single: {
+            uri: 'https://ptx.transportdata.tw/MOTC/v2',
+            responseTransformer: async response => {
+              const data = await response.json();
+
+              return data[0];
+            },
+          },
         },
       }),
     ]),

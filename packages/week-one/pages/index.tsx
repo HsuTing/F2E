@@ -3,31 +3,34 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { gql, useQuery } from '@apollo/client';
+import { filter } from 'graphql-anywhere';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import shuffle from 'lodash.shuffle';
 
-import CitiesCarousel from '../components/citiesCarousel';
-import type { getScenicSpot as getScenicSpotType } from '../gqls';
+import CitiesCarousel, {
+  citiesCarouselQueryFragment,
+} from '../components/citiesCarousel';
+import type { getHomePage as getHomePageType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
 import styles from '../styles/index.module.scss';
+import { CITIES } from '../utils/constants';
 
-const getScenicSpot = gql`
-  query getScenicSpot {
-    scenicSpots
-      @rest(
-        type: "ScenicSpot"
-        path: "Tourism/ScenicSpot?$top=3&$format=JSON"
-      ) {
-      id: ID
-      name: Name
-    }
+interface PropsType {
+  recommends: typeof CITIES;
+}
+
+const getHomePage = gql`
+  query getHomePage {
+    ...citiesCarouselQueryFragment
   }
+
+  ${citiesCarouselQueryFragment}
 `;
 
-const Home = () => {
+const Home = ({ recommends }: PropsType) => {
   const { t } = useTranslation('home');
-
-  useQuery<getScenicSpotType>(getScenicSpot);
+  const { data } = useQuery<getHomePageType>(getHomePage);
 
   return (
     <>
@@ -54,7 +57,10 @@ const Home = () => {
         />
       </div>
 
-      <CitiesCarousel />
+      <CitiesCarousel
+        cities={filter(citiesCarouselQueryFragment, data || null)}
+        recommends={recommends}
+      />
     </>
   );
 };
@@ -63,8 +69,8 @@ export const getStaticProps = async ({ locale }: { locale: string }) => {
   const client = initializeApollo();
 
   try {
-    await client.query<getScenicSpotType>({
-      query: getScenicSpot,
+    await client.query<getHomePageType>({
+      query: getHomePage,
     });
   } catch (e) {
     // error would be handled in useApollo
@@ -74,6 +80,7 @@ export const getStaticProps = async ({ locale }: { locale: string }) => {
     props: {
       ...(await serverSideTranslations(locale, ['common', 'home'])),
       initialApolloState: client.cache.extract(),
+      recommends: shuffle(CITIES),
     },
     revalidate: 1,
   };

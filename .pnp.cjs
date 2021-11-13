@@ -930,6 +930,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@types/lodash", [
+        ["npm:4.14.176", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.176-34dca4acb8-9e949704df.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.176"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash.shuffle", [
+        ["npm:4.2.6", {
+          "packageLocation": "./.yarn/cache/@types-lodash.shuffle-npm-4.2.6-7596d02190-1a3ed09a49.zip/node_modules/@types/lodash.shuffle/",
+          "packageDependencies": [
+            ["@types/lodash.shuffle", "npm:4.2.6"],
+            ["@types/lodash", "npm:4.14.176"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@types/node", [
         ["npm:16.11.6", {
           "packageLocation": "./.yarn/cache/@types-node-npm-16.11.6-3a38cc239a-6e19634766.zip/node_modules/@types/node/",
@@ -5267,6 +5286,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/lodash.merge-npm-4.6.2-77cb4416bf-ad580b4bdb.zip/node_modules/lodash.merge/",
           "packageDependencies": [
             ["lodash.merge", "npm:4.6.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lodash.shuffle", [
+        ["npm:4.2.0", {
+          "packageLocation": "./.yarn/cache/lodash.shuffle-npm-4.2.0-0e57e0a432-3d451e16c1.zip/node_modules/lodash.shuffle/",
+          "packageDependencies": [
+            ["lodash.shuffle", "npm:4.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -9707,6 +9735,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["week-one", "workspace:packages/week-one"],
             ["@ant-design/icons", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.7.0"],
             ["@apollo/client", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:3.5.0"],
+            ["@types/lodash.shuffle", "npm:4.2.6"],
             ["@types/node", "npm:16.11.6"],
             ["@types/qs", "npm:6.9.7"],
             ["@types/react", "npm:17.0.34"],
@@ -9717,11 +9746,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.0.1"],
             ["graphql-anywhere", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.2.7"],
             ["jssha", "npm:3.2.0"],
+            ["lodash.shuffle", "npm:4.2.0"],
             ["next", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:12.0.2"],
             ["next-i18next", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:8.10.0"],
             ["qs", "npm:6.10.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:17.0.2"],
+            ["regenerator-runtime", "npm:0.13.9"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=ddd1e8"]
           ],
           "linkType": "SOFT",
