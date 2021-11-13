@@ -39,21 +39,19 @@ const Home = () => {
           objectFit="cover"
         />
 
-        <div className={styles.headerSearch}>
-          <div className={styles.headerText}>
-            <Image
-              src="/home-header-text.png"
-              alt="home header text"
-              layout="fill"
-            />
-          </div>
-
-          <Input
-            prefix={<SearchOutlined />}
-            placeholder={t('header-search')}
-            size="large"
+        <div className={styles.headerText}>
+          <Image
+            src="/home-header-text.png"
+            alt="home header text"
+            layout="fill"
           />
         </div>
+
+        <Input
+          prefix={<SearchOutlined />}
+          placeholder={t('header-search')}
+          size="large"
+        />
       </div>
 
       <CitiesCarousel />
