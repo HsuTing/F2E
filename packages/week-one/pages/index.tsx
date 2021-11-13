@@ -16,7 +16,7 @@ const getScenicSpot = gql`
     scenicSpots
       @rest(
         type: "ScenicSpot"
-        path: "Tourism/ScenicSpot?$top=3&$format=JSON"
+        path: "/Tourism/ScenicSpot?$top=3&$format=JSON"
       ) {
       id: ID
       name: Name
