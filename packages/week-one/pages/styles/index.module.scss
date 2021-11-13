@@ -1,3 +1,6 @@
-.root {
-  color: red;
+.header {
+  position: relative;
+  left: -120px;
+  width: calc(100% + 120px * 2);
+  height: 360px;
 }

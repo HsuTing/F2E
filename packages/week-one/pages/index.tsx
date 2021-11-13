@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'antd';
+import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { gql, useQuery } from '@apollo/client';
 
@@ -22,15 +22,18 @@ const getScenicSpot = gql`
 `;
 
 const Home = () => {
-  const { data } = useQuery<getScenicSpotType>(getScenicSpot);
+  useQuery<getScenicSpotType>(getScenicSpot);
 
   return (
     <>
-      {data?.scenicSpots.map(({ id, name }) => (
-        <Button key={id} className={styles.root}>
-          {name}
-        </Button>
-      ))}
+      <div className={styles.header}>
+        <Image
+          src="/home-header.png"
+          alt="home header"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
     </>
   );
 };
