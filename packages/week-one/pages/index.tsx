@@ -5,8 +5,7 @@ import { gql, useQuery } from '@apollo/client';
 
 import type { getScenicSpot as getScenicSpotType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
-
-import styles from './styles/index.module.scss';
+import styles from '../styles/index.module.scss';
 
 const getScenicSpot = gql`
   query getScenicSpot {

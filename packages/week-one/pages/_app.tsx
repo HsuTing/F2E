@@ -12,7 +12,7 @@ import Search from '../components/Search';
 import MobileMenu from '../components/MobileMenu';
 import { useApollo } from '../hooks/useApollo';
 import { useOutOfBreakpoint } from '../hooks/useOutOfBreakpoint';
-import styles from './styles/app.module.scss';
+import styles from '../styles/app.module.scss';
 
 const { Header, Content } = Layout;
 const { Item, SubMenu } = Menu;
