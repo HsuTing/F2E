@@ -27,6 +27,16 @@ const createApolloClient = () =>
           'Accept-Encoding': 'gzip',
           algorithm: 'hmac-sha1',
         },
+        endpoints: {
+          single: {
+            uri: 'https://ptx.transportdata.tw/MOTC/v2',
+            responseTransformer: async response => {
+              const data = await response.json();
+
+              return data[0];
+            },
+          },
+        },
       }),
     ]),
     cache: new InMemoryCache(),

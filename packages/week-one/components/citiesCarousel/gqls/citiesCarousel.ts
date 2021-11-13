@@ -12,6 +12,7 @@ export const citiesCarouselQueryFragment = gql`
     Taipei: recommend(city: "Taipei")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -21,6 +22,7 @@ export const citiesCarouselQueryFragment = gql`
     NewTaipei: recommend(city: "NewTaipei")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -30,6 +32,7 @@ export const citiesCarouselQueryFragment = gql`
     Taoyuan: recommend(city: "Taoyuan")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -39,6 +42,7 @@ export const citiesCarouselQueryFragment = gql`
     Taichung: recommend(city: "Taichung")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -48,6 +52,7 @@ export const citiesCarouselQueryFragment = gql`
     Tainan: recommend(city: "Tainan")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -57,6 +62,7 @@ export const citiesCarouselQueryFragment = gql`
     Kaohsiung: recommend(city: "Kaohsiung")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -66,6 +72,7 @@ export const citiesCarouselQueryFragment = gql`
     Keelung: recommend(city: "Keelung")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -75,6 +82,7 @@ export const citiesCarouselQueryFragment = gql`
     Hsinchu: recommend(city: "Hsinchu")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -84,6 +92,7 @@ export const citiesCarouselQueryFragment = gql`
     HsinchuCounty: recommend(city: "HsinchuCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -93,6 +102,7 @@ export const citiesCarouselQueryFragment = gql`
     MiaoliCounty: recommend(city: "MiaoliCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -102,6 +112,7 @@ export const citiesCarouselQueryFragment = gql`
     ChanghuaCounty: recommend(city: "ChanghuaCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -111,6 +122,7 @@ export const citiesCarouselQueryFragment = gql`
     NantouCounty: recommend(city: "NantouCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -120,6 +132,7 @@ export const citiesCarouselQueryFragment = gql`
     YunlinCounty: recommend(city: "YunlinCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -129,6 +142,7 @@ export const citiesCarouselQueryFragment = gql`
     ChiayiCounty: recommend(city: "ChiayiCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -138,6 +152,7 @@ export const citiesCarouselQueryFragment = gql`
     Chiayi: recommend(city: "Chiayi")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -147,6 +162,7 @@ export const citiesCarouselQueryFragment = gql`
     PingtungCounty: recommend(city: "PingtungCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -156,6 +172,7 @@ export const citiesCarouselQueryFragment = gql`
     YilanCounty: recommend(city: "YilanCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -165,6 +182,7 @@ export const citiesCarouselQueryFragment = gql`
     HualienCounty: recommend(city: "HualienCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -174,6 +192,7 @@ export const citiesCarouselQueryFragment = gql`
     TaitungCounty: recommend(city: "TaitungCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -183,6 +202,7 @@ export const citiesCarouselQueryFragment = gql`
     KinmenCounty: recommend(city: "KinmenCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -192,6 +212,7 @@ export const citiesCarouselQueryFragment = gql`
     PenghuCounty: recommend(city: "PenghuCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
@@ -201,6 +222,7 @@ export const citiesCarouselQueryFragment = gql`
     LienchiangCounty: recommend(city: "LienchiangCounty")
       @rest(
         type: "Recommend"
+        endpoint: "single"
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
