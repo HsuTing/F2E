@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import getElementPosition from 'fbjs/lib/getElementPosition';
 
-import styles from '../styles/index.module.scss';
+import styles from '../styles/citiesCarousel.module.scss';
 
 const MIN_WIDTH = 187;
 
