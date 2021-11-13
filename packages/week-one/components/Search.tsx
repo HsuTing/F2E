@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { useTranslation } from 'next-i18next';
 
 import styles from './styles/search.module.scss';
 

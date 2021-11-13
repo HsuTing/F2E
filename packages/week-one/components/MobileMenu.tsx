@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { Button, Drawer } from 'antd';
-import { Menu } from 'antd';
+import { Button, Drawer, Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
 import styles from './styles/mobileMenu.module.scss';
