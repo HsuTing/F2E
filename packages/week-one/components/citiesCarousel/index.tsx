@@ -14,7 +14,9 @@ const CitiesCarousel = () => {
 
   return (
     <>
-      <Title level={2}>{t('maybe-go')}</Title>
+      <Title className={styles.title} level={2}>
+        {t('maybe-go')}
+      </Title>
 
       <div ref={carouselRef} className={styles.root}>
         <Carousel {...carouselInfo} dots={false} infinite variableWidth>

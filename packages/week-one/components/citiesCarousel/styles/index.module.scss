@@ -12,6 +12,10 @@
   }
 }
 
+.title {
+  margin: 36px 0px 16px;
+}
+
 .image {
   display: flex;
   align-items: flex-end;
@@ -20,4 +24,5 @@
   font-size: 18px;
   color: #ffffff;
   background: #000000;
+  border-radius: 4px;
 }
