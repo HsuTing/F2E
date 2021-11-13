@@ -6,9 +6,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { ApolloProvider } from '@apollo/client';
-import { Layout, Menu, Input, Button } from 'antd';
-import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
+import { Layout, Menu, Button } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 
+import Search from '../components/Search';
 import { useApollo } from '../hooks/useApollo';
 import { useOutOfBreakpoint } from '../hooks/useOutOfBreakpoint';
 import styles from './styles/app.module.scss';
@@ -67,12 +68,8 @@ const App = ({
               </Menu>
             )}
 
-            <div className={styles.input}>
-              <Input
-                prefix={<SearchOutlined />}
-                placeholder={t('search')}
-                size="large"
-              />
+            <div className={`${styles.input} ${styles.alwaysExist}`}>
+              <Search />
             </div>
 
             {!outOfBreakpoint ? null : (
@@ -107,10 +104,6 @@ const App = ({
                 )}
               </Menu>
             )}
-
-            <Button className={styles.smaller} type="text">
-              <SearchOutlined />
-            </Button>
           </div>
         </Header>
 
