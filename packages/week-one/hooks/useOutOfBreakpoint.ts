@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import getElementPosition from 'fbjs/lib/getElementPosition';
 
 export const useOutOfBreakpoint = (breakpoint: number) => {
-  const breakpointRef = useRef<HTMLDivElement | null>(null);
+  const breakpointRef = useRef(null);
   const [outOfBreakpoint, setOutOfBreakpoint] = useState(false);
 
   useEffect(() => {

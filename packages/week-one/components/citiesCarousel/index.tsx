@@ -10,18 +10,18 @@ const { Title } = Typography;
 
 const CitiesCarousel = () => {
   const { t } = useTranslation('home');
-  const { carouselRef, imageSize, draggable } = useCarouselInfo();
+  const { carouselRef, imageSize, ...carouselInfo } = useCarouselInfo();
 
   return (
     <>
       <Title level={2}>{t('maybe-go')}</Title>
 
-      <div ref={carouselRef}>
-        <Carousel draggable={draggable} dots={false} infinite variableWidth>
+      <div ref={carouselRef} className={styles.root}>
+        <Carousel {...carouselInfo} dots={false} infinite variableWidth>
           {CITIES.map(city => (
             <div key={city}>
               <div
-                className={styles.root}
+                className={styles.image}
                 style={{
                   width: imageSize,
                   height: imageSize,

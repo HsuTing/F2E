@@ -4,7 +4,15 @@
   md: $md;
 }
 
-.root {
+@media (max-width: $md) {
+  .root {
+    position: relative;
+    left: $container-md-padding * -1;
+    width: calc(100% + $container-md-padding * 2);
+  }
+}
+
+.image {
   display: flex;
   align-items: flex-end;
   margin: 0px 16px 0px 0px;
