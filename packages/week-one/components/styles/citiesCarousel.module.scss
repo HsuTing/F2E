@@ -1,4 +1,4 @@
-@import '../../../styles/constants.module.scss';
+@import '../../styles/constants.module.scss';
 
 :export {
   md: $md;
@@ -22,6 +22,7 @@
   margin: 0px 16px 0px 0px;
   padding: 16px;
   font-size: 18px;
+  font-weight: bold;
   color: #ffffff;
   border-radius: 4px;
 }
