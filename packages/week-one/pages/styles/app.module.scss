@@ -1,14 +1,29 @@
+$md: 768px;
+$lg: 992px;
+
 @mixin container {
   margin: 0px auto;
-  padding: 0px 120px 0px;
+  padding: 0px 120px;
   width: 100%;
   max-width: 1920px;
+
+  @media (max-width: $lg) {
+    padding: 0px 6%;
+  }
+
+  @media (max-width: $md) {
+    padding: 0px 16px;
+  }
 }
 
 @mixin menu-hover-bottom {
   &::after {
     border-bottom: 2px solid #15726c;
   }
+}
+
+:export {
+  md: $md;
 }
 
 .root {
@@ -38,12 +53,23 @@
     height: 60px;
     line-height: 60px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+
+    & > *:not(.smaller):not(.alwaysExist) {
+      @media (max-width: $md) {
+        display: none;
+      }
+    }
   }
 }
 
 .home {
   width: 85px;
   font-weight: bold;
+
+  @media (max-width: $md) {
+    width: initial;
+    margin: 0px 0px 0px 8px;
+  }
 }
 
 .menu:global(.ant-menu-horizontal:not(.ant-menu-dark)) {
@@ -119,15 +145,35 @@
 
 .input {
   flex-grow: 1;
+  margin: 0px 0px 0px 16px;
   text-align: right;
 
   :global(.ant-input-affix-wrapper) {
     max-width: 288px;
+
+    @media (max-width: $md) {
+      max-width: 100%;
+    }
   }
 }
 
 .content {
   @include container;
 
-  padding-top: 65px;
+  padding-top: 65px !important;
+}
+
+.smaller {
+  &:not(.alwaysExist) {
+    display: none;
+
+    @media (max-width: $md) {
+      display: block;
+    }
+  }
+
+  &:global(.ant-btn) {
+    padding: 0px;
+    height: 100%;
+  }
 }

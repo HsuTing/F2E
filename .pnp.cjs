@@ -2420,6 +2420,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["core-js", [
+        ["npm:1.2.7", {
+          "packageLocation": "./.yarn/cache/core-js-npm-1.2.7-88c984873f-0b76371bfa.zip/node_modules/core-js/",
+          "packageDependencies": [
+            ["core-js", "npm:1.2.7"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:3.19.1", {
           "packageLocation": "./.yarn/unplugged/core-js-npm-3.19.1-772a85cbf5/node_modules/core-js/",
           "packageDependencies": [
@@ -3579,6 +3586,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["fbjs", [
+        ["npm:0.8.18", {
+          "packageLocation": "./.yarn/cache/fbjs-npm-0.8.18-79fe681dcf-668731b946.zip/node_modules/fbjs/",
+          "packageDependencies": [
+            ["fbjs", "npm:0.8.18"],
+            ["core-js", "npm:1.2.7"],
+            ["isomorphic-fetch", "npm:2.2.1"],
+            ["loose-envify", "npm:1.4.0"],
+            ["object-assign", "npm:4.1.1"],
+            ["promise", "npm:7.3.1"],
+            ["setimmediate", "npm:1.0.5"],
+            ["ua-parser-js", "npm:0.7.31"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["file-entry-cache", [
         ["npm:6.0.1", {
           "packageLocation": "./.yarn/cache/file-entry-cache-npm-6.0.1-31965cf0af-f49701feaa.zip/node_modules/file-entry-cache/",
@@ -4656,6 +4679,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["is-stream", [
+        ["npm:1.1.0", {
+          "packageLocation": "./.yarn/cache/is-stream-npm-1.1.0-818ecbf6bb-063c6bec9d.zip/node_modules/is-stream/",
+          "packageDependencies": [
+            ["is-stream", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:2.0.1", {
           "packageLocation": "./.yarn/cache/is-stream-npm-2.0.1-c802db55e7-b8e05ccdf9.zip/node_modules/is-stream/",
           "packageDependencies": [
@@ -4731,6 +4761,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/isexe-npm-2.0.0-b58870bd2e-26bf6c5480.zip/node_modules/isexe/",
           "packageDependencies": [
             ["isexe", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["isomorphic-fetch", [
+        ["npm:2.2.1", {
+          "packageLocation": "./.yarn/cache/isomorphic-fetch-npm-2.2.1-46b4db5d7b-bb5daa7c37.zip/node_modules/isomorphic-fetch/",
+          "packageDependencies": [
+            ["isomorphic-fetch", "npm:2.2.1"],
+            ["node-fetch", "npm:1.7.3"],
+            ["whatwg-fetch", "npm:3.6.2"]
           ],
           "linkType": "HARD",
         }]
@@ -5828,6 +5869,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["node-fetch", [
+        ["npm:1.7.3", {
+          "packageLocation": "./.yarn/cache/node-fetch-npm-1.7.3-eb8372f991-3bb0528c05.zip/node_modules/node-fetch/",
+          "packageDependencies": [
+            ["node-fetch", "npm:1.7.3"],
+            ["encoding", "npm:0.1.13"],
+            ["is-stream", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:2.6.1", {
           "packageLocation": "./.yarn/cache/node-fetch-npm-2.6.1-46c670dbc1-91075bedd5.zip/node_modules/node-fetch/",
           "packageDependencies": [
@@ -6756,6 +6806,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/progress-npm-2.0.3-d1f87e2ac6-f67403fe7b.zip/node_modules/progress/",
           "packageDependencies": [
             ["progress", "npm:2.0.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["promise", [
+        ["npm:7.3.1", {
+          "packageLocation": "./.yarn/cache/promise-npm-7.3.1-5d81d474c0-475bb06913.zip/node_modules/promise/",
+          "packageDependencies": [
+            ["promise", "npm:7.3.1"],
+            ["asap", "npm:2.0.6"]
           ],
           "linkType": "HARD",
         }]
@@ -9391,6 +9451,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["ua-parser-js", [
+        ["npm:0.7.31", {
+          "packageLocation": "./.yarn/cache/ua-parser-js-npm-0.7.31-aeb4c9aae9-e2f8324a83.zip/node_modules/ua-parser-js/",
+          "packageDependencies": [
+            ["ua-parser-js", "npm:0.7.31"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["unbox-primitive", [
         ["npm:1.0.1", {
           "packageLocation": "./.yarn/cache/unbox-primitive-npm-1.0.1-50b9fde246-89d950e18f.zip/node_modules/unbox-primitive/",
@@ -9644,6 +9713,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["antd", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.16.13"],
             ["apollo-link-rest", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:0.8.0-beta.0"],
             ["deepmerge", "npm:4.2.2"],
+            ["fbjs", "npm:0.8.18"],
             ["graphql", "npm:16.0.1"],
             ["graphql-anywhere", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.2.7"],
             ["jssha", "npm:3.2.0"],
@@ -9655,6 +9725,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=ddd1e8"]
           ],
           "linkType": "SOFT",
+        }]
+      ]],
+      ["whatwg-fetch", [
+        ["npm:3.6.2", {
+          "packageLocation": "./.yarn/cache/whatwg-fetch-npm-3.6.2-4bdf324792-ee976b7249.zip/node_modules/whatwg-fetch/",
+          "packageDependencies": [
+            ["whatwg-fetch", "npm:3.6.2"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["whatwg-url", [
