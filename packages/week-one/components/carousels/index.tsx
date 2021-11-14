@@ -1,14 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import { Divider } from 'antd';
 
 import Carousel from './Carousel';
+import styles from './styles/index.module.scss';
 
 const Carousels = () => {
   const { t } = useTranslation('carousels');
 
   return (
-    <>
+    <div className={styles.root}>
       <Carousel
         title={
           <>
@@ -20,6 +22,8 @@ const Carousels = () => {
           </>
         }
       />
+
+      <Divider />
 
       <Carousel
         title={
@@ -33,6 +37,8 @@ const Carousels = () => {
         }
       />
 
+      <Divider />
+
       <Carousel
         title={
           <>
@@ -44,7 +50,7 @@ const Carousels = () => {
           </>
         }
       />
-    </>
+    </div>
   );
 };
 
