@@ -10,3 +10,12 @@ h2.title {
     margin: 0px 8px 0px 0px;
   }
 }
+
+.more {
+  display: grid;
+
+  :global(.ant-btn) {
+    margin: 0px auto;
+    min-width: 180px;
+  }
+}
