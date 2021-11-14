@@ -166,7 +166,10 @@
 
   padding-top: 60px !important;
   background: #ecf7f6;
-  overflow-x: hidden;
+
+  @media (max-width: $md) {
+    overflow-x: hidden;
+  }
 }
 
 .smaller {
