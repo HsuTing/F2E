@@ -22,3 +22,5 @@ export const CITIES = [
   'PenghuCounty',
   'LienchiangCounty',
 ] as const;
+
+export const TYPES = ['scenic-spots', 'hotels', 'activities'];
