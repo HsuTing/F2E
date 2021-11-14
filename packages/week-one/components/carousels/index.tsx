@@ -1,13 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import { filter } from 'graphql-anywhere';
 import { Divider } from 'antd';
 
 import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
 
 import Carousel from './Carousel';
-import { carouselFragment } from './gqls/carousel';
 import styles from './styles/index.module.scss';
 
 const Carousels = ({
@@ -30,7 +28,6 @@ const Carousels = ({
               {t('scenic-spots')}
             </>
           }
-          data={filter(carouselFragment, scenicSpots)}
         />
       )}
 
@@ -47,7 +44,6 @@ const Carousels = ({
               {t('hotels')}
             </>
           }
-          data={filter(carouselFragment, hotels)}
         />
       )}
 
@@ -64,7 +60,6 @@ const Carousels = ({
               {t('activities')}
             </>
           }
-          data={filter(carouselFragment, activities)}
         />
       )}
     </div>

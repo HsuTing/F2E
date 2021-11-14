@@ -2,14 +2,12 @@ import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { Typography, Button, Carousel as AntdCarousel } from 'antd';
 
-import type { carouselFragment as carouselFragmentType } from '../../gqls';
 import { useCarouselInfo } from '../../hooks/useCarouselInfo';
 
 import styles from './styles/carousel.module.scss';
 
 interface PropsType {
   title: React.ReactElement;
-  data: carouselFragmentType[];
 }
 
 const { Title } = Typography;
