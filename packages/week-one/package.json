@@ -26,6 +26,7 @@
     "@types/node": "^16.11.6",
     "@types/qs": "^6.9.7",
     "@types/react": "^17.0.34",
+    "apollo": "^2.33.9",
     "typescript": "^4.4.4"
   },
   "packageManager": "yarn@3.1.0"
