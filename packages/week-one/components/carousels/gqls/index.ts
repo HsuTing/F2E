@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+import { carouselFragment } from './carousel';
+
 export const carouselsFragment = gql`
   fragment carouselsFragment on Query {
     scenicSpots(first: 15)
@@ -7,10 +9,8 @@ export const carouselsFragment = gql`
         type: "[ScenicSpot!]!"
         path: "/Tourism/ScenicSpot?$top={args.first}&$format=JSON"
       ) {
+      ...carouselFragment
       id: ID
-      picture: Picture {
-        url: PictureUrl1
-      }
     }
 
     hotels(first: 15)
@@ -18,10 +18,8 @@ export const carouselsFragment = gql`
         type: "[Hotel!]!"
         path: "/Tourism/Hotel?$top={args.first}&$format=JSON"
       ) {
+      ...carouselFragment
       id: ID
-      picture: Picture {
-        url: PictureUrl1
-      }
     }
 
     activities(first: 15)
@@ -29,10 +27,10 @@ export const carouselsFragment = gql`
         type: "[Activity!]!"
         path: "/Tourism/Activity?$top={args.first}&$format=JSON"
       ) {
+      ...carouselFragment
       id: ID
-      picture: Picture {
-        url: PictureUrl1
-      }
     }
   }
+
+  ${carouselFragment}
 `;
