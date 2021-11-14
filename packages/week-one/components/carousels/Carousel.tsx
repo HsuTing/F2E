@@ -29,9 +29,9 @@ const Carousel = ({ title, data }: PropsType) => {
         {title}
       </Title>
 
-      <div ref={carouselRef}>
+      <div ref={carouselRef} className={styles.carousel}>
         {!data ? null : (
-          <AntdCarousel dots={isMobile} infinite variableWidth>
+          <AntdCarousel dots={isMobile} infinite variableWidth adaptiveHeight>
             {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
                 <div
