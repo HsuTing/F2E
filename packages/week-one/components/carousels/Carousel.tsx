@@ -7,10 +7,10 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import type { carouselFragment as carouselFragmentType } from '../../gqls/types';
 import { useCarouselInfo } from '../../hooks/useCarouselInfo';
+import { ZIP_CODES } from '../../utils/constants';
 
 import Arrow from './Arrow';
 import styles from './styles/carousel.module.scss';
-import { ZIP_CODES } from './constants';
 
 interface PropsType {
   title: React.ReactElement;
