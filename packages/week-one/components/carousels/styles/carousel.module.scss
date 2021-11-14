@@ -32,8 +32,19 @@ h2.title {
       font-size: 12px;
       background: #ffffff;
 
-      & > div:not(:last-child) {
-        margin: 0px 0px 4px;
+      & > div {
+        display: flex;
+        align-content: center;
+
+        &:not(:last-child) {
+          margin: 0px 0px 4px;
+        }
+
+        span {
+          display: flex;
+          align-content: center;
+          margin: 0px 4px 0px 0px;
+        }
       }
 
       h4:global(.ant-typography) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { Typography, Button, Carousel as AntdCarousel } from 'antd';
 
@@ -20,7 +21,7 @@ const { Title } = Typography;
 
 const Carousel = ({ title, data }: PropsType) => {
   const { t } = useTranslation('carousels');
-  const { carouselRef, imageSize } = useCarouselInfo(350, '100%');
+  const { carouselRef, imageSize, isMobile } = useCarouselInfo(350, '100%');
 
   return (
     <>
@@ -30,8 +31,8 @@ const Carousel = ({ title, data }: PropsType) => {
 
       <div ref={carouselRef}>
         {!data ? null : (
-          <AntdCarousel infinite variableWidth>
-            {data.map(({ id, name, picture: { url }, address, date }) => (
+          <AntdCarousel dots={isMobile} infinite variableWidth>
+            {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
                 <div
                   className={styles.card}
@@ -48,8 +49,18 @@ const Carousel = ({ title, data }: PropsType) => {
 
                   <div>
                     <Title level={4}>{name}</Title>
-                    <div>{address}</div>
-                    <div>{date}</div>
+
+                    {(['address', 'date'] as const).map(key =>
+                      !d[key] ? null : (
+                        <div key={key}>
+                          <span>
+                            <Image src={`/${key}.svg`} width={16} height={16} />
+                          </span>
+
+                          {d[key]}
+                        </div>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
