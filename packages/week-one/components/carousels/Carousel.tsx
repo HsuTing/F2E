@@ -31,7 +31,7 @@ const Carousel = ({ title, data }: PropsType) => {
       <div ref={carouselRef}>
         {!data ? null : (
           <AntdCarousel infinite variableWidth>
-            {data.map(({ id, picture: { url } }) => (
+            {data.map(({ id, name, picture: { url }, address, date }) => (
               <div key={id}>
                 <div
                   className={styles.card}
@@ -45,6 +45,12 @@ const Carousel = ({ title, data }: PropsType) => {
                       background: `url(${url}) center / cover ${styles.imagePlaceholderBackground}`,
                     }}
                   />
+
+                  <div>
+                    <Title level={4}>{name}</Title>
+                    <div>{address}</div>
+                    <div>{date}</div>
+                  </div>
                 </div>
               </div>
             ))}

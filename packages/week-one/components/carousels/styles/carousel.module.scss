@@ -19,9 +19,27 @@ h2.title {
 
 .card {
   margin: 0px $carousel-padding 0px 0px;
+  border-radius: 4px;
+  overflow: hidden;
 
-  & > div:first-child {
-    height: 170px;
+  & > div {
+    &:first-child {
+      height: 170px;
+    }
+
+    &:last-child {
+      padding: 12px 16px 20px;
+      font-size: 12px;
+      background: #ffffff;
+
+      & > div:not(:last-child) {
+        margin: 0px 0px 4px;
+      }
+
+      h4:global(.ant-typography) {
+        margin: 0px 0px 12px;
+      }
+    }
   }
 }
 
