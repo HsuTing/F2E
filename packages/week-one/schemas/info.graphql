@@ -7,13 +7,13 @@ type Info {
   ZipCode: String!
 }
 
-enum InfoEnum {
+enum InfoTypeEnum {
   ScenicSpot
   Hotel
   Activity
 }
 
 extend type Query {
-  info(type: InfoEnum): Info!
-  infos(type: InfoEnum, first: Int): [Info!]!
+  info(id: ID!, infoType: InfoTypeEnum!): Info!
+  infos(infoType: InfoTypeEnum!, first: Int!): [Info!]!
 }
