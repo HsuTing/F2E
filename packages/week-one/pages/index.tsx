@@ -81,7 +81,11 @@ export const getServerSideProps = async ({ locale }: { locale: string }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'home',
+        'carousels',
+      ])),
       initialApolloState: client.cache.extract(),
       recommends: shuffle(CITIES),
     },
