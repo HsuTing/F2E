@@ -17,7 +17,7 @@ interface PropsType {
 
 const { Title } = Typography;
 
-const Carousel = ({ title }: PropsType) => {
+const Carousel = ({ title, data }: PropsType) => {
   const { t } = useTranslation('carousels');
   const { carouselRef, imageSize } = useCarouselInfo(350, '100%');
 
@@ -29,20 +29,18 @@ const Carousel = ({ title }: PropsType) => {
 
       <div ref={carouselRef}>
         <AntdCarousel infinite variableWidth>
-          {[].constructor
-            .apply({}, new Array(20))
-            .map((_: unknown, index: number) => (
-              <div key={index}>
-                <div
-                  style={{
-                    width: imageSize,
-                    height: imageSize,
-                  }}
-                >
-                  {index}
-                </div>
+          {data.map(({ id }) => (
+            <div key={id}>
+              <div
+                style={{
+                  width: imageSize,
+                  height: imageSize,
+                }}
+              >
+                {id}
               </div>
-            ))}
+            </div>
+          ))}
         </AntdCarousel>
       </div>
 
