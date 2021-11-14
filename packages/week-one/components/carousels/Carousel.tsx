@@ -43,7 +43,9 @@ const Carousel = ({ title, data }: PropsType) => {
                   <div
                     style={{
                       width: imageSize,
-                      background: `url(${url}) center / cover ${styles.imagePlaceholderBackground}`,
+                      background: `url(${url || ''}) center / cover ${
+                        styles.imagePlaceholderBackground
+                      }`,
                     }}
                   />
 
