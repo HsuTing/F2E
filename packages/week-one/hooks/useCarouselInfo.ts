@@ -3,7 +3,10 @@ import getElementPosition from 'fbjs/lib/getElementPosition';
 
 import styles from '../styles/constants.module.scss';
 
-export const useCarouselInfo = (minWidth: number) => {
+export const useCarouselInfo = (
+  minWidth: number,
+  mobileWidth: number | '100%' = minWidth,
+) => {
   const carouselRef = useRef(null);
   const [carouselInfo, setCarouselInfo] = useState({
     imageSize: 0,
@@ -24,7 +27,7 @@ export const useCarouselInfo = (minWidth: number) => {
         });
       else
         setCarouselInfo({
-          imageSize: minWidth,
+          imageSize: mobileWidth !== '100%' ? mobileWidth : width,
           isMobile: true,
         });
     };
