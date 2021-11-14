@@ -31,15 +31,20 @@ const Carousel = ({ title, data }: PropsType) => {
       <div ref={carouselRef}>
         {!data ? null : (
           <AntdCarousel infinite variableWidth>
-            {data.map(({ id }) => (
+            {data.map(({ id, picture: { url } }) => (
               <div key={id}>
                 <div
+                  className={styles.card}
                   style={{
                     width: imageSize,
-                    height: imageSize,
                   }}
                 >
-                  {id}
+                  <div
+                    style={{
+                      width: imageSize,
+                      background: `url(${url}) center / cover ${styles.imagePlaceholderBackground}`,
+                    }}
+                  />
                 </div>
               </div>
             ))}
