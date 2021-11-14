@@ -20,4 +20,4 @@
 tsconfig.tsbuildinfo
 
 # apollo types
-gqls.ts
+**/gqls/types.ts
