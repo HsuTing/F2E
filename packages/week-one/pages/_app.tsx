@@ -27,10 +27,10 @@ const App = ({
     parseInt(styles.md.replace(/px/, ''), 10),
   );
   const { t, i18n } = useTranslation();
+  const pageKey = usePageKey();
   const [isOpened, setIsOpened] = useState(false);
   // @ts-ignore next-i18next types error
   const locales = i18n.options.locales as string[];
-  const pageKey = usePageKey();
 
   return (
     <ApolloProvider client={client}>
