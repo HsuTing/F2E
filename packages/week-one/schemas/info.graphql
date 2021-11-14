@@ -14,5 +14,6 @@ enum InfoEnum {
 }
 
 extend type Query {
+  info(type: InfoEnum): Info!
   infos(type: InfoEnum, first: Int): [Info!]!
 }
