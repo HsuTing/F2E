@@ -44,7 +44,7 @@ const Carousel = ({ title, pathname, data }: PropsType) => {
           >
             {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
-                <Link href={`${pathname}/${name}`}>
+                <Link href={`${pathname}/${id}`}>
                   <a
                     className={styles.card}
                     style={{
