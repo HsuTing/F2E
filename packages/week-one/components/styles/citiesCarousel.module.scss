@@ -2,6 +2,7 @@
 
 :export {
   md: $md;
+  imagePlaceholderBackground: $image-placeholder-background;
 }
 
 @media (max-width: $md) {
