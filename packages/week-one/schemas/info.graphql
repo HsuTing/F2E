@@ -4,6 +4,7 @@ type Info {
   Picture: Picture!
   Address: String!
   OpenTime: String!
+  ZipCode: String!
 }
 
 enum InfoEnum {
