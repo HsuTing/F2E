@@ -2,7 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { Typography, Button, Carousel as AntdCarousel } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
+import Arrow from './Arrow';
 import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
 import { useCarouselInfo } from '../../hooks/useCarouselInfo';
 
@@ -31,7 +33,15 @@ const Carousel = ({ title, data }: PropsType) => {
 
       <div ref={carouselRef} className={styles.carousel}>
         {!data ? null : (
-          <AntdCarousel dots={isMobile} infinite variableWidth adaptiveHeight>
+          <AntdCarousel
+            prevArrow={<Arrow icon={<LeftOutlined />} />}
+            nextArrow={<Arrow icon={<RightOutlined />} />}
+            dots={isMobile}
+            infinite
+            variableWidth
+            adaptiveHeight
+            arrows
+          >
             {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
                 <div
