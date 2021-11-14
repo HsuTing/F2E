@@ -46,7 +46,7 @@ const CitiesCarousel = ({ cities, recommends }: PropsType) => {
                     }) center / cover ${styles.imagePlaceholderBackground}`,
                   }}
                 >
-                  {t(`cities.${city}`)}
+                  {t(`common:cities.${city}`)}
                 </div>
               </div>
             ))}

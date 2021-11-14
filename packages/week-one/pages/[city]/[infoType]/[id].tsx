@@ -43,7 +43,7 @@ const Detail = ({ variables, infoType }: PropsType) => {
             href: '/',
           },
           {
-            key: city,
+            key: `cities.${city}`,
             href: `/${city}`,
           },
           {
