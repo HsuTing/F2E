@@ -65,7 +65,7 @@ const Home = ({ recommends }: PropsType) => {
   );
 };
 
-export const getStaticProps = async ({ locale }: { locale: string }) => {
+export const getServerSideProps = async ({ locale }: { locale: string }) => {
   const client = initializeApollo();
 
   try {
