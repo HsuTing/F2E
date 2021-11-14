@@ -82,7 +82,6 @@ export const getServerSideProps = async ({ locale }: { locale: string }) => {
       initialApolloState: client.cache.extract(),
       recommends: shuffle(CITIES),
     },
-    revalidate: 1,
   };
 };
 
