@@ -6,7 +6,7 @@ export const carouselsFragment = gql`
   fragment carouselsFragment on Query {
     scenicSpots: infos(type: ScenicSpot, first: 15)
       @rest(
-        type: "Info"
+        type: "[Info]"
         path: "/Tourism/{args.type}?$top={args.first}&$format=JSON"
       ) {
       ...carouselFragment
