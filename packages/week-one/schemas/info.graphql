@@ -1,0 +1,17 @@
+type Info {
+  ID: ID!
+  Name: String!
+  Picture: Picture!
+  Address: String!
+  OpenTime: String!
+}
+
+enum InfoEnum {
+  ScenicSpot
+  Hotel
+  Activity
+}
+
+extend type Query {
+  infos(type: InfoEnum, first: Int): [Info!]!
+}
