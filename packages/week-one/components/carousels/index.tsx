@@ -30,6 +30,7 @@ const Carousels = (props: PropsType) => {
               {t(key)}
             </>
           }
+          pathname={`/${key}`}
           data={filter(
             carouselFragment,
             props[camelCase(key) as Exclude<keyof PropsType, '__typename'>] ||

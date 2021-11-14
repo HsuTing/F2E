@@ -24,18 +24,25 @@ h2.title {
     margin: 0px 0px 36px;
   }
 
-  :global(.ant-carousel) :global(.slick-dots) li {
-    &:global(.slick-active) button {
-      background: #15726c;
+  :global(.ant-carousel) {
+    :global(.slick-list) :global(.slick-slide) {
+      pointer-events: auto;
     }
 
-    button {
-      background: #c4c4c4;
+    :global(.slick-dots) li {
+      &:global(.slick-active) button {
+        background: #15726c;
+      }
+
+      button {
+        background: #c4c4c4;
+      }
     }
   }
 }
 
 .card {
+  display: block;
   margin: 0px $carousel-padding 0px 0px;
   border-radius: 4px;
   overflow: hidden;

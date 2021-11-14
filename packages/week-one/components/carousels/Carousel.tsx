@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { Typography, Button, Carousel as AntdCarousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
@@ -12,12 +13,13 @@ import styles from './styles/carousel.module.scss';
 
 interface PropsType {
   title: React.ReactElement;
+  pathname: string;
   data: carouselFragmentType[] | null;
 }
 
 const { Title } = Typography;
 
-const Carousel = ({ title, data }: PropsType) => {
+const Carousel = ({ title, pathname, data }: PropsType) => {
   const { t } = useTranslation('carousels');
   const { carouselRef, imageSize, isMobile } = useCarouselInfo(350, '100%');
 
@@ -42,37 +44,43 @@ const Carousel = ({ title, data }: PropsType) => {
           >
             {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
-                <div
-                  className={styles.card}
-                  style={{
-                    width: imageSize,
-                  }}
-                >
-                  <div
+                <Link href={`${pathname}/${name}`}>
+                  <a
+                    className={styles.card}
                     style={{
                       width: imageSize,
-                      background: `url(${url || ''}) center / cover ${
-                        styles.imagePlaceholderBackground
-                      }`,
                     }}
-                  />
+                  >
+                    <div
+                      style={{
+                        width: imageSize,
+                        background: `url(${url || ''}) center / cover ${
+                          styles.imagePlaceholderBackground
+                        }`,
+                      }}
+                    />
 
-                  <div>
-                    <Title level={4}>{name}</Title>
+                    <div>
+                      <Title level={4}>{name}</Title>
 
-                    {(['address', 'date'] as const).map(key =>
-                      !d[key] ? null : (
-                        <div key={key}>
-                          <span>
-                            <Image src={`/${key}.svg`} width={16} height={16} />
-                          </span>
+                      {(['address', 'date'] as const).map(key =>
+                        !d[key] ? null : (
+                          <div key={key}>
+                            <span>
+                              <Image
+                                src={`/${key}.svg`}
+                                width={16}
+                                height={16}
+                              />
+                            </span>
 
-                          <span>{d[key]}</span>
-                        </div>
-                      ),
-                    )}
-                  </div>
-                </div>
+                            <span>{d[key]}</span>
+                          </div>
+                        ),
+                      )}
+                    </div>
+                  </a>
+                </Link>
               </div>
             ))}
           </AntdCarousel>
