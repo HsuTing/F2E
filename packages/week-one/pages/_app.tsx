@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { ApolloProvider } from '@apollo/client';
 import { Layout, Menu } from 'antd';
@@ -12,6 +11,7 @@ import Search from '../components/Search';
 import MobileMenu from '../components/MobileMenu';
 import { useApollo } from '../hooks/useApollo';
 import { useOutOfBreakpoint } from '../hooks/useOutOfBreakpoint';
+import { usePageKey } from '../hooks/usePageKey';
 import styles from '../styles/app.module.scss';
 import { INFO_TYPES } from '../utils/constants';
 
@@ -26,8 +26,8 @@ const App = ({
   const { breakpointRef, outOfBreakpoint } = useOutOfBreakpoint(
     parseInt(styles.md.replace(/px/, ''), 10),
   );
-  const router = useRouter();
   const { t, i18n } = useTranslation();
+  const pageKey = usePageKey();
   const [isOpened, setIsOpened] = useState(false);
   // @ts-ignore next-i18next types error
   const locales = i18n.options.locales as string[];
@@ -60,7 +60,7 @@ const App = ({
             {!outOfBreakpoint ? null : (
               <Menu
                 className={styles.menu}
-                selectedKeys={[router.asPath]}
+                selectedKeys={[pageKey]}
                 mode="horizontal"
               >
                 {INFO_TYPES.map(key => (
@@ -84,7 +84,7 @@ const App = ({
             {!outOfBreakpoint ? null : (
               <Menu
                 className={styles.menu}
-                selectedKeys={[router.asPath]}
+                selectedKeys={[pageKey]}
                 mode="horizontal"
               >
                 {['locale', 'wish-list'].map(key =>

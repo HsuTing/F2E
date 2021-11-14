@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Button, Drawer, Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
+import { usePageKey } from '../hooks/usePageKey';
 import { INFO_TYPES } from '../utils/constants';
 import styles from './styles/mobileMenu.module.scss';
 
@@ -16,8 +16,8 @@ interface PropsType {
 const { Item, SubMenu, Divider } = Menu;
 
 const MobileMenu = ({ className, outOfBreakpoint }: PropsType) => {
-  const router = useRouter();
   const { t, i18n } = useTranslation();
+  const pageKey = usePageKey();
   const [visible, setVisible] = useState(false);
   // @ts-ignore next-i18next types error
   const locales = i18n.options.locales as string[];
@@ -39,7 +39,7 @@ const MobileMenu = ({ className, outOfBreakpoint }: PropsType) => {
         width={300}
         placement="left"
       >
-        <Menu selectedKeys={[router.asPath]} mode="inline">
+        <Menu selectedKeys={[pageKey]} mode="inline">
           {INFO_TYPES.map(key => (
             <Item key={key}>
               <Link href={`/${key}`}>
