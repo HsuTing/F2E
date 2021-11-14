@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -11,6 +11,7 @@ import shuffle from 'lodash.shuffle';
 import CitiesCarousel from '../components/CitiesCarousel';
 import Carousels from '../components/carousels';
 import type { getHomePage as getHomePageType } from '../gqls/types';
+import { getHomePage } from '../gqls';
 import { citiesCarouselQueryFragment } from '../components/gqls/citiesCarousel';
 import { carouselsFragment } from '../components/carousels/gqls';
 import { initializeApollo } from '../hooks/useApollo';
@@ -20,16 +21,6 @@ import { CITIES } from '../utils/constants';
 interface PropsType {
   recommends: typeof CITIES;
 }
-
-const getHomePage = gql`
-  query getHomePage {
-    ...citiesCarouselQueryFragment
-    ...carouselsFragment
-  }
-
-  ${citiesCarouselQueryFragment}
-  ${carouselsFragment}
-`;
 
 const Home = ({ recommends }: PropsType) => {
   const { t } = useTranslation('home');
