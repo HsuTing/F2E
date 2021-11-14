@@ -9,5 +9,6 @@ export const carouselFragment = gql`
     }
     address: Address
     date: OpenTime
+    zipCode: ZipCode
   }
 `;
