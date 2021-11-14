@@ -11,6 +11,7 @@ import shuffle from 'lodash.shuffle';
 import CitiesCarousel, {
   citiesCarouselQueryFragment,
 } from '../components/CitiesCarousel';
+import Carousels from '../components/carousels';
 import type { getHomePage as getHomePageType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
 import styles from '../styles/index.module.scss';
@@ -61,6 +62,8 @@ const Home = ({ recommends }: PropsType) => {
         cities={filter(citiesCarouselQueryFragment, data || null)}
         recommends={recommends}
       />
+
+      <Carousels />
     </>
   );
 };
@@ -78,7 +81,11 @@ export const getServerSideProps = async ({ locale }: { locale: string }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'home',
+        'carousels',
+      ])),
       initialApolloState: client.cache.extract(),
       recommends: shuffle(CITIES),
     },

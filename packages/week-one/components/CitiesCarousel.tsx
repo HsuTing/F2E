@@ -36,7 +36,7 @@ const CitiesCarousel = ({ cities, recommends }: PropsType) => {
                   style={{
                     width: imageSize,
                     height: imageSize,
-                    background: `url(${cities[city].picture.url}) center / cover #c0c0c0`,
+                    background: `url(${cities[city].picture.url}) center / cover ${styles.imagePlaceholderBackground}`,
                   }}
                 >
                   {t(`cities.${city}`)}

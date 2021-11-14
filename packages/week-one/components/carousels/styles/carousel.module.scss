@@ -1,0 +1,21 @@
+h2.title {
+  display: flex;
+  align-content: center;
+  margin: 32px 0px 16px;
+  color: #15726c;
+
+  span {
+    display: flex;
+    align-content: center;
+    margin: 0px 8px 0px 0px;
+  }
+}
+
+.more {
+  display: grid;
+
+  :global(.ant-btn) {
+    margin: 0px auto;
+    min-width: 180px;
+  }
+}
