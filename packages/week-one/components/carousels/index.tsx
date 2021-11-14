@@ -6,7 +6,6 @@ import { Divider } from 'antd';
 import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
 
 import Carousel from './Carousel';
-import { carouselsFragment } from './gqls';
 import styles from './styles/index.module.scss';
 
 const Carousels = (_: Partial<carouselsFragmentType>) => {
@@ -57,5 +56,4 @@ const Carousels = (_: Partial<carouselsFragmentType>) => {
   );
 };
 
-export { carouselsFragment };
 export default React.memo(Carousels);
