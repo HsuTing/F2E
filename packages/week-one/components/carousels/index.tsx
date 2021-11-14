@@ -28,6 +28,7 @@ const Carousels = ({
               {t('scenic-spots')}
             </>
           }
+          data={scenicSpots}
         />
       )}
 
@@ -44,6 +45,7 @@ const Carousels = ({
               {t('hotels')}
             </>
           }
+          data={hotels}
         />
       )}
 
@@ -60,6 +62,7 @@ const Carousels = ({
               {t('activities')}
             </>
           }
+          data={activities}
         />
       )}
     </div>
