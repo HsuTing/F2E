@@ -3,10 +3,10 @@ import { useTranslation } from 'next-i18next';
 import { Typography, Carousel } from 'antd';
 
 import { citiesCarouselQueryFragment as citiesCarouselQueryFragmentType } from '../gqls';
+import { useCarouselInfo } from '../hooks/useCarouselInfo';
 import { CITIES } from '../utils/constants';
 
 import { citiesCarouselQueryFragment } from './gqls/citiesCarousel';
-import { useCarouselInfo } from './hooks/useCarouselInfo';
 import styles from './styles/citiesCarousel.module.scss';
 
 interface PropsType {
@@ -18,7 +18,7 @@ const { Title } = Typography;
 
 const CitiesCarousel = ({ cities, recommends }: PropsType) => {
   const { t } = useTranslation('home');
-  const { carouselRef, imageSize, ...carouselInfo } = useCarouselInfo();
+  const { carouselRef, imageSize, isMobile } = useCarouselInfo(200);
 
   return (
     <>
@@ -28,7 +28,13 @@ const CitiesCarousel = ({ cities, recommends }: PropsType) => {
 
       <div ref={carouselRef} className={styles.root}>
         {!cities ? null : (
-          <Carousel {...carouselInfo} dots={false} infinite variableWidth>
+          <Carousel
+            centerMode={isMobile}
+            draggable={isMobile}
+            dots={false}
+            infinite
+            variableWidth
+          >
             {recommends.map(city => (
               <div key={city}>
                 <div
