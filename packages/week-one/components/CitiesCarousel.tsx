@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { Typography, Carousel } from 'antd';
 
-import type { citiesCarouselQueryFragment as citiesCarouselQueryFragmentType } from '../gqls';
+import type { citiesCarouselQueryFragment as citiesCarouselQueryFragmentType } from '../gqls/types';
 import { useCarouselInfo } from '../hooks/useCarouselInfo';
 import { CITIES } from '../utils/constants';
 

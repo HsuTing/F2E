@@ -1,7 +1,7 @@
 {
   "name": "week-one",
   "scripts": {
-    "codegen": "apollo client:codegen --target typescript --outputFlat ./gqls.ts --localSchemaFile ./schemas/main.graphql --includes './**/*.{ts,tsx},./schemas/*.graphql' --excludes ./schemas/main.graphql"
+    "codegen": "apollo client:codegen --target typescript --outputFlat ./gqls/types.ts --localSchemaFile ./schemas/main.graphql --includes './**/*.{ts,tsx},./schemas/*.graphql' --excludes ./schemas/main.graphql"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",

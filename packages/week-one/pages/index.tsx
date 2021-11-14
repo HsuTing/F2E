@@ -10,7 +10,7 @@ import shuffle from 'lodash.shuffle';
 
 import CitiesCarousel from '../components/CitiesCarousel';
 import Carousels from '../components/carousels';
-import type { getHomePage as getHomePageType } from '../gqls';
+import type { getHomePage as getHomePageType } from '../gqls/types';
 import { citiesCarouselQueryFragment } from '../components/gqls/citiesCarousel';
 import { carouselsFragment } from '../components/carousels/gqls';
 import { initializeApollo } from '../hooks/useApollo';
