@@ -7,20 +7,20 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import type { carouselFragment as carouselFragmentType } from '../../gqls/types';
 import { useCarouselInfo } from '../../hooks/useCarouselInfo';
-import { ZIP_CODES } from '../../utils/constants';
+import { INFO_TYPES, ZIP_CODES } from '../../utils/constants';
 
 import Arrow from './Arrow';
 import styles from './styles/carousel.module.scss';
 
 interface PropsType {
   title: React.ReactElement;
-  pathname: string;
+  infoType: typeof INFO_TYPES[number];
   data: carouselFragmentType[] | null;
 }
 
 const { Title } = Typography;
 
-const Carousel = ({ title, pathname, data }: PropsType) => {
+const Carousel = ({ title, infoType, data }: PropsType) => {
   const { t } = useTranslation('carousels');
   const { carouselRef, imageSize, isMobile } = useCarouselInfo(350, '100%');
 
@@ -45,7 +45,7 @@ const Carousel = ({ title, pathname, data }: PropsType) => {
           >
             {data.map(({ id, name, picture: { url }, zipCode, ...d }) => (
               <div key={id}>
-                <Link href={`${pathname}/${ZIP_CODES[zipCode]}/${id}`}>
+                <Link href={`/${ZIP_CODES[zipCode]}/${infoType}/${id}`}>
                   <a
                     className={styles.card}
                     style={{
