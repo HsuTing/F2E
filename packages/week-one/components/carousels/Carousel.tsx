@@ -10,6 +10,7 @@ import { useCarouselInfo } from '../../hooks/useCarouselInfo';
 
 import Arrow from './Arrow';
 import styles from './styles/carousel.module.scss';
+import { ZIP_CODES } from './constants';
 
 interface PropsType {
   title: React.ReactElement;
@@ -42,9 +43,9 @@ const Carousel = ({ title, pathname, data }: PropsType) => {
             adaptiveHeight
             centerMode
           >
-            {data.map(({ id, name, picture: { url }, ...d }) => (
+            {data.map(({ id, name, picture: { url }, zipCode, ...d }) => (
               <div key={id}>
-                <Link href={`${pathname}/${id}`}>
+                <Link href={`${pathname}/${ZIP_CODES[zipCode]}/${id}`}>
                   <a
                     className={styles.card}
                     style={{
