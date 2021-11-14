@@ -11,7 +11,7 @@ import shuffle from 'lodash.shuffle';
 import CitiesCarousel, {
   citiesCarouselQueryFragment,
 } from '../components/CitiesCarousel';
-import Carousels from '../components/carousels';
+import Carousels, { carouselsFragment } from '../components/carousels';
 import type { getHomePage as getHomePageType } from '../gqls';
 import { initializeApollo } from '../hooks/useApollo';
 import styles from '../styles/index.module.scss';
@@ -24,9 +24,11 @@ interface PropsType {
 const getHomePage = gql`
   query getHomePage {
     ...citiesCarouselQueryFragment
+    ...carouselsFragment
   }
 
   ${citiesCarouselQueryFragment}
+  ${carouselsFragment}
 `;
 
 const Home = ({ recommends }: PropsType) => {
@@ -63,7 +65,7 @@ const Home = ({ recommends }: PropsType) => {
         recommends={recommends}
       />
 
-      <Carousels />
+      <Carousels {...filter(carouselsFragment, data || {})} />
     </>
   );
 };

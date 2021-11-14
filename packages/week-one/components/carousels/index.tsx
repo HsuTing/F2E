@@ -3,11 +3,13 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { Divider } from 'antd';
 
+import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
+
 import Carousel from './Carousel';
 import { carouselsFragment } from './gqls';
 import styles from './styles/index.module.scss';
 
-const Carousels = () => {
+const Carousels = (_: Partial<carouselsFragmentType>) => {
   const { t } = useTranslation('carousels');
 
   return (
