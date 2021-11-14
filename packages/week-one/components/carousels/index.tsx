@@ -1,12 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import { filter } from 'graphql-anywhere';
 import camelCase from 'lodash.camelcase';
 
 import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
 import { TYPES } from '../../utils/constants';
 
 import Carousel from './Carousel';
+import { carouselFragment } from './gqls/carousel';
 import styles from './styles/index.module.scss';
 
 type PropsType = Partial<carouselsFragmentType>;
@@ -28,10 +30,11 @@ const Carousels = (props: PropsType) => {
               {t(key)}
             </>
           }
-          data={
+          data={filter(
+            carouselFragment,
             props[camelCase(key) as Exclude<keyof PropsType, '__typename'>] ||
-            null
-          }
+              null,
+          )}
         />
       ))}
     </div>

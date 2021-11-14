@@ -5,18 +5,14 @@ import { Typography, Button, Carousel as AntdCarousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import Arrow from './Arrow';
-import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
+import type { carouselFragment as carouselFragmentType } from '../../gqls';
 import { useCarouselInfo } from '../../hooks/useCarouselInfo';
 
 import styles from './styles/carousel.module.scss';
 
 interface PropsType {
   title: React.ReactElement;
-  data:
-    | carouselsFragmentType['scenicSpots']
-    | carouselsFragmentType['hotels']
-    | carouselsFragmentType['activities']
-    | null;
+  data: carouselFragmentType[] | null;
 }
 
 const { Title } = Typography;
