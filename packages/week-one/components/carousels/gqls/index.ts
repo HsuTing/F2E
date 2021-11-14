@@ -8,9 +8,12 @@ export const carouselsFragment = gql`
         path: "/Tourism/ScenicSpot?$top={args.first}&$format=JSON"
       ) {
       id: ID
+      name: Name
       picture: Picture @type(name: "Picture") {
         url: PictureUrl1
       }
+      address: Address
+      date: OpenTime
     }
 
     hotels(first: 15)
@@ -19,9 +22,12 @@ export const carouselsFragment = gql`
         path: "/Tourism/Hotel?$top={args.first}&$format=JSON"
       ) {
       id: ID
+      name: Name
       picture: Picture @type(name: "Picture") {
         url: PictureUrl1
       }
+      address: Address
+      date: OpenTime
     }
 
     activities(first: 15)
@@ -30,9 +36,12 @@ export const carouselsFragment = gql`
         path: "/Tourism/Activity?$top={args.first}&$format=JSON"
       ) {
       id: ID
+      name: Name
       picture: Picture @type(name: "Picture") {
         url: PictureUrl1
       }
+      address: Address
+      date: OpenTime
     }
   }
 `;

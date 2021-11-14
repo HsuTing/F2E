@@ -1,6 +1,9 @@
 type Activity {
   ID: ID!
+  Name: String!
   Picture: Picture!
+  Address: String!
+  OpenTime: String!
 }
 
 extend type Query {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { Typography, Button, Carousel as AntdCarousel } from 'antd';
 
@@ -20,7 +21,7 @@ const { Title } = Typography;
 
 const Carousel = ({ title, data }: PropsType) => {
   const { t } = useTranslation('carousels');
-  const { carouselRef, imageSize } = useCarouselInfo(350, '100%');
+  const { carouselRef, imageSize, isMobile } = useCarouselInfo(350, '100%');
 
   return (
     <>
@@ -28,18 +29,39 @@ const Carousel = ({ title, data }: PropsType) => {
         {title}
       </Title>
 
-      <div ref={carouselRef}>
+      <div ref={carouselRef} className={styles.carousel}>
         {!data ? null : (
-          <AntdCarousel infinite variableWidth>
-            {data.map(({ id }) => (
+          <AntdCarousel dots={isMobile} infinite variableWidth adaptiveHeight>
+            {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
                 <div
+                  className={styles.card}
                   style={{
                     width: imageSize,
-                    height: imageSize,
                   }}
                 >
-                  {id}
+                  <div
+                    style={{
+                      width: imageSize,
+                      background: `url(${url}) center / cover ${styles.imagePlaceholderBackground}`,
+                    }}
+                  />
+
+                  <div>
+                    <Title level={4}>{name}</Title>
+
+                    {(['address', 'date'] as const).map(key =>
+                      !d[key] ? null : (
+                        <div key={key}>
+                          <span>
+                            <Image src={`/${key}.svg`} width={16} height={16} />
+                          </span>
+
+                          {d[key]}
+                        </div>
+                      ),
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

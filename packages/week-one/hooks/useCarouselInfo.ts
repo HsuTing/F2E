@@ -3,6 +3,8 @@ import getElementPosition from 'fbjs/lib/getElementPosition';
 
 import styles from '../styles/constants.module.scss';
 
+const PADDING = parseInt(styles.carouselPadding.replace(/px/, ''), 10);
+
 export const useCarouselInfo = (
   minWidth: number,
   mobileWidth: number | '100%' = minWidth,
@@ -18,11 +20,11 @@ export const useCarouselInfo = (
       if (!carouselRef.current) return;
 
       const { width } = getElementPosition(carouselRef.current);
-      const amount = Math.floor((width + 16) / (minWidth + 16));
+      const amount = Math.floor((width + PADDING) / (minWidth + PADDING));
 
       if (window.innerWidth > parseInt(styles.md.replace(/px/, ''), 10))
         setCarouselInfo({
-          imageSize: (width - 16 * (amount - 1)) / amount + 1 / amount,
+          imageSize: (width - PADDING * (amount - 1)) / amount + 1 / amount,
           isMobile: false,
         });
       else
