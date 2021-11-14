@@ -4,5 +4,5 @@ type Hotel implements Info {
 }
 
 extend type Query {
-  hotels(first: Int): Hotel!
+  hotels(first: Int): [Hotel!]!
 }

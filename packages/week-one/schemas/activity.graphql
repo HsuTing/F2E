@@ -4,5 +4,5 @@ type Activity implements Info {
 }
 
 extend type Query {
-  activities(first: Int): Activity!
+  activities(first: Int): [Activity!]!
 }

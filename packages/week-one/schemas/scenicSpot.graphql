@@ -4,5 +4,5 @@ type ScenicSpot implements Info {
 }
 
 extend type Query {
-  scenicSpots(first: Int): ScenicSpot!
+  scenicSpots(first: Int): [ScenicSpot!]!
 }
