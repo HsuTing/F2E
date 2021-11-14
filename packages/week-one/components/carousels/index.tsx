@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import { Divider } from 'antd';
 
 import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
 
@@ -17,54 +16,34 @@ const Carousels = ({
 
   return (
     <div className={styles.root}>
-      {!scenicSpots ? null : (
+      {[
+        {
+          key: 'scenic-spots',
+          data: scenicSpots,
+        },
+        {
+          key: 'hotels',
+          data: hotels,
+        },
+        {
+          key: 'activities',
+          data: activities,
+        },
+      ].map(({ key, data }) => (
         <Carousel
+          key={key}
           title={
             <>
               <span>
-                <Image src="/fire.svg" width={32} height={32} />
+                <Image src={`/${key}.svg`} width={32} height={32} />
               </span>
 
-              {t('scenic-spots')}
+              {t(key)}
             </>
           }
-          data={scenicSpots}
+          data={data || null}
         />
-      )}
-
-      <Divider />
-
-      {!hotels ? null : (
-        <Carousel
-          title={
-            <>
-              <span>
-                <Image src="/company.svg" width={32} height={32} />
-              </span>
-
-              {t('hotels')}
-            </>
-          }
-          data={hotels}
-        />
-      )}
-
-      <Divider />
-
-      {!activities ? null : (
-        <Carousel
-          title={
-            <>
-              <span>
-                <Image src="/calendar.svg" width={32} height={32} />
-              </span>
-
-              {t('activities')}
-            </>
-          }
-          data={activities}
-        />
-      )}
+      ))}
     </div>
   );
 };

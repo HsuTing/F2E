@@ -12,7 +12,8 @@ interface PropsType {
   data:
     | carouselsFragmentType['scenicSpots']
     | carouselsFragmentType['hotels']
-    | carouselsFragmentType['activities'];
+    | carouselsFragmentType['activities']
+    | null;
 }
 
 const { Title } = Typography;
@@ -28,20 +29,22 @@ const Carousel = ({ title, data }: PropsType) => {
       </Title>
 
       <div ref={carouselRef}>
-        <AntdCarousel infinite variableWidth>
-          {data.map(({ id }) => (
-            <div key={id}>
-              <div
-                style={{
-                  width: imageSize,
-                  height: imageSize,
-                }}
-              >
-                {id}
+        {!data ? null : (
+          <AntdCarousel infinite variableWidth>
+            {data.map(({ id }) => (
+              <div key={id}>
+                <div
+                  style={{
+                    width: imageSize,
+                    height: imageSize,
+                  }}
+                >
+                  {id}
+                </div>
               </div>
-            </div>
-          ))}
-        </AntdCarousel>
+            ))}
+          </AntdCarousel>
+        )}
       </div>
 
       <div className={styles.more}>
