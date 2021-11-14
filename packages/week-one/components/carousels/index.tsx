@@ -29,23 +29,21 @@ const Carousels = ({
           key: 'activities',
           data: activities,
         },
-      ].map(({ key, data }) =>
-        !data ? null : (
-          <Carousel
-            key={key}
-            title={
-              <>
-                <span>
-                  <Image src={`/${key}.svg`} width={32} height={32} />
-                </span>
+      ].map(({ key, data }) => (
+        <Carousel
+          key={key}
+          title={
+            <>
+              <span>
+                <Image src={`/${key}.svg`} width={32} height={32} />
+              </span>
 
-                {t(key)}
-              </>
-            }
-            data={data}
-          />
-        ),
-      )}
+              {t(key)}
+            </>
+          }
+          data={data || null}
+        />
+      ))}
     </div>
   );
 };
