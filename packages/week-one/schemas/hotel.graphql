@@ -1,4 +1,4 @@
-type Hotel {
+type Hotel implements Info {
   ID: ID!
   Picture: Picture!
 }

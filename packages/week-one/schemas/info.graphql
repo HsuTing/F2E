@@ -1,0 +1,4 @@
+interface Info {
+  ID: ID!
+  Picture: Picture!
+}
