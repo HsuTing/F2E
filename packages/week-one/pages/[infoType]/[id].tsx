@@ -18,12 +18,12 @@ const Detail = () => {
 
 export const getServerSideProps = async ({
   locale,
-  query: { infoType, search },
+  query: { id, infoType },
 }: {
   locale: string;
   query: {
+    id: string;
     infoType: typeof INFO_TYPES[number];
-    search: string;
   };
 }) => {
   if (!INFO_TYPES.includes(infoType)) return { notFound: true };
@@ -42,7 +42,7 @@ export const getServerSideProps = async ({
     props: {
       ...(await serverSideTranslations(locale, ['common', 'carousels'])),
       initialApolloState: client.cache.extract(),
-      search,
+      id,
     },
   };
 };
