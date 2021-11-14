@@ -12,7 +12,9 @@ const Carousels = () => {
       <Carousel
         title={
           <>
-            <Image src="/fire.svg" width={32} height={32} />
+            <span>
+              <Image src="/fire.svg" width={32} height={32} />
+            </span>
 
             {t('scenic-spots')}
           </>
@@ -22,7 +24,9 @@ const Carousels = () => {
       <Carousel
         title={
           <>
-            <Image src="/company.svg" width={32} height={32} />
+            <span>
+              <Image src="/company.svg" width={32} height={32} />
+            </span>
 
             {t('hotels')}
           </>
@@ -32,7 +36,9 @@ const Carousels = () => {
       <Carousel
         title={
           <>
-            <Image src="/calendar.svg" width={32} height={32} />
+            <span>
+              <Image src="/calendar.svg" width={32} height={32} />
+            </span>
 
             {t('activities')}
           </>
