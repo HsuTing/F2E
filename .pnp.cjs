@@ -1368,6 +1368,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@types/lodash.camelcase", [
+        ["npm:4.3.6", {
+          "packageLocation": "./.yarn/cache/@types-lodash.camelcase-npm-4.3.6-c67f703dab-4bd62ac225.zip/node_modules/@types/lodash.camelcase/",
+          "packageDependencies": [
+            ["@types/lodash.camelcase", "npm:4.3.6"],
+            ["@types/lodash", "npm:4.14.176"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@types/lodash.shuffle", [
         ["npm:4.2.6", {
           "packageLocation": "./.yarn/cache/@types-lodash.shuffle-npm-4.2.6-7596d02190-1a3ed09a49.zip/node_modules/@types/lodash.shuffle/",
@@ -7052,6 +7062,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["lodash.camelcase", [
+        ["npm:4.3.0", {
+          "packageLocation": "./.yarn/cache/lodash.camelcase-npm-4.3.0-bf268e3bf0-cb9227612f.zip/node_modules/lodash.camelcase/",
+          "packageDependencies": [
+            ["lodash.camelcase", "npm:4.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["lodash.clonedeep", [
         ["npm:4.5.0", {
           "packageLocation": "./.yarn/cache/lodash.clonedeep-npm-4.5.0-fbc3cda4e5-92c46f094b.zip/node_modules/lodash.clonedeep/",
@@ -12249,6 +12268,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["week-one", "workspace:packages/week-one"],
             ["@ant-design/icons", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.7.0"],
             ["@apollo/client", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:3.5.0"],
+            ["@types/lodash.camelcase", "npm:4.3.6"],
             ["@types/lodash.shuffle", "npm:4.2.6"],
             ["@types/node", "npm:16.11.6"],
             ["@types/qs", "npm:6.9.7"],
@@ -12261,6 +12281,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:15.7.2"],
             ["graphql-anywhere", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.2.7"],
             ["jssha", "npm:3.2.0"],
+            ["lodash.camelcase", "npm:4.3.0"],
             ["lodash.shuffle", "npm:4.2.0"],
             ["next", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:12.0.2"],
             ["next-i18next", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:8.10.0"],

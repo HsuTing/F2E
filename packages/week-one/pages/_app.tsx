@@ -13,6 +13,7 @@ import MobileMenu from '../components/MobileMenu';
 import { useApollo } from '../hooks/useApollo';
 import { useOutOfBreakpoint } from '../hooks/useOutOfBreakpoint';
 import styles from '../styles/app.module.scss';
+import { INFO_TYPES } from '../utils/constants';
 
 const { Header, Content } = Layout;
 const { Item, SubMenu } = Menu;
@@ -62,7 +63,7 @@ const App = ({
                 selectedKeys={[router.asPath]}
                 mode="horizontal"
               >
-                {['scenic-spots', 'hotels', 'activities'].map(key => (
+                {INFO_TYPES.map(key => (
                   <Item key={key}>
                     <Link href={`/${key}`}>
                       <a>{t(key)}</a>

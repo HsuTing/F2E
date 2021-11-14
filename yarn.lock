@@ -982,6 +982,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.camelcase@npm:^4.3.6":
+  version: 4.3.6
+  resolution: "@types/lodash.camelcase@npm:4.3.6"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 4bd62ac2254088d91a39d1e1fd951fe37c4dd90901dbd70975a6ef1fecf03355483f699533f0f112401c84da8d5b4471fe2a798a9678af3f884075a987431486
+  languageName: node
+  linkType: hard
+
 "@types/lodash.shuffle@npm:^4.2.6":
   version: 4.2.6
   resolution: "@types/lodash.shuffle@npm:4.2.6"
@@ -5763,6 +5772,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.camelcase@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "lodash.camelcase@npm:4.3.0"
+  checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
+  languageName: node
+  linkType: hard
+
 "lodash.clonedeep@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clonedeep@npm:4.5.0"
@@ -9905,6 +9921,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": ^4.7.0
     "@apollo/client": ^3.4.17
+    "@types/lodash.camelcase": ^4.3.6
     "@types/lodash.shuffle": ^4.2.6
     "@types/node": ^16.11.6
     "@types/qs": ^6.9.7
@@ -9917,6 +9934,7 @@ __metadata:
     graphql: ^15.7.2
     graphql-anywhere: ^4.2.7
     jssha: ^3.2.0
+    lodash.camelcase: ^4.3.0
     lodash.shuffle: ^4.2.0
     next: ^12.0.2
     next-i18next: ^8.10.0

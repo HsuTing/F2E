@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { Button, Drawer, Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 
+import { INFO_TYPES } from '../utils/constants';
 import styles from './styles/mobileMenu.module.scss';
 
 interface PropsType {
@@ -39,7 +40,7 @@ const MobileMenu = ({ className, outOfBreakpoint }: PropsType) => {
         placement="left"
       >
         <Menu selectedKeys={[router.asPath]} mode="inline">
-          {['scenic-spots', 'hotels', 'activities'].map(key => (
+          {INFO_TYPES.map(key => (
             <Item key={key}>
               <Link href={`/${key}`}>
                 <a>{t(key)}</a>
