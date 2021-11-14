@@ -13,6 +13,7 @@
     "graphql": "^15.7.2",
     "graphql-anywhere": "^4.2.7",
     "jssha": "^3.2.0",
+    "lodash.camelcase": "^4.3.0",
     "lodash.shuffle": "^4.2.0",
     "next": "^12.0.2",
     "next-i18next": "^8.10.0",
@@ -22,6 +23,7 @@
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
+    "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.shuffle": "^4.2.6",
     "@types/node": "^16.11.6",
     "@types/qs": "^6.9.7",
