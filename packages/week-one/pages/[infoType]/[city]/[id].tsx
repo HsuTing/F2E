@@ -3,12 +3,12 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 
-import Carousels from '../../components/carousels';
-import type { getDetailPage as getDetailPageType } from '../../gqls/types';
-import { getDetailPage } from '../../gqls/detail';
-import { carouselsFragment } from '../../components/carousels/gqls';
-import { initializeApollo } from '../../hooks/useApollo';
-import { INFO_TYPES } from '../../utils/constants';
+import Carousels from '../../../components/carousels';
+import type { getDetailPage as getDetailPageType } from '../../../gqls/types';
+import { getDetailPage } from '../../../gqls/detail';
+import { carouselsFragment } from '../../../components/carousels/gqls';
+import { initializeApollo } from '../../../hooks/useApollo';
+import { INFO_TYPES } from '../../../utils/constants';
 
 const Detail = () => {
   const { data } = useQuery<getDetailPageType>(getDetailPage);
