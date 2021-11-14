@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 
 import Carousel from './Carousel';
@@ -8,11 +9,35 @@ const Carousels = () => {
 
   return (
     <>
-      <Carousel title={<>{t('scenic-spots')}</>} />
+      <Carousel
+        title={
+          <>
+            <Image src="/fire.svg" width={32} height={32} />
 
-      <Carousel title={<>{t('hotels')}</>} />
+            {t('scenic-spots')}
+          </>
+        }
+      />
 
-      <Carousel title={<>{t('activities')}</>} />
+      <Carousel
+        title={
+          <>
+            <Image src="/company.svg" width={32} height={32} />
+
+            {t('hotels')}
+          </>
+        }
+      />
+
+      <Carousel
+        title={
+          <>
+            <Image src="/calendar.svg" width={32} height={32} />
+
+            {t('activities')}
+          </>
+        }
+      />
     </>
   );
 };
