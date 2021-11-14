@@ -1,35 +1,22 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import camelCase from 'lodash.camelcase';
 
 import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
+import { TYPES } from '../../utils/constants';
 
 import Carousel from './Carousel';
 import styles from './styles/index.module.scss';
 
-const Carousels = ({
-  scenicSpots,
-  hotels,
-  activities,
-}: Partial<carouselsFragmentType>) => {
+type PropsType = Partial<carouselsFragmentType>;
+
+const Carousels = (props: PropsType) => {
   const { t } = useTranslation('carousels');
 
   return (
     <div className={styles.root}>
-      {[
-        {
-          key: 'scenic-spots',
-          data: scenicSpots,
-        },
-        {
-          key: 'hotels',
-          data: hotels,
-        },
-        {
-          key: 'activities',
-          data: activities,
-        },
-      ].map(({ key, data }) => (
+      {TYPES.map(key => (
         <Carousel
           key={key}
           title={
@@ -41,7 +28,10 @@ const Carousels = ({
               {t(key)}
             </>
           }
-          data={data || null}
+          data={
+            props[camelCase(key) as Exclude<keyof PropsType, '__typename'>] ||
+            null
+          }
         />
       ))}
     </div>
