@@ -36,11 +36,11 @@ const Carousel = ({ title, data }: PropsType) => {
           <AntdCarousel
             prevArrow={<Arrow icon={<LeftOutlined />} />}
             nextArrow={<Arrow icon={<RightOutlined />} />}
+            arrows={!isMobile}
             dots={isMobile}
             infinite
             variableWidth
             adaptiveHeight
-            arrows
           >
             {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
