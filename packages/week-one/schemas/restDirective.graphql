@@ -48,3 +48,5 @@ directive @rest(
   """
   bodySerializer: RestFunctionOrString
 ) on FIELD
+
+directive @type(name: String!) on FIELD
