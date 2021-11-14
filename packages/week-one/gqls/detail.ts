@@ -7,8 +7,9 @@ export const getDetailPage = gql`
     ...carouselsFragment
     info(id: $id, infoType: $infoType)
       @rest(
-        type: "[Info]"
-        path: "/Tourism/{args.infoType}?$top=1&$filter=id eq {args.id}&$format=JSON"
+        type: "Info"
+        endpoint: "single"
+        path: "/Tourism/{args.infoType}?$top=1&$filter=id eq '{args.id}'&$format=JSON"
       ) {
       id: ID
     }
