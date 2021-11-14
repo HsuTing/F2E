@@ -38,16 +38,24 @@ h2.title {
 
       & > div {
         display: flex;
-        align-content: center;
+        align-items: flex-start;
 
         &:not(:last-child) {
           margin: 0px 0px 4px;
         }
 
         span {
-          display: flex;
-          align-content: center;
-          margin: 0px 4px 0px 0px;
+          &:first-child {
+            flex: 0 0 16px;
+            display: flex;
+            align-items: flex-start;
+            margin: 0px 4px 0px 0px;
+          }
+
+          &:last-child {
+            flex-grow: 1;
+            line-height: 16px;
+          }
         }
       }
 

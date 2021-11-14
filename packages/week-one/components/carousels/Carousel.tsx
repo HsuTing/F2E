@@ -69,7 +69,7 @@ const Carousel = ({ title, data }: PropsType) => {
                             <Image src={`/${key}.svg`} width={16} height={16} />
                           </span>
 
-                          {d[key]}
+                          <span>{d[key]}</span>
                         </div>
                       ),
                     )}
