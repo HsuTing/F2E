@@ -5,7 +5,7 @@ import { filter } from 'graphql-anywhere';
 import camelCase from 'lodash.camelcase';
 
 import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
-import { TYPES } from '../../utils/constants';
+import { INFO_TYPES } from '../../utils/constants';
 
 import Carousel from './Carousel';
 import { carouselFragment } from './gqls/carousel';
@@ -18,7 +18,7 @@ const Carousels = (props: PropsType) => {
 
   return (
     <div className={styles.root}>
-      {TYPES.map(key => (
+      {INFO_TYPES.map(key => (
         <Carousel
           key={key}
           title={
