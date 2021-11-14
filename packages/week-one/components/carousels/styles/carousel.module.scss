@@ -19,6 +19,22 @@ h2.title {
 
 .carousel {
   margin: 0px 0px 20px;
+
+  @media (max-width: $md) {
+    margin: 0px 0px 36px;
+  }
+
+  :global(.ant-carousel) {
+    :global(.slick-dots) li {
+      &:global(.slick-active) button {
+        background: #15726c;
+      }
+
+      button {
+        background: #c4c4c4;
+      }
+    }
+  }
 }
 
 .card {

@@ -38,6 +38,7 @@ const Carousel = ({ title, data }: PropsType) => {
             nextArrow={<Arrow icon={<RightOutlined />} />}
             arrows={!isMobile}
             dots={isMobile}
+            draggable={isMobile}
             infinite
             variableWidth
             adaptiveHeight
