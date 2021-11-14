@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { filter } from 'graphql-anywhere';
 import camelCase from 'lodash.camelcase';
 
-import type { carouselsFragment as carouselsFragmentType } from '../../gqls';
+import type { carouselsFragment as carouselsFragmentType } from '../../gqls/types';
 import { INFO_TYPES } from '../../utils/constants';
 
 import Carousel from './Carousel';

@@ -4,10 +4,10 @@ import { useTranslation } from 'next-i18next';
 import { Typography, Button, Carousel as AntdCarousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
-import Arrow from './Arrow';
-import type { carouselFragment as carouselFragmentType } from '../../gqls';
+import type { carouselFragment as carouselFragmentType } from '../../gqls/types';
 import { useCarouselInfo } from '../../hooks/useCarouselInfo';
 
+import Arrow from './Arrow';
 import styles from './styles/carousel.module.scss';
 
 interface PropsType {
