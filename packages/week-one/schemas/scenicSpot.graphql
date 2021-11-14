@@ -1,0 +1,8 @@
+type ScenicSpot {
+  ID: ID!
+  Picture: Picture!
+}
+
+extend type Query {
+  scenicSpots(first: Int): [ScenicSpot!]!
+}

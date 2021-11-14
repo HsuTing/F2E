@@ -8,11 +8,11 @@ import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import shuffle from 'lodash.shuffle';
 
-import CitiesCarousel, {
-  citiesCarouselQueryFragment,
-} from '../components/CitiesCarousel';
+import CitiesCarousel from '../components/CitiesCarousel';
 import Carousels from '../components/carousels';
 import type { getHomePage as getHomePageType } from '../gqls';
+import { citiesCarouselQueryFragment } from '../components/gqls/citiesCarousel';
+import { carouselsFragment } from '../components/carousels/gqls';
 import { initializeApollo } from '../hooks/useApollo';
 import styles from '../styles/index.module.scss';
 import { CITIES } from '../utils/constants';
@@ -24,9 +24,11 @@ interface PropsType {
 const getHomePage = gql`
   query getHomePage {
     ...citiesCarouselQueryFragment
+    ...carouselsFragment
   }
 
   ${citiesCarouselQueryFragment}
+  ${carouselsFragment}
 `;
 
 const Home = ({ recommends }: PropsType) => {
@@ -63,7 +65,7 @@ const Home = ({ recommends }: PropsType) => {
         recommends={recommends}
       />
 
-      <Carousels />
+      <Carousels {...filter(carouselsFragment, data || {})} />
     </>
   );
 };

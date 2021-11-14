@@ -2,11 +2,10 @@ import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { Typography, Carousel } from 'antd';
 
-import { citiesCarouselQueryFragment as citiesCarouselQueryFragmentType } from '../gqls';
+import type { citiesCarouselQueryFragment as citiesCarouselQueryFragmentType } from '../gqls';
 import { useCarouselInfo } from '../hooks/useCarouselInfo';
 import { CITIES } from '../utils/constants';
 
-import { citiesCarouselQueryFragment } from './gqls/citiesCarousel';
 import styles from './styles/citiesCarousel.module.scss';
 
 interface PropsType {
@@ -56,5 +55,4 @@ const CitiesCarousel = ({ cities, recommends }: PropsType) => {
   );
 };
 
-export { citiesCarouselQueryFragment };
 export default React.memo(CitiesCarousel);
