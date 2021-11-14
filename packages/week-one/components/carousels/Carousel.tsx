@@ -41,6 +41,7 @@ const Carousel = ({ title, data }: PropsType) => {
             infinite
             variableWidth
             adaptiveHeight
+            centerMode
           >
             {data.map(({ id, name, picture: { url }, ...d }) => (
               <div key={id}>
