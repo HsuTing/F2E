@@ -1,4 +1,4 @@
-type Activity implements Info {
+type Activity {
   ID: ID!
   Picture: Picture!
 }

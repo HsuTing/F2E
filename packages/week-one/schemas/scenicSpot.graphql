@@ -1,4 +1,4 @@
-type ScenicSpot implements Info {
+type ScenicSpot {
   ID: ID!
   Picture: Picture!
 }
