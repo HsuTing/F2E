@@ -1,0 +1,13 @@
+.root {
+  position: absolute;
+  top: calc(50% - 20px);
+  z-index: 1;
+}
+
+.next {
+  right: -20px;
+}
+
+.prev {
+  left: -20px;
+}
