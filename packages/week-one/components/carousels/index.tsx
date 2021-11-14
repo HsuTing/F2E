@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { Divider } from 'antd';
 
 import Carousel from './Carousel';
+import { carouselsFragment } from './gqls';
 import styles from './styles/index.module.scss';
 
 const Carousels = () => {
@@ -54,4 +55,5 @@ const Carousels = () => {
   );
 };
 
+export { carouselsFragment };
 export default React.memo(Carousels);

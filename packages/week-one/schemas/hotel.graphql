@@ -1,0 +1,8 @@
+type Hotel {
+  ID: ID!
+  Picture: Picture!
+}
+
+extend type Query {
+  hotels(first: Int): Hotel!
+}

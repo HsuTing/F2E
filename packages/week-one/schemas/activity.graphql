@@ -1,0 +1,8 @@
+type Activity {
+  ID: ID!
+  Picture: Picture!
+}
+
+extend type Query {
+  activities(first: Int): Activity!
+}
