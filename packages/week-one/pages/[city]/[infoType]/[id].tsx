@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 import { Breadcrumb } from 'antd';
 
+import Info from '../../../components/Info';
 import Carousels from '../../../components/carousels';
 import type {
   getDetailPage as getDetailPageType,
@@ -13,6 +14,7 @@ import type {
   InfoTypeEnum,
 } from '../../../gqls/types';
 import { getDetailPage } from '../../../gqls/detail';
+import { infoFragment } from '../../../components/gqls/info';
 import { carouselsFragment } from '../../../components/carousels/gqls';
 import { initializeApollo } from '../../../hooks/useApollo';
 import { INFO_TYPES, ZIP_CODES } from '../../../utils/constants';
@@ -33,6 +35,9 @@ const Detail = ({ variables, infoType }: PropsType) => {
     },
   );
   const city = ZIP_CODES[data?.info.zipCode || '100'];
+  const info = data?.info;
+
+  if (!info) return null;
 
   return (
     <>
@@ -66,6 +71,8 @@ const Detail = ({ variables, infoType }: PropsType) => {
         ))}
       </Breadcrumb>
 
+      <Info info={filter(infoFragment, info)} />
+
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
   );
@@ -94,10 +101,18 @@ export const getServerSideProps = async ({
   };
 
   try {
-    await client.query<getDetailPageType, getDetailPageVariables>({
+    const { data } = await client.query<
+      getDetailPageType,
+      getDetailPageVariables
+    >({
       query: getDetailPage,
       variables,
     });
+
+    if (!data?.info?.id)
+      return {
+        notFound: true,
+      };
   } catch (e) {
     // error would be handled in useApollo
   }

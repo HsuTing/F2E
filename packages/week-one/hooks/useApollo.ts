@@ -33,7 +33,8 @@ const createApolloClient = () =>
             responseTransformer: async response => {
               const data = await response.json();
 
-              return data[0];
+              // FIXME: should return null
+              return data[0] || {};
             },
           },
         },
