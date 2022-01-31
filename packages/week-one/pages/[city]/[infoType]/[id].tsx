@@ -36,7 +36,7 @@ const Detail = ({ variables, infoType }: PropsType) => {
 
   if (!info) return null;
 
-  const city = ZIP_CODES[info.zipCode || '100'];
+  const city = ZIP_CODES[info.zipCode];
 
   return (
     <>
@@ -55,7 +55,7 @@ const Detail = ({ variables, infoType }: PropsType) => {
             href: `/${city}/${infoType}`,
           },
           {
-            key: info.name || '',
+            key: info.name,
           },
         ].map(({ key, href }: { key: string; href?: string }) => (
           <Item key={key}>
