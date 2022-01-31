@@ -991,6 +991,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.lowerfirst@npm:^4.3.6":
+  version: 4.3.6
+  resolution: "@types/lodash.lowerfirst@npm:4.3.6"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 1ee52a5f49978d26b44f595b607d675a303691fccbfef9a8c2f60c6ae27ec8926af7eb2ffd276f0a3c42c81f5397eb49e120dcfe1376749efc64187307521380
+  languageName: node
+  linkType: hard
+
 "@types/lodash.shuffle@npm:^4.2.6":
   version: 4.2.6
   resolution: "@types/lodash.shuffle@npm:4.2.6"
@@ -5807,6 +5816,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.lowerfirst@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "lodash.lowerfirst@npm:4.3.1"
+  checksum: e1688e18873777d394db4994d150dfc14cf01bf450169cf8296af4d84ecd7c3c4ae4dab3746f77f8719a093e4fff58bee3ae73ae7e23ef508b7d970b189d9952
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.1, lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -9922,6 +9938,7 @@ __metadata:
     "@ant-design/icons": ^4.7.0
     "@apollo/client": ^3.4.17
     "@types/lodash.camelcase": ^4.3.6
+    "@types/lodash.lowerfirst": ^4.3.6
     "@types/lodash.shuffle": ^4.2.6
     "@types/node": ^16.11.6
     "@types/qs": ^6.9.7
@@ -9935,6 +9952,7 @@ __metadata:
     graphql-anywhere: ^4.2.7
     jssha: ^3.2.0
     lodash.camelcase: ^4.3.0
+    lodash.lowerfirst: ^4.3.1
     lodash.shuffle: ^4.2.0
     next: ^12.0.2
     next-i18next: ^8.10.0
