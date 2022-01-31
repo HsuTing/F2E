@@ -1,7 +1,7 @@
 type Info {
   id: ID!
   name: String!
-  picture: Picture!
+  picture: Picture
   address: String!
   openTime: String!
   zipCode: String!
