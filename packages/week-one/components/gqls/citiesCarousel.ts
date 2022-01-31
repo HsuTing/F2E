@@ -4,7 +4,7 @@ const citiesCarouselRecommendFragment = gql`
   fragment citiesCarouselRecommendFragment on Recommend {
     id
     picture @type(name: "Picture") {
-      url: pictureUrl1
+      url
     }
   }
 `;
