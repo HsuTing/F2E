@@ -5,6 +5,7 @@ module.exports = {
       'error',
       './packages/week-one/pages/',
     ],
+    'no-console': 'error',
   },
   overrides: [
     {
