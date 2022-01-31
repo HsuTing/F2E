@@ -5,10 +5,10 @@ export const carouselFragment = gql`
     id
     name
     picture @type(name: "Picture") {
-      url: pictureUrl1
+      url
     }
     address
-    date: openTime
+    date
     zipCode
   }
 `;
