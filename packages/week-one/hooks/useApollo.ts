@@ -10,6 +10,19 @@ import headerLink from '../utils/headerLink';
 
 let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
 
+const format = (
+  data: {
+    ScenicSpotID?: string;
+    RestaurantID?: string;
+    HotelID?: string;
+    ActivityID?: string;
+  }[],
+) =>
+  data.map(d => ({
+    ...d,
+    ID: d.ScenicSpotID || d.RestaurantID || d.HotelID || d.ActivityID,
+  }));
+
 const createApolloClient = () =>
   new ApolloClient({
     ssrMode: typeof window === 'undefined',
@@ -27,14 +40,12 @@ const createApolloClient = () =>
           'Accept-Encoding': 'gzip',
           algorithm: 'hmac-sha1',
         },
+        responseTransformer: async response => format(await response.json()),
         endpoints: {
           single: {
             uri: 'https://ptx.transportdata.tw/MOTC/v2',
-            responseTransformer: async response => {
-              const data = await response.json();
-
-              return data[0];
-            },
+            responseTransformer: async response =>
+              format(await response.json())[0],
           },
         },
       }),
