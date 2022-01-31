@@ -16,27 +16,34 @@ interface DataType {
   RestaurantID?: string;
   HotelID?: string;
   ActivityID?: string;
+  date?: string;
+  url?: string;
 }
 
 type formatDataType = DataType | DataType[] | DataType[keyof DataType];
 
 let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
 
+const KEYS: { [key: string]: keyof DataType } = {
+  ScenicSpotID: 'id',
+  RestaurantID: 'id',
+  HotelID: 'id',
+  ActivityID: 'id',
+  OpenTime: 'date',
+  PictureUrl1: 'url',
+};
+
 const format = (data: formatDataType): formatDataType => {
   if (data instanceof Array) return data.map(format) as DataType[];
 
-  if (data && typeof data === 'object') {
-    const id =
-      data.ScenicSpotID || data.RestaurantID || data.HotelID || data.ActivityID;
-
+  if (data && typeof data === 'object')
     return Object.entries(data).reduce(
       (result, [key, value]) => ({
         ...result,
-        [lowerFirst(key)]: isEmpty(value) ? null : format(value),
+        [KEYS[key] || lowerFirst(key)]: isEmpty(value) ? null : format(value),
       }),
-      !id ? {} : { id },
+      {},
     );
-  }
 
   return data;
 };
