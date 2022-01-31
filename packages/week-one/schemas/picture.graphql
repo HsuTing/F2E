@@ -1,3 +1,3 @@
 type Picture {
-  PictureUrl1: String!
+  pictureUrl1: String!
 }

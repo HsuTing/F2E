@@ -43,7 +43,7 @@ const Carousel = ({ title, infoType, data }: PropsType) => {
             adaptiveHeight
             centerMode
           >
-            {data.map(({ id, name, picture: { url }, zipCode, ...d }) => (
+            {data.map(({ id, name, picture, zipCode, ...d }) => (
               <div key={id}>
                 <Link href={`/${ZIP_CODES[zipCode]}/${infoType}/${id}`}>
                   <a
@@ -55,9 +55,9 @@ const Carousel = ({ title, infoType, data }: PropsType) => {
                     <div
                       style={{
                         width: imageSize,
-                        background: `url(${url || ''}) center / cover ${
-                          styles.imagePlaceholderBackground
-                        }`,
+                        background: `url(${
+                          picture?.url || ''
+                        }) center / cover ${styles.imagePlaceholderBackground}`,
                       }}
                     />
 

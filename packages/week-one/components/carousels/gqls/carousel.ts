@@ -2,13 +2,13 @@ import { gql } from '@apollo/client';
 
 export const carouselFragment = gql`
   fragment carouselFragment on Info {
-    id: ID
-    name: Name
-    picture: Picture @type(name: "Picture") {
-      url: PictureUrl1
+    id
+    name
+    picture @type(name: "Picture") {
+      url: pictureUrl1
     }
-    address: Address
-    date: OpenTime
-    zipCode: ZipCode
+    address
+    date: openTime
+    zipCode
   }
 `;

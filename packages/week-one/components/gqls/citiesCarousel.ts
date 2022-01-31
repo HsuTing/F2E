@@ -2,9 +2,9 @@ import { gql } from '@apollo/client';
 
 const citiesCarouselRecommendFragment = gql`
   fragment citiesCarouselRecommendFragment on Recommend {
-    id: ID
-    picture: Picture @type(name: "Picture") {
-      url: PictureUrl1
+    id
+    picture @type(name: "Picture") {
+      url: pictureUrl1
     }
   }
 `;
@@ -18,7 +18,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     NewTaipei: recommend(city: "NewTaipei")
@@ -28,7 +28,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     Taoyuan: recommend(city: "Taoyuan")
@@ -38,7 +38,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     Taichung: recommend(city: "Taichung")
@@ -48,7 +48,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     Tainan: recommend(city: "Tainan")
@@ -58,7 +58,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     Kaohsiung: recommend(city: "Kaohsiung")
@@ -68,7 +68,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     Keelung: recommend(city: "Keelung")
@@ -78,7 +78,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     Hsinchu: recommend(city: "Hsinchu")
@@ -88,7 +88,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     HsinchuCounty: recommend(city: "HsinchuCounty")
@@ -98,7 +98,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     MiaoliCounty: recommend(city: "MiaoliCounty")
@@ -108,7 +108,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     ChanghuaCounty: recommend(city: "ChanghuaCounty")
@@ -118,7 +118,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     NantouCounty: recommend(city: "NantouCounty")
@@ -128,7 +128,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     YunlinCounty: recommend(city: "YunlinCounty")
@@ -138,7 +138,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     ChiayiCounty: recommend(city: "ChiayiCounty")
@@ -148,7 +148,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     Chiayi: recommend(city: "Chiayi")
@@ -158,7 +158,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     PingtungCounty: recommend(city: "PingtungCounty")
@@ -168,7 +168,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     YilanCounty: recommend(city: "YilanCounty")
@@ -178,7 +178,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     HualienCounty: recommend(city: "HualienCounty")
@@ -188,7 +188,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     TaitungCounty: recommend(city: "TaitungCounty")
@@ -198,7 +198,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     KinmenCounty: recommend(city: "KinmenCounty")
@@ -208,7 +208,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     PenghuCounty: recommend(city: "PenghuCounty")
@@ -218,7 +218,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
 
     LienchiangCounty: recommend(city: "LienchiangCounty")
@@ -228,7 +228,7 @@ export const citiesCarouselQueryFragment = gql`
         path: "/Tourism/ScenicSpot/{args.city}?$top=1&$format=JSON"
       ) {
       ...citiesCarouselRecommendFragment
-      id: ID
+      id
     }
   }
 
