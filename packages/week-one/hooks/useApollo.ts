@@ -3,25 +3,43 @@ import type { NormalizedCacheObject } from '@apollo/client';
 import { ApolloClient, InMemoryCache, ApolloLink } from '@apollo/client';
 import { RetryLink } from '@apollo/client/link/retry';
 import { RestLink } from 'apollo-link-rest';
+import isEmpty from 'fbjs/lib/isEmpty';
 import merge from 'deepmerge';
+import lowerFirst from 'lodash.lowerfirst';
 
 import errorLink from '../utils/errorLink';
 import headerLink from '../utils/headerLink';
 
+interface DataType {
+  id?: string;
+  ScenicSpotID?: string;
+  RestaurantID?: string;
+  HotelID?: string;
+  ActivityID?: string;
+}
+
+type formatDataType = DataType | DataType[] | DataType[keyof DataType];
+
 let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
 
-const format = (
-  data: {
-    ScenicSpotID?: string;
-    RestaurantID?: string;
-    HotelID?: string;
-    ActivityID?: string;
-  }[],
-) =>
-  data.map(d => ({
-    ...d,
-    ID: d.ScenicSpotID || d.RestaurantID || d.HotelID || d.ActivityID,
-  }));
+const format = (data: formatDataType): formatDataType => {
+  if (data instanceof Array) return data.map(format) as DataType[];
+
+  if (data && typeof data === 'object') {
+    const id =
+      data.ScenicSpotID || data.RestaurantID || data.HotelID || data.ActivityID;
+
+    return Object.entries(data).reduce(
+      (result, [key, value]) => ({
+        ...result,
+        [lowerFirst(key)]: isEmpty(value) ? null : format(value),
+      }),
+      !id ? {} : { id },
+    );
+  }
+
+  return data;
+};
 
 const createApolloClient = () =>
   new ApolloClient({
@@ -45,7 +63,7 @@ const createApolloClient = () =>
           single: {
             uri: 'https://ptx.transportdata.tw/MOTC/v2',
             responseTransformer: async response =>
-              format(await response.json())[0],
+              format((await response.json())[0]),
           },
         },
       }),
