@@ -9,7 +9,7 @@ export const getDetailPage = gql`
       @rest(
         type: "Info"
         endpoint: "single"
-        path: "/Tourism/{args.infoType}?$top=1&$filter=id eq '{args.id}'&$format=JSON"
+        path: "/Tourism/{args.infoType}?$top=1&$filter={args.infoType}ID eq '{args.id}'&$format=JSON"
       ) {
       id
       name

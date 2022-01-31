@@ -70,7 +70,7 @@ const createApolloClient = () =>
           single: {
             uri: 'https://ptx.transportdata.tw/MOTC/v2',
             responseTransformer: async response =>
-              format((await response.json())[0]),
+              format((await response.json())[0] || null),
           },
         },
       }),
