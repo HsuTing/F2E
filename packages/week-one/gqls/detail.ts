@@ -13,9 +13,9 @@ export const getDetailPage = gql`
         path: "/Tourism/{args.infoType}?$top=1&$filter=id eq '{args.id}'&$format=JSON"
       ) {
       ...infoFragment
-      id: ID
-      name: Name
-      zipCode: ZipCode
+      id
+      name
+      zipCode
     }
   }
 

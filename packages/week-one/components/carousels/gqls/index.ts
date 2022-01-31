@@ -10,7 +10,7 @@ export const carouselsFragment = gql`
         path: "/Tourism/{args.infoType}?$top={args.first}&$format=JSON"
       ) {
       ...carouselFragment
-      id: ID
+      id
     }
 
     hotels: infos(infoType: Hotel, first: 15)
@@ -19,7 +19,7 @@ export const carouselsFragment = gql`
         path: "/Tourism/{args.infoType}?$top={args.first}&$format=JSON"
       ) {
       ...carouselFragment
-      id: ID
+      id
     }
 
     activities: infos(infoType: Activity, first: 15)
@@ -28,7 +28,7 @@ export const carouselsFragment = gql`
         path: "/Tourism/{args.infoType}?$top={args.first}&$format=JSON"
       ) {
       ...carouselFragment
-      id: ID
+      id
     }
   }
 

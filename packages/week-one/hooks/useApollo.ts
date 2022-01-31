@@ -3,12 +3,50 @@ import type { NormalizedCacheObject } from '@apollo/client';
 import { ApolloClient, InMemoryCache, ApolloLink } from '@apollo/client';
 import { RetryLink } from '@apollo/client/link/retry';
 import { RestLink } from 'apollo-link-rest';
+import isEmpty from 'fbjs/lib/isEmpty';
 import merge from 'deepmerge';
+import lowerFirst from 'lodash.lowerfirst';
 
 import errorLink from '../utils/errorLink';
 import headerLink from '../utils/headerLink';
 
+interface DataType {
+  id?: string;
+  ScenicSpotID?: string;
+  RestaurantID?: string;
+  HotelID?: string;
+  ActivityID?: string;
+  date?: string;
+  url?: string;
+}
+
+type formatDataType = DataType | DataType[] | DataType[keyof DataType];
+
 let apolloClientCache: ApolloClient<NormalizedCacheObject> | null = null;
+
+const KEYS: { [key: string]: keyof DataType } = {
+  ScenicSpotID: 'id',
+  RestaurantID: 'id',
+  HotelID: 'id',
+  ActivityID: 'id',
+  OpenTime: 'date',
+  PictureUrl1: 'url',
+};
+
+const format = (data: formatDataType): formatDataType => {
+  if (data instanceof Array) return data.map(format) as DataType[];
+
+  if (data && typeof data === 'object')
+    return Object.entries(data).reduce(
+      (result, [key, value]) => ({
+        ...result,
+        [KEYS[key] || lowerFirst(key)]: isEmpty(value) ? null : format(value),
+      }),
+      {},
+    );
+
+  return data;
+};
 
 const createApolloClient = () =>
   new ApolloClient({
@@ -27,15 +65,12 @@ const createApolloClient = () =>
           'Accept-Encoding': 'gzip',
           algorithm: 'hmac-sha1',
         },
+        responseTransformer: async response => format(await response.json()),
         endpoints: {
           single: {
             uri: 'https://ptx.transportdata.tw/MOTC/v2',
-            responseTransformer: async response => {
-              const data = await response.json();
-
-              // FIXME: should return null
-              return data[0] || {};
-            },
+            responseTransformer: async response =>
+              format((await response.json())[0]),
           },
         },
       }),

@@ -8,3 +8,9 @@ declare module 'fbjs/lib/getElementPosition' {
 
   export default getElementPosition;
 }
+
+declare module 'fbjs/lib/isEmpty' {
+  function isEmpty(data: unknown): boolean;
+
+  export default isEmpty;
+}

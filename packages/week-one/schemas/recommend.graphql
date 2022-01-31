@@ -1,6 +1,6 @@
 type Recommend {
-  ID: ID!
-  Picture: Picture!
+  id: ID!
+  picture: Picture!
 }
 
 extend type Query {

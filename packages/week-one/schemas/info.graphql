@@ -1,10 +1,10 @@
 type Info {
-  ID: ID!
-  Name: String!
-  Picture: Picture!
-  Address: String!
-  OpenTime: String!
-  ZipCode: String!
+  id: ID!
+  name: String!
+  picture: Picture
+  address: String!
+  date: String!
+  zipCode: String!
 }
 
 enum InfoTypeEnum {
