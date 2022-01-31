@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Button, Drawer, Menu } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -16,11 +17,10 @@ interface PropsType {
 const { Item, SubMenu, Divider } = Menu;
 
 const MobileMenu = ({ className, outOfBreakpoint }: PropsType) => {
+  const router = useRouter();
   const { t, i18n } = useTranslation();
   const pageKey = usePageKey();
   const [visible, setVisible] = useState(false);
-  // @ts-ignore next-i18next types error
-  const locales = i18n.options.locales as string[];
 
   useEffect(() => {
     setVisible(false);
@@ -53,7 +53,7 @@ const MobileMenu = ({ className, outOfBreakpoint }: PropsType) => {
           {['locale', 'wish-list'].map(key =>
             key === 'locale' ? (
               <SubMenu key={key} title={t('locale.title')}>
-                {locales.map(locale => (
+                {router.locales?.map(locale => (
                   <Item
                     key={locale}
                     onClick={() => i18n.changeLanguage(locale)}

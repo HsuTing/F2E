@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { ApolloProvider } from '@apollo/client';
 import { Layout, Menu } from 'antd';
@@ -22,6 +23,7 @@ const App = ({
   Component,
   pageProps: { initialApolloState, ...pageProps },
 }: AppProps) => {
+  const router = useRouter();
   const client = useApollo(initialApolloState);
   const { breakpointRef, outOfBreakpoint } = useOutOfBreakpoint(
     parseInt(styles.md.replace(/px/, ''), 10),
@@ -29,8 +31,6 @@ const App = ({
   const { t, i18n } = useTranslation();
   const pageKey = usePageKey();
   const [isOpened, setIsOpened] = useState(false);
-  // @ts-ignore next-i18next types error
-  const locales = i18n.options.locales as string[];
 
   return (
     <ApolloProvider client={client}>
@@ -94,7 +94,7 @@ const App = ({
                       title={t('locale.title')}
                       popupClassName={styles.popup}
                     >
-                      {locales.map(locale => (
+                      {router.locales?.map(locale => (
                         <Item
                           key={locale}
                           onClick={() => i18n.changeLanguage(locale)}
