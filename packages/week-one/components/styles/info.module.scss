@@ -1,4 +1,14 @@
-.root {
+h1.title {
+  margin: 44px 0px 0px;
+}
+
+.rating {
+  margin: 16px 0px 0px;
+  display: block;
+}
+
+.info {
+  margin: 20px 0px 0px;
   font-size: 18px;
 
   :global(.ant-typography) {

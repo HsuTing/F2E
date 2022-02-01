@@ -13,14 +13,12 @@ const { Title, Text } = Typography;
 
 const Info = ({ info: { name, address, phone, date } }: PropsType) => (
   <>
-    <Title>{name}</Title>
+    <Title className={styles.title}>{name}</Title>
 
-    <div>
-      {/* TODO */}
-      <Text>4.1 古色古香，適合攜家帶眷！</Text>
-    </div>
+    {/* TODO */}
+    <Text className={styles.rating}>4.1 古色古香，適合攜家帶眷！</Text>
 
-    <Space className={styles.root} direction="vertical">
+    <Space className={styles.info} direction="vertical">
       {[
         {
           key: 'address',
