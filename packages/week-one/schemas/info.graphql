@@ -3,6 +3,7 @@ type Info {
   name: String!
   picture: Picture
   address: String!
+  phone: String!
   date: String!
   zipCode: String!
 }

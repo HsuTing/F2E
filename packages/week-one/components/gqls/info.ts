@@ -4,5 +4,8 @@ export const infoFragment = gql`
   fragment infoFragment on Info {
     id
     name
+    address
+    phone
+    date
   }
 `;
