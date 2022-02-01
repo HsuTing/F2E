@@ -7,5 +7,10 @@ export const infoFragment = gql`
     address
     phone
     date
+    descriptionDetail
+    ticketInfo
+    travelInfo
+    remarks
+    comments
   }
 `;

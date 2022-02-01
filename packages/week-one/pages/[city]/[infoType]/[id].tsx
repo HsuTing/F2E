@@ -123,7 +123,11 @@ export const getServerSideProps = async ({
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'carousels'])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'carousels',
+        'info',
+      ])),
       initialApolloState: client.cache.extract(),
       variables,
       infoType,

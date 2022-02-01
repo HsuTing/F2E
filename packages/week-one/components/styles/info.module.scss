@@ -31,3 +31,23 @@ h1.title {
     }
   }
 }
+
+.tabs {
+  margin: 32px 0px 0px;
+
+  :global(.ant-tabs-tab-active .ant-tabs-tab-btn),
+  :global(.ant-tabs-tab-btn) {
+    color: #000000;
+    text-shadow: initial;
+  }
+
+  :global(.ant-tabs-ink-bar) {
+    background: #15726c;
+  }
+
+  :global(.ant-tabs-tabpane) {
+    padding: 10px 22px;
+    border: 1px solid rgba(21, 114, 108, 0.5);
+    border-radius: 4px;
+  }
+}

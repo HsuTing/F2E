@@ -10,7 +10,7 @@ type Info {
   ticketInfo: String!
   travelInfo: String!
   remarks: String!
-  comments: [String!]!
+  comments: String!
 }
 
 enum InfoTypeEnum {
