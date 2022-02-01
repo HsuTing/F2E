@@ -3,8 +3,15 @@ type Info {
   name: String!
   picture: Picture
   address: String!
+  phone: String!
   date: String!
   zipCode: String!
+  descriptionDetail: String!
+  ticketInfo: String!
+  travelInfo: String!
+  remarks: String!
+  comments: String!
+  websiteUrl: String!
 }
 
 enum InfoTypeEnum {

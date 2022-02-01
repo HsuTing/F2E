@@ -6,6 +6,8 @@ import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 import { Breadcrumb } from 'antd';
 
+import styles from '../../../styles/detail.module.scss';
+import Info from '../../../components/Info';
 import Carousels from '../../../components/carousels';
 import type {
   getDetailPage as getDetailPageType,
@@ -13,6 +15,7 @@ import type {
   InfoTypeEnum,
 } from '../../../gqls/types';
 import { getDetailPage } from '../../../gqls/detail';
+import { infoFragment } from '../../../components/gqls/info';
 import { carouselsFragment } from '../../../components/carousels/gqls';
 import { initializeApollo } from '../../../hooks/useApollo';
 import { INFO_TYPES, ZIP_CODES } from '../../../utils/constants';
@@ -40,35 +43,39 @@ const Detail = ({ variables, infoType }: PropsType) => {
 
   return (
     <>
-      <Breadcrumb>
-        {[
-          {
-            key: 'taiwan',
-            href: '/',
-          },
-          {
-            key: `cities.${city}`,
-            href: `/${city}`,
-          },
-          {
-            key: infoType,
-            href: `/${city}/${infoType}`,
-          },
-          {
-            key: info.name,
-          },
-        ].map(({ key, href }: { key: string; href?: string }) => (
-          <Item key={key}>
-            {!href ? (
-              key
-            ) : (
-              <Link href={href}>
-                <a>{t(key)}</a>
-              </Link>
-            )}
-          </Item>
-        ))}
-      </Breadcrumb>
+      <div className={styles.root}>
+        <Breadcrumb>
+          {[
+            {
+              key: 'taiwan',
+              href: '/',
+            },
+            {
+              key: `cities.${city}`,
+              href: `/${city}`,
+            },
+            {
+              key: infoType,
+              href: `/${city}/${infoType}`,
+            },
+            {
+              key: info.name,
+            },
+          ].map(({ key, href }: { key: string; href?: string }) => (
+            <Item key={key}>
+              {!href ? (
+                key
+              ) : (
+                <Link href={href}>
+                  <a>{t(key)}</a>
+                </Link>
+              )}
+            </Item>
+          ))}
+        </Breadcrumb>
+
+        <Info info={filter(infoFragment, info)} />
+      </div>
 
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
@@ -98,17 +105,29 @@ export const getServerSideProps = async ({
   };
 
   try {
-    await client.query<getDetailPageType, getDetailPageVariables>({
+    const { data } = await client.query<
+      getDetailPageType,
+      getDetailPageVariables
+    >({
       query: getDetailPage,
       variables,
     });
+
+    if (!data?.info?.id)
+      return {
+        notFound: true,
+      };
   } catch (e) {
     // error would be handled in useApollo
   }
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'carousels'])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'carousels',
+        'info',
+      ])),
       initialApolloState: client.cache.extract(),
       variables,
       infoType,
