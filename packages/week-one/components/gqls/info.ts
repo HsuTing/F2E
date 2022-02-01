@@ -12,5 +12,6 @@ export const infoFragment = gql`
     travelInfo
     remarks
     comments
+    websiteUrl
   }
 `;

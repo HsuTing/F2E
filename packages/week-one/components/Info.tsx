@@ -14,7 +14,7 @@ interface PropsType {
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
-const Info = ({ info: { name, ...info } }: PropsType) => {
+const Info = ({ info: { name, websiteUrl, ...info } }: PropsType) => {
   const { t } = useTranslation('info');
 
   return (
@@ -71,6 +71,15 @@ const Info = ({ info: { name, ...info } }: PropsType) => {
           </TabPane>
         ))}
       </Tabs>
+
+      <Button
+        className={styles.goButton}
+        href={websiteUrl}
+        type="primary"
+        ghost
+      >
+        {t('go-to-website')}
+      </Button>
     </>
   );
 };

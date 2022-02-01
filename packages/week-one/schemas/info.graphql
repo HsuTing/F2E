@@ -11,6 +11,7 @@ type Info {
   travelInfo: String!
   remarks: String!
   comments: String!
+  websiteUrl: String!
 }
 
 enum InfoTypeEnum {
