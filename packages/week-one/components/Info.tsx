@@ -12,7 +12,7 @@ interface PropsType {
 
 const { Title, Text } = Typography;
 
-const Info = ({ info: { name, address, phone, date } }: PropsType) => (
+const Info = ({ info: { name, ...info } }: PropsType) => (
   <>
     <Title className={styles.title}>
       {name}
@@ -25,28 +25,27 @@ const Info = ({ info: { name, address, phone, date } }: PropsType) => (
     <Text className={styles.rating}>4.1 古色古香，適合攜家帶眷！</Text>
 
     <Space className={styles.info} direction="vertical">
-      {[
-        {
-          key: 'address',
-          text: address,
-          underline: true,
-        },
-        {
-          key: 'phone',
-          text: phone,
-        },
-        {
-          key: 'date',
-          text: date,
-        },
-      ].map(({ key, text, ...props }) => (
+      {(
+        [
+          {
+            key: 'address',
+            underline: true,
+          },
+          {
+            key: 'phone',
+          },
+          {
+            key: 'date',
+          },
+        ] as const
+      ).map(({ key, ...props }) => (
         <Text {...props} key={key}>
           <>
             <span>
               <Image src={`/info/${key}.svg`} width={20} height={20} />
             </span>
 
-            {text}
+            {info[key]}
           </>
         </Text>
       ))}
