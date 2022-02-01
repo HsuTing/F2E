@@ -25,5 +25,9 @@ h1.title {
       display: inline-flex;
       margin: 0px 10px 0px 0px;
     }
+
+    & > u {
+      color: #15726c;
+    }
   }
 }
