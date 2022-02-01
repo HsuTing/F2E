@@ -35,6 +35,10 @@
       color: inherit;
     }
   }
+
+  h1:global(.ant-typography) {
+    font-size: 32px;
+  }
 }
 
 .header {
