@@ -12,10 +12,7 @@ import headerLink from '../utils/headerLink';
 
 interface DataType {
   id?: string;
-  ScenicSpotID?: string;
-  RestaurantID?: string;
-  HotelID?: string;
-  ActivityID?: string;
+  name?: string;
   date?: string;
   url?: string;
 }
@@ -29,6 +26,10 @@ const KEYS: { [key: string]: keyof DataType } = {
   RestaurantID: 'id',
   HotelID: 'id',
   ActivityID: 'id',
+  ScenicSpotName: 'name',
+  RestaurantName: 'name',
+  HotelName: 'name',
+  ActivityName: 'name',
   OpenTime: 'date',
   PictureUrl1: 'url',
 };
