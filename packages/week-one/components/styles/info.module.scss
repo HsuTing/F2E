@@ -1,0 +1,13 @@
+.root {
+  font-size: 18px;
+
+  :global(.ant-typography) {
+    display: flex;
+
+    & > span,
+    & > u > span {
+      display: inline-flex;
+      margin: 0px 10px 0px 0px;
+    }
+  }
+}

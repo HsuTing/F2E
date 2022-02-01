@@ -1,6 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 import { Typography, Space } from 'antd';
 
+import styles from './styles/info.module.scss';
 import type { infoFragment as infoFragmentType } from '../gqls/types';
 
 interface PropsType {
@@ -13,23 +15,36 @@ const Info = ({ info: { name, address, phone, date } }: PropsType) => (
   <>
     <Title>{name}</Title>
 
-    <Space direction="vertical">
+    <div>
+      {/* TODO */}
+      <Text>4.1 古色古香，適合攜家帶眷！</Text>
+    </div>
+
+    <Space className={styles.root} direction="vertical">
       {[
         {
           key: 'address',
-          children: address,
+          text: address,
           underline: true,
         },
         {
           key: 'phone',
-          children: phone,
+          text: phone,
         },
         {
           key: 'date',
-          children: date,
+          text: date,
         },
-      ].map(({ key, ...props }) => (
-        <Text {...props} key={key} />
+      ].map(({ key, text, ...props }) => (
+        <Text {...props} key={key}>
+          <>
+            <span>
+              <Image src={`/info/${key}.svg`} width={20} height={20} />
+            </span>
+
+            {text}
+          </>
+        </Text>
       ))}
     </Space>
   </>
