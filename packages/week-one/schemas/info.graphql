@@ -6,6 +6,11 @@ type Info {
   phone: String!
   date: String!
   zipCode: String!
+  descriptionDetail: String!
+  ticketInfo: String!
+  travelInfo: String!
+  remarks: String!
+  comments: [String!]!
 }
 
 enum InfoTypeEnum {
