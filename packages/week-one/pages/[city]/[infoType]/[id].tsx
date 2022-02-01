@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 import { Breadcrumb } from 'antd';
 
+import styles from '../../../styles/detail.module.scss';
 import Info from '../../../components/Info';
 import Carousels from '../../../components/carousels';
 import type {
@@ -42,37 +43,39 @@ const Detail = ({ variables, infoType }: PropsType) => {
 
   return (
     <>
-      <Breadcrumb>
-        {[
-          {
-            key: 'taiwan',
-            href: '/',
-          },
-          {
-            key: `cities.${city}`,
-            href: `/${city}`,
-          },
-          {
-            key: infoType,
-            href: `/${city}/${infoType}`,
-          },
-          {
-            key: info.name,
-          },
-        ].map(({ key, href }: { key: string; href?: string }) => (
-          <Item key={key}>
-            {!href ? (
-              key
-            ) : (
-              <Link href={href}>
-                <a>{t(key)}</a>
-              </Link>
-            )}
-          </Item>
-        ))}
-      </Breadcrumb>
+      <div className={styles.root}>
+        <Breadcrumb>
+          {[
+            {
+              key: 'taiwan',
+              href: '/',
+            },
+            {
+              key: `cities.${city}`,
+              href: `/${city}`,
+            },
+            {
+              key: infoType,
+              href: `/${city}/${infoType}`,
+            },
+            {
+              key: info.name,
+            },
+          ].map(({ key, href }: { key: string; href?: string }) => (
+            <Item key={key}>
+              {!href ? (
+                key
+              ) : (
+                <Link href={href}>
+                  <a>{t(key)}</a>
+                </Link>
+              )}
+            </Item>
+          ))}
+        </Breadcrumb>
 
-      <Info info={filter(infoFragment, info)} />
+        <Info info={filter(infoFragment, info)} />
+      </div>
 
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
