@@ -11,11 +11,12 @@ export default new ApolloLink((operation, forward) => {
     ({ headers }: { headers: { [key: string]: string } }) => ({
       headers: {
         ...headers,
-        Authorization: `hmac username="${
-          process.env.NEXT_PUBLIC_APP_ID
-        }", algorithm="hmac-sha1", headers="x-date", signature="${sha.getHMAC(
-          'B64',
-        )}"`,
+        Authorization: [
+          `hmac username="${process.env.NEXT_PUBLIC_APP_ID}"`,
+          'algorithm="hmac-sha1"',
+          'headers="x-date"',
+          `signature="${sha.getHMAC('B64')}"`,
+        ].join(', '),
         'X-Date': date,
       },
     }),
