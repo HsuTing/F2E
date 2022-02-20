@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 import { carouselsFragment } from '../components/carousels/gqls';
-import { infoFragment } from '../components/gqls/info';
+import { infoFragment } from '../components/info/gqls';
 
 export const getDetailPage = gql`
   query getDetailPage($id: ID!, $infoType: InfoTypeEnum!) {

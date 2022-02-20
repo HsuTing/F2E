@@ -1,13 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
-import { Breadcrumb } from 'antd';
 
-import styles from '../../../styles/detail.module.scss';
-import Info from '../../../components/Info';
+import Info from '../../../components/info';
 import Carousels from '../../../components/carousels';
 import type {
   getDetailPage as getDetailPageType,
@@ -15,20 +11,17 @@ import type {
   InfoTypeEnum,
 } from '../../../gqls/types';
 import { getDetailPage } from '../../../gqls/detail';
-import { infoFragment } from '../../../components/gqls/info';
+import { infoFragment } from '../../../components/info/gqls';
 import { carouselsFragment } from '../../../components/carousels/gqls';
 import { initializeApollo } from '../../../hooks/useApollo';
-import { INFO_TYPES, ZIP_CODES } from '../../../utils/constants';
+import { INFO_TYPES } from '../../../utils/constants';
 
 interface PropsType {
   variables: getDetailPageVariables;
   infoType: typeof INFO_TYPES[number];
 }
 
-const { Item } = Breadcrumb;
-
 const Detail = ({ variables, infoType }: PropsType) => {
-  const { t } = useTranslation();
   const { data } = useQuery<getDetailPageType, getDetailPageVariables>(
     getDetailPage,
     {
@@ -39,43 +32,9 @@ const Detail = ({ variables, infoType }: PropsType) => {
 
   if (!info) return null;
 
-  const city = ZIP_CODES[info.zipCode];
-
   return (
     <>
-      <div className={styles.root}>
-        <Breadcrumb>
-          {[
-            {
-              key: 'taiwan',
-              href: '/',
-            },
-            {
-              key: `cities.${city}`,
-              href: `/${city}`,
-            },
-            {
-              key: infoType,
-              href: `/${city}/${infoType}`,
-            },
-            {
-              key: info.name,
-            },
-          ].map(({ key, href }: { key: string; href?: string }) => (
-            <Item key={key}>
-              {!href ? (
-                key
-              ) : (
-                <Link href={href}>
-                  <a>{t(key)}</a>
-                </Link>
-              )}
-            </Item>
-          ))}
-        </Breadcrumb>
-
-        <Info info={filter(infoFragment, info)} />
-      </div>
+      <Info infoType={infoType} info={filter(infoFragment, info)} />
 
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
