@@ -7,6 +7,7 @@ export const infoFragment = gql`
     id
     name
     zipCode
+    isLiked @client
     address
     phone
     date
