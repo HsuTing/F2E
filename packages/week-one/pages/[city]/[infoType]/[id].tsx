@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 
-import Info from '../../../components/Info';
+import Info from '../../../components/info';
 import Carousels from '../../../components/carousels';
 import type {
   getDetailPage as getDetailPageType,
@@ -11,7 +11,7 @@ import type {
   InfoTypeEnum,
 } from '../../../gqls/types';
 import { getDetailPage } from '../../../gqls/detail';
-import { infoFragment } from '../../../components/gqls/info';
+import { infoFragment } from '../../../components/info/gqls';
 import { carouselsFragment } from '../../../components/carousels/gqls';
 import { initializeApollo } from '../../../hooks/useApollo';
 import { INFO_TYPES } from '../../../utils/constants';

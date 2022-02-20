@@ -5,9 +5,9 @@ import { useTranslation } from 'next-i18next';
 import { Breadcrumb, Typography, Space, Button, Tabs, Carousel } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
-import styles from './styles/info.module.scss';
-import type { infoFragment as infoFragmentType } from '../gqls/types';
-import { INFO_TYPES, ZIP_CODES } from '../utils/constants';
+import styles from './styles/index.module.scss';
+import type { infoFragment as infoFragmentType } from '../../gqls/types';
+import { INFO_TYPES, ZIP_CODES } from '../../utils/constants';
 
 interface PropsType {
   infoType: typeof INFO_TYPES[number];
