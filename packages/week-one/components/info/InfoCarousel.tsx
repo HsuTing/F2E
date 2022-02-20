@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Carousel } from 'antd';
 
+import styles from './styles/infoCarousel.module.scss';
 import type { infoCarouselFragment as infoCarouselFragmentType } from '../../gqls/types';
 
 interface PropsType {
@@ -20,10 +21,15 @@ const InfoCarousel = ({ pictures }: PropsType) => {
       </Carousel>
 
       {pictures.length <= 1 ? null : (
-        <div>
+        <div className={styles.images}>
           {pictures.map(({ url }, index) => (
             <img
               key={url}
+              style={{
+                width: `calc((100% - 14px * ${pictures.length - 1}) / ${
+                  pictures.length
+                })`,
+              }}
               src={url}
               onClick={() => carouselRef.current.goTo(index, true)}
             />
