@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import { Typography, Space, Button, Tabs } from 'antd';
+import { Typography, Space, Button, Tabs, Carousel } from 'antd';
+import type { CarouselProps } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
 import styles from './styles/info.module.scss';
@@ -14,8 +15,10 @@ interface PropsType {
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
-const Info = ({ info: { name, websiteUrl, ...info } }: PropsType) => {
+const Info = ({ info: { name, websiteUrl, pictures, ...info } }: PropsType) => {
   const { t } = useTranslation('info');
+  const bigCarouselRef = useRef<CarouselProps['asNavFor']>();
+  const smallCarouselRef = useRef<CarouselProps['asNavFor']>();
 
   return (
     <>
@@ -80,6 +83,30 @@ const Info = ({ info: { name, websiteUrl, ...info } }: PropsType) => {
       >
         {t('go-to-website')}
       </Button>
+
+      <Carousel
+        // @ts-ignore FIXME
+        ref={bigCarouselRef}
+        asNavFor={smallCarouselRef.current}
+        draggable
+      >
+        {pictures.map(({ url }) => (
+          <img key={url} src={url} />
+        ))}
+      </Carousel>
+
+      {pictures.length === 0 ? null : (
+        <Carousel
+          // @ts-ignore FIXME
+          ref={smallCarouselRef}
+          asNavFor={bigCarouselRef.current}
+          draggable
+        >
+          {pictures.map(({ url }) => (
+            <img key={url} src={url} />
+          ))}
+        </Carousel>
+      )}
     </>
   );
 };
