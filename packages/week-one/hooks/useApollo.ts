@@ -86,7 +86,17 @@ const createApolloClient = () =>
         },
       }),
     ]),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Info: {
+          fields: {
+            isLiked: {
+              read: () => true,
+            },
+          },
+        },
+      },
+    }),
   });
 
 export const initializeApollo = (
