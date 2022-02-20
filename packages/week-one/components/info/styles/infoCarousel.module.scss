@@ -1,0 +1,12 @@
+.images {
+  margin: 16px 0px 0px;
+  display: flex;
+
+  img {
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin: 0px 14px 0px 0px;
+    }
+  }
+}

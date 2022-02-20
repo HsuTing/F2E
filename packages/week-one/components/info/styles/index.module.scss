@@ -1,5 +1,42 @@
+@import '../../../styles/constants.module.scss';
+
 .root {
+  display: flex;
+  width: 100%;
   padding: 56px 0px 0px;
+
+  & > div {
+    width: 50%;
+
+    @media (max-width: $md) {
+      width: 100%;
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    &:first-child {
+      padding: 0px 10% 0px 0px;
+
+      @media (max-width: $md) {
+        padding: 0px;
+      }
+    }
+  }
+
+  @media (max-width: $md) {
+    display: block;
+  }
+}
+
+.mobileCarousel {
+  display: none;
+  margin: 24px 0px 0px;
+
+  @media (max-width: $md) {
+    display: block;
+  }
 }
 
 h1.title {
@@ -13,8 +50,8 @@ h1.title {
 }
 
 .rating {
-  margin: 16px 0px 0px;
   display: block;
+  margin: 16px 0px 0px;
 }
 
 .info {
@@ -58,5 +95,16 @@ h1.title {
 
 .goButton {
   margin: 36px 0px 0px;
-  min-width: 180px;
+
+  :global(.ant-btn) {
+    min-width: 180px;
+  }
+
+  @media (max-width: $md) {
+    display: flex;
+
+    :global(.ant-btn) {
+      margin: 0px auto;
+    }
+  }
 }

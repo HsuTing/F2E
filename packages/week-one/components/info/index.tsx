@@ -30,99 +30,104 @@ const Info = ({
 
   return (
     <div className={styles.root}>
-      <Breadcrumb>
-        {[
-          {
-            key: 'taiwan',
-            href: '/',
-          },
-          {
-            key: `cities.${city}`,
-            href: `/${city}`,
-          },
-          {
-            key: infoType,
-            href: `/${city}/${infoType}`,
-          },
-          {
-            key: name,
-          },
-        ].map(({ key, href }: { key: string; href?: string }) => (
-          <Item key={key}>
-            {!href ? (
-              key
-            ) : (
-              <Link href={href}>
-                <a>{t(`common:${key}`)}</a>
-              </Link>
-            )}
-          </Item>
-        ))}
-      </Breadcrumb>
-
-      <Title className={styles.title}>
-        {name}
-
-        {/* TODO */}
-        <Button icon={<HeartOutlined />} shape="circle" size="large" />
-      </Title>
-
-      {/* TODO */}
-      <Text className={styles.rating}>4.1 古色古香，適合攜家帶眷！</Text>
-
-      <Space className={styles.info} direction="vertical">
-        {(
-          [
+      <div>
+        <Breadcrumb>
+          {[
             {
-              key: 'address',
-              underline: true,
+              key: 'taiwan',
+              href: '/',
             },
             {
-              key: 'phone',
+              key: `cities.${city}`,
+              href: `/${city}`,
             },
             {
-              key: 'date',
+              key: infoType,
+              href: `/${city}/${infoType}`,
             },
-          ] as const
-        ).map(({ key, ...props }) => (
-          <Text {...props} key={key}>
-            <>
-              <span>
-                <Image src={`/info/${key}.svg`} width={20} height={20} />
-              </span>
+            {
+              key: name,
+            },
+          ].map(({ key, href }: { key: string; href?: string }) => (
+            <Item key={key}>
+              {!href ? (
+                key
+              ) : (
+                <Link href={href}>
+                  <a>{t(`common:${key}`)}</a>
+                </Link>
+              )}
+            </Item>
+          ))}
+        </Breadcrumb>
 
+        <Title className={styles.title}>
+          {name}
+
+          {/* TODO */}
+          <Button icon={<HeartOutlined />} shape="circle" size="large" />
+        </Title>
+
+        <div className={styles.mobileCarousel}>
+          <InfoCarousel
+            pictures={filter(infoCarouselFragment, pictures)}
+            dots={false}
+          />
+        </div>
+
+        <Space className={styles.info} direction="vertical">
+          {(
+            [
+              {
+                key: 'address',
+                underline: true,
+              },
+              {
+                key: 'phone',
+              },
+              {
+                key: 'date',
+              },
+            ] as const
+          ).map(({ key, ...props }) => (
+            <Text {...props} key={key}>
+              <>
+                <span>
+                  <Image src={`/info/${key}.svg`} width={20} height={20} />
+                </span>
+
+                {info[key]}
+              </>
+            </Text>
+          ))}
+        </Space>
+
+        <Tabs className={styles.tabs}>
+          {(
+            [
+              'descriptionDetail',
+              'ticketInfo',
+              'travelInfo',
+              'remarks',
+              'comments',
+            ] as const
+          ).map(key => (
+            <TabPane key={key} tab={t(key)}>
               {info[key]}
-            </>
-          </Text>
-        ))}
-      </Space>
+            </TabPane>
+          ))}
+        </Tabs>
 
-      <Tabs className={styles.tabs}>
-        {(
-          [
-            'descriptionDetail',
-            'ticketInfo',
-            'travelInfo',
-            'remarks',
-            'comments',
-          ] as const
-        ).map(key => (
-          <TabPane key={key} tab={t(key)}>
-            {info[key]}
-          </TabPane>
-        ))}
-      </Tabs>
+        <div className={styles.goButton}>
+          <Button href={websiteUrl} type="primary" ghost>
+            {t('go-to-website')}
+          </Button>
+        </div>
+      </div>
 
-      <Button
-        className={styles.goButton}
-        href={websiteUrl}
-        type="primary"
-        ghost
-      >
-        {t('go-to-website')}
-      </Button>
-
-      <InfoCarousel pictures={filter(infoCarouselFragment, pictures)} />
+      <div>
+        <InfoCarousel pictures={filter(infoCarouselFragment, pictures)} />
+      </div>
     </div>
   );
 };
