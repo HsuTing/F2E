@@ -52,7 +52,7 @@ const Info = ({
               key
             ) : (
               <Link href={href}>
-                <a>{t(key)}</a>
+                <a>{t(`common:${key}`)}</a>
               </Link>
             )}
           </Item>
