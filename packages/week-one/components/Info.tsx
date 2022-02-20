@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { Typography, Space, Button, Tabs, Carousel } from 'antd';
-import type { CarouselProps } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
 import styles from './styles/info.module.scss';
@@ -17,8 +16,8 @@ const { TabPane } = Tabs;
 
 const Info = ({ info: { name, websiteUrl, pictures, ...info } }: PropsType) => {
   const { t } = useTranslation('info');
-  const bigCarouselRef = useRef<CarouselProps['asNavFor']>();
-  const smallCarouselRef = useRef<CarouselProps['asNavFor']>();
+  // FIXME
+  const carouselRef = useRef<any>();
 
   return (
     <>
@@ -84,28 +83,22 @@ const Info = ({ info: { name, websiteUrl, pictures, ...info } }: PropsType) => {
         {t('go-to-website')}
       </Button>
 
-      <Carousel
-        // @ts-ignore FIXME
-        ref={bigCarouselRef}
-        asNavFor={smallCarouselRef.current}
-        draggable
-      >
+      <Carousel ref={carouselRef} draggable>
         {pictures.map(({ url }) => (
           <img key={url} src={url} />
         ))}
       </Carousel>
 
       {pictures.length <= 1 ? null : (
-        <Carousel
-          // @ts-ignore FIXME
-          ref={smallCarouselRef}
-          asNavFor={bigCarouselRef.current}
-          draggable
-        >
-          {pictures.map(({ url }) => (
-            <img key={url} src={url} />
+        <div>
+          {pictures.map(({ url }, index) => (
+            <img
+              key={url}
+              src={url}
+              onClick={() => carouselRef.current.goTo(index, true)}
+            />
           ))}
-        </Carousel>
+        </div>
       )}
     </>
   );
