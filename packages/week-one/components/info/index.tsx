@@ -72,7 +72,10 @@ const Info = ({
         <Text className={styles.rating}>4.1 古色古香，適合攜家帶眷！</Text>
 
         <div className={styles.mobileCarousel}>
-          <InfoCarousel pictures={filter(infoCarouselFragment, pictures)} />
+          <InfoCarousel
+            pictures={filter(infoCarouselFragment, pictures)}
+            dots={false}
+          />
         </div>
 
         <Space className={styles.info} direction="vertical">

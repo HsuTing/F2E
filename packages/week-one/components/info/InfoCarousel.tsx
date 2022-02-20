@@ -1,20 +1,21 @@
 import React, { useRef } from 'react';
 import { Carousel } from 'antd';
+import type { CarouselProps } from 'antd';
 
 import styles from './styles/infoCarousel.module.scss';
 import type { infoCarouselFragment as infoCarouselFragmentType } from '../../gqls/types';
 
-interface PropsType {
+interface PropsType extends CarouselProps {
   pictures: infoCarouselFragmentType[];
 }
 
-const InfoCarousel = ({ pictures }: PropsType) => {
+const InfoCarousel = ({ pictures, dots }: PropsType) => {
   // FIXME
   const carouselRef = useRef<any>();
 
   return (
     <>
-      <Carousel ref={carouselRef} draggable>
+      <Carousel ref={carouselRef} dots={dots} draggable>
         {pictures.map(({ url }) => (
           <img key={url} src={url} />
         ))}
