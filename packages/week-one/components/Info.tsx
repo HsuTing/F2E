@@ -20,7 +20,7 @@ const { TabPane } = Tabs;
 
 const Info = ({
   infoType,
-  info: { name, websiteUrl, pictures, zipCode, ...info },
+  info: { name, zipCode, websiteUrl, pictures, ...info },
 }: PropsType) => {
   const { t } = useTranslation('info');
   // FIXME
