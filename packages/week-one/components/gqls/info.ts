@@ -13,7 +13,7 @@ export const infoFragment = gql`
     remarks
     comments
     websiteUrl
-    pictures @type(name: "[Picture!]!") {
+    pictures @type(name: "Picture") {
       url
     }
   }
