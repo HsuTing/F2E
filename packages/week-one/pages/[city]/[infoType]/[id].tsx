@@ -74,7 +74,7 @@ const Detail = ({ variables, infoType }: PropsType) => {
           ))}
         </Breadcrumb>
 
-        <Info info={filter(infoFragment, info)} />
+        <Info infoType={infoType} info={filter(infoFragment, info)} />
       </div>
 
       <Carousels {...filter(carouselsFragment, data || {})} />
