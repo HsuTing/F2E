@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+import { infoCarouselFragment } from './infoCarousel';
+
 export const infoFragment = gql`
   fragment infoFragment on Info {
     id
@@ -15,7 +17,9 @@ export const infoFragment = gql`
     comments
     websiteUrl
     pictures @type(name: "Picture") {
-      url
+      ...infoCarouselFragment
     }
   }
+
+  ${infoCarouselFragment}
 `;

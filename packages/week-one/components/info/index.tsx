@@ -1,11 +1,14 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { filter } from 'graphql-anywhere';
 import { useTranslation } from 'next-i18next';
-import { Breadcrumb, Typography, Space, Button, Tabs, Carousel } from 'antd';
+import { Breadcrumb, Typography, Space, Button, Tabs } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
+import InfoCarousel from './InfoCarousel';
 import styles from './styles/index.module.scss';
+import { infoCarouselFragment } from './gqls/infoCarousel';
 import type { infoFragment as infoFragmentType } from '../../gqls/types';
 import { INFO_TYPES, ZIP_CODES } from '../../utils/constants';
 
@@ -23,8 +26,6 @@ const Info = ({
   info: { name, zipCode, websiteUrl, pictures, ...info },
 }: PropsType) => {
   const { t } = useTranslation('info');
-  // FIXME
-  const carouselRef = useRef<any>();
   const city = ZIP_CODES[zipCode];
 
   return (
@@ -121,23 +122,7 @@ const Info = ({
         {t('go-to-website')}
       </Button>
 
-      <Carousel ref={carouselRef} draggable>
-        {pictures.map(({ url }) => (
-          <img key={url} src={url} />
-        ))}
-      </Carousel>
-
-      {pictures.length <= 1 ? null : (
-        <div>
-          {pictures.map(({ url }, index) => (
-            <img
-              key={url}
-              src={url}
-              onClick={() => carouselRef.current.goTo(index, true)}
-            />
-          ))}
-        </div>
-      )}
+      <InfoCarousel pictures={filter(infoCarouselFragment, pictures)} />
     </div>
   );
 };
