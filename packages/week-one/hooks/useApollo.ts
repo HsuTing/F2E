@@ -15,6 +15,7 @@ interface DataType {
   name?: string;
   date?: string;
   url?: string;
+  pictures?: string[];
 }
 
 type formatDataType = DataType | DataType[] | DataType[keyof DataType];
@@ -31,20 +32,26 @@ const KEYS: { [key: string]: keyof DataType } = {
   HotelName: 'name',
   ActivityName: 'name',
   OpenTime: 'date',
-  PictureUrl1: 'url',
+  Picture: 'pictures',
 };
 
 const format = (data: formatDataType): formatDataType => {
   if (data instanceof Array) return data.map(format) as DataType[];
 
   if (data && typeof data === 'object')
-    return Object.entries(data).reduce(
-      (result, [key, value]) => ({
-        ...result,
-        [KEYS[key] || lowerFirst(key)]: isEmpty(value) ? null : format(value),
-      }),
-      {},
-    );
+    return 'PictureUrl1' in data
+      ? [1, 2, 3].map(key => ({
+          url: data[`PictureUrl${key}`],
+        }))
+      : Object.entries(data).reduce(
+          (result, [key, value]) => ({
+            ...result,
+            [KEYS[key] || lowerFirst(key)]: isEmpty(value)
+              ? null
+              : format(value),
+          }),
+          {},
+        );
 
   return data;
 };
