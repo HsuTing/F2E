@@ -28,7 +28,7 @@ const Info = ({
   const city = ZIP_CODES[zipCode];
 
   return (
-    <>
+    <div className={styles.root}>
       <Breadcrumb>
         {[
           {
@@ -138,7 +138,7 @@ const Info = ({
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
