@@ -95,7 +95,7 @@ const Info = ({ info: { name, websiteUrl, pictures, ...info } }: PropsType) => {
         ))}
       </Carousel>
 
-      {pictures.length === 0 ? null : (
+      {pictures.length <= 1 ? null : (
         <Carousel
           // @ts-ignore FIXME
           ref={smallCarouselRef}
