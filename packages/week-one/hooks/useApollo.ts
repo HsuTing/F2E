@@ -40,9 +40,11 @@ const format = (data: formatDataType): formatDataType => {
 
   if (data && typeof data === 'object')
     return 'PictureUrl1' in data
-      ? [1, 2, 3].map(key => ({
-          url: data[`PictureUrl${key}`],
-        }))
+      ? [1, 2, 3]
+          .map(key => ({
+            url: data[`PictureUrl${key}`],
+          }))
+          .filter(({ url }) => url)
       : Object.entries(data).reduce(
           (result, [key, value]) => ({
             ...result,
