@@ -68,9 +68,6 @@ const Info = ({
           <Button icon={<HeartOutlined />} shape="circle" size="large" />
         </Title>
 
-        {/* TODO */}
-        <Text className={styles.rating}>4.1 古色古香，適合攜家帶眷！</Text>
-
         <div className={styles.mobileCarousel}>
           <InfoCarousel
             pictures={filter(infoCarouselFragment, pictures)}
