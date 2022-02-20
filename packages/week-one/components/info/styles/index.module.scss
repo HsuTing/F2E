@@ -1,5 +1,15 @@
 .root {
+  display: flex;
+  width: 100%;
   padding: 56px 0px 0px;
+
+  & > div {
+    width: 50%;
+
+    &:first-child {
+      padding: 0px 10% 0px 0px;
+    }
+  }
 }
 
 h1.title {
@@ -13,8 +23,8 @@ h1.title {
 }
 
 .rating {
-  margin: 16px 0px 0px;
   display: block;
+  margin: 16px 0px 0px;
 }
 
 .info {
