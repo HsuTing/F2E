@@ -4,7 +4,6 @@ import { ApolloClient, InMemoryCache, ApolloLink } from '@apollo/client';
 import { RetryLink } from '@apollo/client/link/retry';
 import { RestLink } from 'apollo-link-rest';
 import isEmpty from 'fbjs/lib/isEmpty';
-import merge from 'deepmerge';
 import lowerFirst from 'lodash.lowerfirst';
 
 import errorLink from '../utils/errorLink';
@@ -95,12 +94,7 @@ export const initializeApollo = (
 ) => {
   const apolloClient = apolloClientCache ?? createApolloClient();
 
-  if (initialState) {
-    const existingCache = apolloClient.extract();
-    const data = merge(initialState, existingCache);
-
-    apolloClient.cache.restore(data);
-  }
+  if (initialState) apolloClient.cache.restore(initialState);
 
   if (typeof window === 'undefined') return apolloClient;
 
