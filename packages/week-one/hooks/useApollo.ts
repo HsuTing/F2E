@@ -4,7 +4,6 @@ import { ApolloClient, InMemoryCache, ApolloLink } from '@apollo/client';
 import { RetryLink } from '@apollo/client/link/retry';
 import { RestLink } from 'apollo-link-rest';
 import isEmpty from 'fbjs/lib/isEmpty';
-import merge from 'deepmerge';
 import lowerFirst from 'lodash.lowerfirst';
 
 import errorLink from '../utils/errorLink';
@@ -40,14 +39,19 @@ const format = (data: formatDataType): formatDataType => {
 
   if (data && typeof data === 'object')
     return 'PictureUrl1' in data
-      ? [1, 2, 3].map(key => ({
-          url: data[`PictureUrl${key}`],
-        }))
+      ? [1, 2, 3]
+          .map(key => ({
+            url: data[`PictureUrl${key}`],
+          }))
+          .filter(({ url }) => url)
       : Object.entries(data).reduce(
           (result, [key, value]) => ({
             ...result,
-            [KEYS[key] || lowerFirst(key)]:
-              isEmpty(value) && key !== 'Picture' ? null : format(value),
+            [KEYS[key] || lowerFirst(key)]: (() => {
+              if (isEmpty(value)) return key !== 'Picture' ? null : [];
+
+              return format(value);
+            })(),
           }),
           {},
         );
@@ -90,12 +94,7 @@ export const initializeApollo = (
 ) => {
   const apolloClient = apolloClientCache ?? createApolloClient();
 
-  if (initialState) {
-    const existingCache = apolloClient.extract();
-    const data = merge(initialState, existingCache);
-
-    apolloClient.cache.restore(data);
-  }
+  if (initialState) apolloClient.cache.restore(initialState);
 
   if (typeof window === 'undefined') return apolloClient;
 

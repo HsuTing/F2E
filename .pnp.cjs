@@ -3995,15 +3995,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["deepmerge", [
-        ["npm:4.2.2", {
-          "packageLocation": "./.yarn/cache/deepmerge-npm-4.2.2-112165ced2-a8c43a1ed8.zip/node_modules/deepmerge/",
-          "packageDependencies": [
-            ["deepmerge", "npm:4.2.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["defaults", [
         ["npm:1.0.3", {
           "packageLocation": "./.yarn/cache/defaults-npm-1.0.3-e829107b9e-96e2112da6.zip/node_modules/defaults/",
@@ -12296,7 +12287,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["antd", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.16.13"],
             ["apollo", "npm:2.33.9"],
             ["apollo-link-rest", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:0.8.0-beta.0"],
-            ["deepmerge", "npm:4.2.2"],
             ["fbjs", "npm:0.8.18"],
             ["graphql", "npm:15.7.2"],
             ["graphql-anywhere", "virtual:0c9f915ebb8a233416aca13159b01c3e1267a2401182d2dadf5fca5a45a160790bc65d43e1da1d2b7c0e83c7bd0332cb03f98f4007f096f4c9c1dc18e5669a85#npm:4.2.7"],

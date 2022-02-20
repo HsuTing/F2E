@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import { Typography, Space, Button, Tabs } from 'antd';
+import { Typography, Space, Button, Tabs, Carousel } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
 import styles from './styles/info.module.scss';
@@ -14,8 +14,10 @@ interface PropsType {
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
-const Info = ({ info: { name, websiteUrl, ...info } }: PropsType) => {
+const Info = ({ info: { name, websiteUrl, pictures, ...info } }: PropsType) => {
   const { t } = useTranslation('info');
+  // FIXME
+  const carouselRef = useRef<any>();
 
   return (
     <>
@@ -80,6 +82,24 @@ const Info = ({ info: { name, websiteUrl, ...info } }: PropsType) => {
       >
         {t('go-to-website')}
       </Button>
+
+      <Carousel ref={carouselRef} draggable>
+        {pictures.map(({ url }) => (
+          <img key={url} src={url} />
+        ))}
+      </Carousel>
+
+      {pictures.length <= 1 ? null : (
+        <div>
+          {pictures.map(({ url }, index) => (
+            <img
+              key={url}
+              src={url}
+              onClick={() => carouselRef.current.goTo(index, true)}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };
