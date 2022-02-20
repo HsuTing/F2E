@@ -48,8 +48,11 @@ const format = (data: formatDataType): formatDataType => {
       : Object.entries(data).reduce(
           (result, [key, value]) => ({
             ...result,
-            [KEYS[key] || lowerFirst(key)]:
-              isEmpty(value) && key !== 'Picture' ? null : format(value),
+            [KEYS[key] || lowerFirst(key)]: (() => {
+              if (isEmpty(value)) return key !== 'Picture' ? null : [];
+
+              return format(value);
+            })(),
           }),
           {},
         );
