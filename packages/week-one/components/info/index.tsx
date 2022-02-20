@@ -118,14 +118,11 @@ const Info = ({
           ))}
         </Tabs>
 
-        <Button
-          className={styles.goButton}
-          href={websiteUrl}
-          type="primary"
-          ghost
-        >
-          {t('go-to-website')}
-        </Button>
+        <div className={styles.goButton}>
+          <Button href={websiteUrl} type="primary" ghost>
+            {t('go-to-website')}
+          </Button>
+        </div>
       </div>
 
       <div>

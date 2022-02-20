@@ -95,5 +95,16 @@ h1.title {
 
 .goButton {
   margin: 36px 0px 0px;
-  min-width: 180px;
+
+  :global(.ant-btn) {
+    min-width: 180px;
+  }
+
+  @media (max-width: $md) {
+    display: flex;
+
+    :global(.ant-btn) {
+      margin: 0px auto;
+    }
+  }
 }
