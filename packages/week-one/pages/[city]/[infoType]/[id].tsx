@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 
-import Info from '../../../components/info';
+import InfoComponent from '../../../components/info';
 import Carousels from '../../../components/carousels';
 import type {
   getInfoPage as getInfoPageType,
@@ -21,7 +21,7 @@ interface PropsType {
   infoType: typeof INFO_TYPES[number];
 }
 
-const Detail = ({ variables, infoType }: PropsType) => {
+const Info = ({ variables, infoType }: PropsType) => {
   const { data } = useQuery<getInfoPageType, getInfoPageVariables>(
     getInfoPage,
     {
@@ -34,7 +34,7 @@ const Detail = ({ variables, infoType }: PropsType) => {
 
   return (
     <>
-      <Info infoType={infoType} info={filter(infoFragment, info)} />
+      <InfoComponent infoType={infoType} info={filter(infoFragment, info)} />
 
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
@@ -93,4 +93,4 @@ export const getServerSideProps = async ({
   };
 };
 
-export default React.memo(Detail);
+export default React.memo(Info);
