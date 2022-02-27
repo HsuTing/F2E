@@ -11,12 +11,16 @@ import { carouselsFragment } from '../../components/carousels/gqls';
 import { initializeApollo } from '../../hooks/useApollo';
 import { CITIES } from '../../utils/constants';
 
-const City = () => {
+interface PropsType {
+  city: typeof CITIES[number];
+}
+
+const City = ({ city }: PropsType) => {
   const { data } = useQuery<getCityPageType>(getCityPage);
 
   return (
     <>
-      <CityComponent />
+      <CityComponent city={city} />
 
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
@@ -48,6 +52,7 @@ export const getServerSideProps = async ({
     props: {
       ...(await serverSideTranslations(locale, ['common', 'carousels'])),
       initialApolloState: client.cache.extract(),
+      city,
     },
   };
 };
