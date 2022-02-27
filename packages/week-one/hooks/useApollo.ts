@@ -8,6 +8,7 @@ import lowerFirst from 'lodash.lowerfirst';
 
 import errorLink from '../utils/errorLink';
 import headerLink from '../utils/headerLink';
+import typePolicies from '../utils/typePolicies';
 
 interface DataType {
   id?: string;
@@ -86,7 +87,7 @@ const createApolloClient = () =>
         },
       }),
     ]),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({ typePolicies }),
   });
 
 export const initializeApollo = (

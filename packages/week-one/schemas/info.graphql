@@ -12,6 +12,7 @@ type Info {
   remarks: String!
   comments: String!
   websiteUrl: String!
+  isLiked: Boolean!
 }
 
 enum InfoTypeEnum {

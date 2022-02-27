@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { filter } from 'graphql-anywhere';
 import { useTranslation } from 'next-i18next';
 import { Breadcrumb, Typography, Space, Button, Tabs } from 'antd';
-import { HeartOutlined } from '@ant-design/icons';
+import { HeartFilled, HeartOutlined } from '@ant-design/icons';
 
 import InfoCarousel from './InfoCarousel';
 import styles from './styles/index.module.scss';
@@ -23,7 +23,7 @@ const { TabPane } = Tabs;
 
 const Info = ({
   infoType,
-  info: { name, zipCode, websiteUrl, pictures, ...info },
+  info: { name, zipCode, isLiked, websiteUrl, pictures, ...info },
 }: PropsType) => {
   const { t } = useTranslation('info');
   const city = ZIP_CODES[zipCode];
@@ -64,8 +64,11 @@ const Info = ({
         <Title className={styles.title}>
           {name}
 
-          {/* TODO */}
-          <Button icon={<HeartOutlined />} shape="circle" size="large" />
+          <Button
+            icon={isLiked ? <HeartFilled /> : <HeartOutlined />}
+            shape="circle"
+            size="large"
+          />
         </Title>
 
         <div className={styles.mobileCarousel}>
