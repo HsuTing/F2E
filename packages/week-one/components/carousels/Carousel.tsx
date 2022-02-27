@@ -7,7 +7,7 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import type { carouselFragment as carouselFragmentType } from '../../gqls/types';
 import { useCarouselInfo } from '../../hooks/useCarouselInfo';
-import { INFO_TYPES, ZIP_CODES } from '../../utils/constants';
+import { INFO_TYPES } from '../../utils/constants';
 
 import Arrow from './Arrow';
 import styles from './styles/carousel.module.scss';
@@ -43,9 +43,9 @@ const Carousel = ({ title, infoType, data }: PropsType) => {
             adaptiveHeight
             centerMode
           >
-            {data.map(({ id, name, pictures, zipCode, ...d }) => (
+            {data.map(({ id, name, pictures, city, ...d }) => (
               <div key={id}>
-                <Link href={`/${ZIP_CODES[zipCode]}/${infoType}/${id}`}>
+                <Link href={`/${city}/${infoType}/${id}`}>
                   <a
                     className={styles.card}
                     style={{
