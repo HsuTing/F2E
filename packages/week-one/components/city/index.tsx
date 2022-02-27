@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
-import { Breadcrumb, Typography } from 'antd';
+import { Breadcrumb, Typography, Button } from 'antd';
 
 import styles from './styles/index.module.scss';
-import { CITIES } from '../../utils/constants';
+import { CITIES, INFO_TYPES } from '../../utils/constants';
 
 export interface PropsType {
   city: typeof CITIES[number];
@@ -45,6 +45,14 @@ const City = ({ city }: PropsType) => {
         {t('explore')}
         {t(`common:cities.${city}`)}
       </Title>
+
+      {INFO_TYPES.map(key => (
+        <Link key={key} href={`/${city}/${key}`}>
+          <Button key={key} size="large">
+            {t(key)}
+          </Button>
+        </Link>
+      ))}
     </div>
   );
 };
