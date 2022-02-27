@@ -5,7 +5,7 @@ import { Breadcrumb } from 'antd';
 
 import { CITIES } from '../../utils/constants';
 
-interface PropsType {
+export interface PropsType {
   city: typeof CITIES[number];
 }
 

@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 
 import CityComponent from '../../components/city';
+import type { PropsType as CityPropsType } from '../../components/city';
 import Carousels from '../../components/carousels';
 import type { getCityPage as getCityPageType } from '../../gqls/types';
 import { getCityPage } from '../../gqls/city';
@@ -11,9 +12,7 @@ import { carouselsFragment } from '../../components/carousels/gqls';
 import { initializeApollo } from '../../hooks/useApollo';
 import { CITIES } from '../../utils/constants';
 
-interface PropsType {
-  city: typeof CITIES[number];
-}
+interface PropsType extends CityPropsType {}
 
 const City = ({ city }: PropsType) => {
   const { data } = useQuery<getCityPageType>(getCityPage);
@@ -32,9 +31,7 @@ export const getServerSideProps = async ({
   query: { city },
 }: {
   locale: string;
-  query: {
-    city: typeof CITIES[number];
-  };
+  query: PropsType;
 }) => {
   if (!CITIES.includes(city)) return { notFound: true };
 
