@@ -14,7 +14,7 @@ import { getDetailPage } from '../../../gqls/detail';
 import { infoFragment } from '../../../components/info/gqls';
 import { carouselsFragment } from '../../../components/carousels/gqls';
 import { initializeApollo } from '../../../hooks/useApollo';
-import { INFO_TYPES } from '../../../utils/constants';
+import { CITIES, INFO_TYPES } from '../../../utils/constants';
 
 interface PropsType {
   variables: getDetailPageVariables;
@@ -43,15 +43,17 @@ const Detail = ({ variables, infoType }: PropsType) => {
 
 export const getServerSideProps = async ({
   locale,
-  query: { id, infoType },
+  query: { city, infoType, id },
 }: {
   locale: string;
   query: {
-    id: string;
+    city: typeof CITIES[number];
     infoType: typeof INFO_TYPES[number];
+    id: string;
   };
 }) => {
-  if (!INFO_TYPES.includes(infoType)) return { notFound: true };
+  if (!CITIES.includes(city) || !INFO_TYPES.includes(infoType))
+    return { notFound: true };
 
   const client = initializeApollo();
   const variables = {
