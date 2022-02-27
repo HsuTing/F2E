@@ -6,24 +6,24 @@ import { filter } from 'graphql-anywhere';
 import Info from '../../../components/info';
 import Carousels from '../../../components/carousels';
 import type {
-  getDetailPage as getDetailPageType,
-  getDetailPageVariables,
+  getInfoPage as getInfoPageType,
+  getInfoPageVariables,
   InfoTypeEnum,
 } from '../../../gqls/types';
-import { getDetailPage } from '../../../gqls/detail';
+import { getInfoPage } from '../../../gqls/info';
 import { infoFragment } from '../../../components/info/gqls';
 import { carouselsFragment } from '../../../components/carousels/gqls';
 import { initializeApollo } from '../../../hooks/useApollo';
 import { CITIES, INFO_TYPES } from '../../../utils/constants';
 
 interface PropsType {
-  variables: getDetailPageVariables;
+  variables: getInfoPageVariables;
   infoType: typeof INFO_TYPES[number];
 }
 
 const Detail = ({ variables, infoType }: PropsType) => {
-  const { data } = useQuery<getDetailPageType, getDetailPageVariables>(
-    getDetailPage,
+  const { data } = useQuery<getInfoPageType, getInfoPageVariables>(
+    getInfoPage,
     {
       variables,
     },
@@ -66,11 +66,8 @@ export const getServerSideProps = async ({
   };
 
   try {
-    const { data } = await client.query<
-      getDetailPageType,
-      getDetailPageVariables
-    >({
-      query: getDetailPage,
+    const { data } = await client.query<getInfoPageType, getInfoPageVariables>({
+      query: getInfoPage,
       variables,
     });
 
