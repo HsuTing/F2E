@@ -9,6 +9,7 @@ import lowerFirst from 'lodash.lowerfirst';
 import errorLink from '../utils/errorLink';
 import headerLink from '../utils/headerLink';
 import typePolicies from '../utils/typePolicies';
+import { ZIP_CODES } from '../utils/constants';
 
 interface DataType {
   id?: string;
@@ -16,6 +17,7 @@ interface DataType {
   date?: string;
   url?: string;
   pictures?: string[];
+  city?: string;
 }
 
 type formatDataType = DataType | DataType[] | DataType[keyof DataType];
@@ -33,6 +35,7 @@ const KEYS: { [key: string]: keyof DataType } = {
   ActivityName: 'name',
   OpenTime: 'date',
   Picture: 'pictures',
+  ZipCode: 'city',
 };
 
 const format = (data: formatDataType): formatDataType => {
@@ -50,6 +53,8 @@ const format = (data: formatDataType): formatDataType => {
             ...result,
             [KEYS[key] || lowerFirst(key)]: (() => {
               if (isEmpty(value)) return key !== 'Picture' ? null : [];
+
+              if (key === 'ZipCode') return ZIP_CODES[value];
 
               return format(value);
             })(),

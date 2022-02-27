@@ -14,8 +14,6 @@ export const getInfoPage = gql`
       ) {
       ...infoFragment
       id
-      name
-      zipCode
     }
   }
 

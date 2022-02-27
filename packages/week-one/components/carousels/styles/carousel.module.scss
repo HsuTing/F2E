@@ -21,7 +21,7 @@ h2.title {
   margin: 0px 0px 20px;
 
   @media (max-width: $md) {
-    margin: 0px 0px 36px;
+    margin: 0px 0px 40px;
   }
 
   :global(.ant-carousel) {
@@ -29,13 +29,17 @@ h2.title {
       pointer-events: auto;
     }
 
-    :global(.slick-dots) li {
-      &:global(.slick-active) button {
-        background: #15726c;
-      }
+    :global(.slick-dots) {
+      bottom: -32px;
 
-      button {
-        background: #c4c4c4;
+      li {
+        &:global(.slick-active) button {
+          background: #15726c;
+        }
+
+        button {
+          background: #c4c4c4;
+        }
       }
     }
   }
