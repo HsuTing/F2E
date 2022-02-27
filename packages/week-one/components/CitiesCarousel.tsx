@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { Typography, Carousel } from 'antd';
 
@@ -35,20 +36,22 @@ const CitiesCarousel = ({ cities, recommends }: PropsType) => {
             variableWidth
           >
             {recommends.map(city => (
-              <div key={city}>
-                <div
-                  className={styles.image}
-                  style={{
-                    width: imageSize,
-                    height: imageSize,
-                    background: `url(${
-                      cities[city].pictures[0]?.url || ''
-                    }) center / cover ${styles.imagePlaceholderBackground}`,
-                  }}
-                >
-                  {t(`common:cities.${city}`)}
-                </div>
-              </div>
+              <Link key={city} href={`/${city}`}>
+                <a>
+                  <div
+                    className={styles.image}
+                    style={{
+                      width: imageSize,
+                      height: imageSize,
+                      background: `url(${
+                        cities[city].pictures[0]?.url || ''
+                      }) center / cover ${styles.imagePlaceholderBackground}`,
+                    }}
+                  >
+                    {t(`common:cities.${city}`)}
+                  </div>
+                </a>
+              </Link>
             ))}
           </Carousel>
         )}
