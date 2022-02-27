@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { filter } from 'graphql-anywhere';
 
 import InfoComponent from '../../../components/info';
+import type { PropsType as InfoPropsType } from '../../../components/info';
 import Carousels from '../../../components/carousels';
 import type {
   getInfoPage as getInfoPageType,
@@ -16,12 +17,11 @@ import { carouselsFragment } from '../../../components/carousels/gqls';
 import { initializeApollo } from '../../../hooks/useApollo';
 import { CITIES, INFO_TYPES } from '../../../utils/constants';
 
-interface PropsType {
+interface PropsType extends Omit<InfoPropsType, 'info'> {
   variables: getInfoPageVariables;
-  infoType: typeof INFO_TYPES[number];
 }
 
-const Info = ({ variables, infoType }: PropsType) => {
+const Info = ({ variables, city, infoType }: PropsType) => {
   const { data } = useQuery<getInfoPageType, getInfoPageVariables>(
     getInfoPage,
     {
@@ -34,7 +34,11 @@ const Info = ({ variables, infoType }: PropsType) => {
 
   return (
     <>
-      <InfoComponent infoType={infoType} info={filter(infoFragment, info)} />
+      <InfoComponent
+        city={city}
+        infoType={infoType}
+        info={filter(infoFragment, info)}
+      />
 
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
@@ -46,9 +50,7 @@ export const getServerSideProps = async ({
   query: { city, infoType, id },
 }: {
   locale: string;
-  query: {
-    city: typeof CITIES[number];
-    infoType: typeof INFO_TYPES[number];
+  query: Omit<PropsType, 'variables'> & {
     id: string;
   };
 }) => {
@@ -88,6 +90,7 @@ export const getServerSideProps = async ({
       ])),
       initialApolloState: client.cache.extract(),
       variables,
+      city,
       infoType,
     },
   };

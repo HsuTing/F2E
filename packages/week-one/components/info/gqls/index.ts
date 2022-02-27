@@ -6,7 +6,6 @@ export const infoFragment = gql`
   fragment infoFragment on Info {
     id
     name
-    zipCode
     isLiked @client
     address
     phone

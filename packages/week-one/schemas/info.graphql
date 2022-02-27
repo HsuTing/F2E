@@ -5,7 +5,7 @@ type Info {
   address: String!
   phone: String!
   date: String!
-  zipCode: String!
+  city: String!
   descriptionDetail: String!
   ticketInfo: String!
   travelInfo: String!

@@ -10,9 +10,10 @@ import InfoCarousel from './InfoCarousel';
 import styles from './styles/index.module.scss';
 import { infoCarouselFragment } from './gqls/infoCarousel';
 import type { infoFragment as infoFragmentType } from '../../gqls/types';
-import { INFO_TYPES, ZIP_CODES } from '../../utils/constants';
+import { CITIES, INFO_TYPES } from '../../utils/constants';
 
-interface PropsType {
+export interface PropsType {
+  city: typeof CITIES[number];
   infoType: typeof INFO_TYPES[number];
   info: infoFragmentType;
 }
@@ -22,11 +23,11 @@ const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
 const Info = ({
+  city,
   infoType,
-  info: { name, zipCode, isLiked, websiteUrl, pictures, ...info },
+  info: { name, isLiked, websiteUrl, pictures, ...info },
 }: PropsType) => {
   const { t } = useTranslation('info');
-  const city = ZIP_CODES[zipCode];
 
   return (
     <div className={styles.root}>
