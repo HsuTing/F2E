@@ -2,6 +2,23 @@
   padding: 56px 0px 0px;
 }
 
-.title {
+h1.title {
   margin: 12px 0px 0px;
+}
+
+.buttons {
+  margin: 16px 0px 0px;
+
+  :global(.ant-btn) {
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      margin: 0px 0px 0px 20px;
+    }
+
+    &:not(:last-child) {
+      margin: 0px 8px 0px 0px;
+    }
+  }
 }

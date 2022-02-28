@@ -5,6 +5,9 @@ import { Breadcrumb, Typography, Button } from 'antd';
 
 import styles from './styles/index.module.scss';
 import { CITIES, INFO_TYPES } from '../../utils/constants';
+import ScenicSpots from './ScenicSpots';
+import Hotels from './Hotels';
+import Activities from './Activities';
 
 export interface PropsType {
   city: typeof CITIES[number];
@@ -12,6 +15,12 @@ export interface PropsType {
 
 const { Item } = Breadcrumb;
 const { Title } = Typography;
+
+const icons = {
+  'scenic-spots': <ScenicSpots />,
+  hotels: <Hotels />,
+  activities: <Activities />,
+};
 
 const City = ({ city }: PropsType) => {
   const { t } = useTranslation('city');
@@ -46,13 +55,17 @@ const City = ({ city }: PropsType) => {
         {t(`common:cities.${city}`)}
       </Title>
 
-      {INFO_TYPES.map(key => (
-        <Link key={key} href={`/${city}/${key}`}>
-          <Button key={key} size="large">
-            {t(key)}
-          </Button>
-        </Link>
-      ))}
+      <div className={styles.buttons}>
+        {INFO_TYPES.map(key => (
+          <Link key={key} href={`/${city}/${key}`}>
+            <Button key={key} size="large">
+              {t(key)}
+
+              {icons[key]}
+            </Button>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
