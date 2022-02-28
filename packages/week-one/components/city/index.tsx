@@ -25,48 +25,56 @@ const icons = {
   activities: <Activities />,
 };
 
-const City = ({ city }: PropsType) => {
+const City = ({ city, recommend }: PropsType) => {
   const { t } = useTranslation('city');
 
   return (
     <div className={styles.root}>
-      <Breadcrumb>
-        {[
-          {
-            key: 'taiwan',
-            href: '/',
-          },
-          {
-            key: `cities.${city}`,
-            href: `/${city}`,
-          },
-        ].map(({ key, href }: { key: string; href?: string }) => (
-          <Item key={key}>
-            {!href ? (
-              key
-            ) : (
-              <Link href={href}>
-                <a>{t(`common:${key}`)}</a>
-              </Link>
-            )}
-          </Item>
-        ))}
-      </Breadcrumb>
+      <div>
+        <Breadcrumb>
+          {[
+            {
+              key: 'taiwan',
+              href: '/',
+            },
+            {
+              key: `cities.${city}`,
+              href: `/${city}`,
+            },
+          ].map(({ key, href }: { key: string; href?: string }) => (
+            <Item key={key}>
+              {!href ? (
+                key
+              ) : (
+                <Link href={href}>
+                  <a>{t(`common:${key}`)}</a>
+                </Link>
+              )}
+            </Item>
+          ))}
+        </Breadcrumb>
 
-      <Title className={styles.title}>
-        {t('explore')}
-        {t(`common:cities.${city}`)}
-      </Title>
+        <Title className={styles.title}>
+          {t('explore')}
+          {t(`common:cities.${city}`)}
+        </Title>
 
-      <div className={styles.buttons}>
-        {INFO_TYPES.map(key => (
-          <Link key={key} href={`/${city}/${key}`}>
-            <Button key={key} size="large">
-              {t(key)}
+        <div className={styles.buttons}>
+          {INFO_TYPES.map(key => (
+            <Link key={key} href={`/${city}/${key}`}>
+              <Button key={key} size="large">
+                {t(key)}
 
-              {icons[key]}
-            </Button>
-          </Link>
+                {icons[key]}
+              </Button>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.pictures}>
+        {recommend.pictures.map(({ url }) => (
+          <img key={url} src={url} />
         ))}
       </div>
     </div>

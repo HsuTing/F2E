@@ -1,5 +1,12 @@
+@import '../../../styles/constants.module.scss';
+
 .root {
+  display: flex;
   padding: 56px 0px 0px;
+
+  @media (max-width: $md) {
+    display: block;
+  }
 }
 
 h1.title {
@@ -7,18 +14,30 @@ h1.title {
 }
 
 .buttons {
-  margin: 16px 0px 0px;
+  margin: 8px 0px 0px;
 
   :global(.ant-btn) {
+    margin: 8px 8px 0px 0px;
     display: inline-flex;
     align-items: center;
 
     svg {
       margin: 0px 0px 0px 20px;
     }
+  }
+}
 
-    &:not(:last-child) {
-      margin: 0px 8px 0px 0px;
-    }
+.pictures {
+  padding: 0px 0px 0px 5%;
+  width: 100%;
+
+  @media (max-width: $md) {
+    margin: 24px 0px 0px;
+    padding: 0px;
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
   }
 }
