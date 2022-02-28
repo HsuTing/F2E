@@ -3,14 +3,17 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { Breadcrumb, Typography, Button } from 'antd';
 
-import styles from './styles/index.module.scss';
+import type { cityFragment as cityFragmentType } from '../../gqls/types';
 import { CITIES, INFO_TYPES } from '../../utils/constants';
+
 import ScenicSpots from './ScenicSpots';
 import Hotels from './Hotels';
 import Activities from './Activities';
+import styles from './styles/index.module.scss';
 
 export interface PropsType {
   city: typeof CITIES[number];
+  recommend: cityFragmentType;
 }
 
 const { Item } = Breadcrumb;

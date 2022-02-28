@@ -6,20 +6,34 @@ import { filter } from 'graphql-anywhere';
 import CityComponent from '../../components/city';
 import type { PropsType as CityPropsType } from '../../components/city';
 import Carousels from '../../components/carousels';
-import type { getCityPage as getCityPageType } from '../../gqls/types';
+import type {
+  getCityPage as getCityPageType,
+  getCityPageVariables,
+} from '../../gqls/types';
 import { getCityPage } from '../../gqls/city';
+import { cityFragment } from '../../components/city/gqls';
 import { carouselsFragment } from '../../components/carousels/gqls';
 import { initializeApollo } from '../../hooks/useApollo';
 import { CITIES } from '../../utils/constants';
 
-interface PropsType extends CityPropsType {}
+interface PropsType extends CityPropsType {
+  variables: getCityPageVariables;
+}
 
-const City = ({ city }: PropsType) => {
-  const { data } = useQuery<getCityPageType>(getCityPage);
+const City = ({ city, variables }: PropsType) => {
+  const { data } = useQuery<getCityPageType, getCityPageVariables>(
+    getCityPage,
+    {
+      variables,
+    },
+  );
+  const recommend = data?.recommend;
+
+  if (!recommend) return null;
 
   return (
     <>
-      <CityComponent city={city} />
+      <CityComponent city={city} recommend={filter(cityFragment, recommend)} />
 
       <Carousels {...filter(carouselsFragment, data || {})} />
     </>
@@ -36,11 +50,17 @@ export const getServerSideProps = async ({
   if (!CITIES.includes(city)) return { notFound: true };
 
   const client = initializeApollo();
+  const variables = {
+    city,
+  };
 
   try {
-    await client.query<getCityPageType>({
+    const { data } = await client.query<getCityPageType, getCityPageVariables>({
       query: getCityPage,
+      variables,
     });
+
+    if (!data?.recommend?.id) return { notFound: true };
   } catch (e) {
     // error would be handled in useApollo
   }
@@ -53,6 +73,7 @@ export const getServerSideProps = async ({
         'city',
       ])),
       initialApolloState: client.cache.extract(),
+      variables,
       city,
     },
   };
